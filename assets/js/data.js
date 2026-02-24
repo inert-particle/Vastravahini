@@ -8,7 +8,8 @@ const products = [
     "colors": ["Black", "Red"],
     "price": { "original": 2999, "discounted": 1999 },
     "images": { "thumbnail": "images/products/sports-1.jpg", "gallery": ["images/shoes/1.jpg"] },
-    "keywords": ["shoes", "running", "sports"]
+    "keywords": ["shoes", "running", "sports"],
+    "description": "Engineered for the long run, these men's running shoes feature a lightweight mesh upper for breathability and a cushioned EVA midsole that absorbs impact with every stride. The rubber outsole provides excellent traction on both road and track surfaces. Whether you're training for a 5K or a marathon, these shoes deliver the support and comfort your feet deserve. Reinforced heel counter ensures stability, while the flexible forefoot allows natural foot movement."
   },
   {
     "id": 2,
@@ -19,7 +20,8 @@ const products = [
     "colors": ["Pink", "White"],
     "price": { "original": 2899, "discounted": 2099 },
     "images": { "thumbnail": "images/products/sports-3.jpg", "gallery": ["images/shoes-women/1.jpg"] },
-    "keywords": ["shoes", "training", "women"]
+    "keywords": ["shoes", "training", "women"],
+    "description": "Designed for the modern active woman, these training shoes combine style with serious performance. The dual-density foam midsole offers superior cushioning during high-intensity workouts, while the knit upper wraps your foot in a sock-like fit. Multi-directional grip pattern on the outsole handles gym floors, outdoor trails, and everything in between. Lightweight construction ensures you stay agile throughout your training session without fatigue."
   },
   {
     "id": 3,
@@ -30,7 +32,8 @@ const products = [
     "colors": ["Blue"],
     "price": { "original": 8999, "discounted": 7499 },
     "images": { "thumbnail": "images/products/cricketkit.jpg", "gallery": ["images/cricket-kit/1.jpg"] },
-    "keywords": ["cricket", "kit"]
+    "keywords": ["cricket", "kit"],
+    "description": "A complete cricket kit built for players who are serious about the game. This all-in-one set includes a full-sized English willow bat, two cricket balls (red and white), batting gloves, leg pads, a sturdy helmet, and a premium kit bag. All protective gear meets standard safety specifications, while the bat features a thick edge profile and a deep spine for powerful strokes. Ideal for club-level players looking for reliable, match-ready equipment in one convenient package."
   },
   {
     "id": 4,
@@ -41,7 +44,8 @@ const products = [
     "colors": ["Wood"],
     "price": { "original": 5999, "discounted": 4599 },
     "images": { "thumbnail": "images/products/cricketbat.jpg", "gallery": ["images/cricket-bat/1.jpg"] },
-    "keywords": ["cricket", "bat"]
+    "keywords": ["cricket", "bat"],
+    "description": "Handcrafted from Grade 2 English willow, this cricket bat is designed for aggressive stroke play. The full-sized blade features a pronounced mid-spine and thick edges that deliver exceptional power and a satisfying feel on contact. The cane handle is wrapped in a twin-rubber grip to reduce vibration and provide a firm, comfortable hold. Pre-knocked and ready for light use straight out of the box, it's suitable for all playing surfaces — turf, astro, or mat."
   },
   {
     "id": 5,
@@ -52,9 +56,9 @@ const products = [
     "colors": ["Red"],
     "price": { "original": 799, "discounted": 599 },
     "images": { "thumbnail": "images/products/cricketball.jpg", "gallery": ["images/cricket-ball/1.jpg"] },
-    "keywords": ["cricket", "ball"]
+    "keywords": ["cricket", "ball"],
+    "description": "A regulation-weight four-piece leather cricket ball stitched with a prominent seam for swing and movement off the pitch. The outer shell is made from premium quality alum-tanned leather that maintains its hardness and shape throughout extended matches. The cork and twine centre provides consistent bounce and true flight. Ideal for practice matches, club cricket, and coaching sessions. Approved for use on turf wickets."
   },
-
   {
     "id": 6,
     "name": "Basketball",
@@ -64,7 +68,8 @@ const products = [
     "colors": ["Orange"],
     "price": { "original": 1499, "discounted": 1099 },
     "images": { "thumbnail": "images/products/basketball.jpg", "gallery": ["images/basketball/1.jpg"] },
-    "keywords": ["basketball"]
+    "keywords": ["basketball"],
+    "description": "A regulation Size 7 outdoor basketball built to handle the rigors of concrete courts. The durable rubber cover features a deep channel design for superior grip and ball control, while the butyl bladder retains air pressure for longer periods between inflation. The textured surface ensures a confident handle in both dry and slightly wet conditions. Perfect for street ballers, school teams, and recreational players who demand durability and performance from their equipment."
   },
   {
     "id": 7,
@@ -75,7 +80,8 @@ const products = [
     "colors": ["White"],
     "price": { "original": 1599, "discounted": 1199 },
     "images": { "thumbnail": "images/products/football.jpg", "gallery": ["images/football/1.jpg"] },
-    "keywords": ["football", "soccer"]
+    "keywords": ["football", "soccer"],
+    "description": "A Size 5 match football constructed with a thermally bonded 32-panel design for a perfectly round shape and true flight. The PU outer shell is water-resistant, ensuring consistent weight and performance in all weather conditions. The latex bladder provides excellent responsiveness and a natural touch. Whether you're playing a friendly five-a-side or a competitive league match, this football delivers the accuracy and durability required at every level of the game."
   },
   {
     "id": 8,
@@ -86,9 +92,9 @@ const products = [
     "colors": ["Brown"],
     "price": { "original": 1999, "discounted": 1499 },
     "images": { "thumbnail": "images/products/stumps.jpg", "gallery": ["images/stumps/1.jpg"] },
-    "keywords": ["cricket", "stumps"]
+    "keywords": ["cricket", "stumps"],
+    "description": "A full set of three regulation-height ash wood stumps and two bails, designed to withstand the impact of fast deliveries. The stumps are turned from solid ash and finished with a durable lacquer coat that resists weathering during outdoor matches. The pointed metal spikes ensure easy and secure ground insertion on all surfaces. The stumps are individually stamped with official measurements, making them suitable for club and school-level matches as well as practice sessions."
   },
-
   {
     "id": 9,
     "name": "Men's Jacket",
@@ -98,7 +104,8 @@ const products = [
     "colors": ["Black"],
     "price": { "original": 3999, "discounted": 2999 },
     "images": { "thumbnail": "images/products/jacket-1.jpg", "gallery": ["images/jacket/1.jpg"] },
-    "keywords": ["jacket", "winter"]
+    "keywords": ["jacket", "winter"],
+    "description": "A versatile men's jacket that effortlessly bridges the gap between casual and smart. Crafted from a premium polyester-cotton blend, the outer shell is water-repellent while the quilted inner lining traps warmth without adding bulk. Full-length zip closure with a fold-over collar keeps the wind out, while two deep side pockets and one inner chest pocket offer ample storage. Tailored for a modern slim fit, this jacket pairs perfectly with jeans or chinos for a polished everyday look."
   },
   {
     "id": 10,
@@ -109,9 +116,9 @@ const products = [
     "colors": ["Maroon"],
     "price": { "original": 4299, "discounted": 3299 },
     "images": { "thumbnail": "images/products/jacket-5.jpg", "gallery": ["images/jacket-women/1.jpg"] },
-    "keywords": ["jacket", "women"]
+    "keywords": ["jacket", "women"],
+    "description": "Stay warm without sacrificing style in this women's jacket, cut in a flattering silhouette with a nipped waist and slightly flared hem. The maroon outer fabric is crafted from a soft-touch woven material that resists light rain and wind. A plush fleece lining ensures cozy warmth on colder days, while elasticated cuffs seal in heat. Available in a range of sizes, this jacket is the perfect companion for autumn strolls, weekend getaways, and casual office days."
   },
-
   {
     "id": 11,
     "name": "Kids Wear Set",
@@ -121,9 +128,9 @@ const products = [
     "colors": ["Blue"],
     "price": { "original": 1999, "discounted": 1499 },
     "images": { "thumbnail": "images/products/Kids Wear Set.jpg", "gallery": ["images/kids/1.jpg"] },
-    "keywords": ["kids", "clothing"]
+    "keywords": ["kids", "clothing"],
+    "description": "A fun and comfortable two-piece set for active kids who love to play. Made from 100% soft cotton that is gentle on sensitive skin and easy to wash, this set includes a printed top and coordinated bottoms. The elastic waistband ensures a secure fit without restricting movement, and the breathable fabric keeps children cool during play. Pre-shrunk and colorfast, these clothes maintain their look and feel wash after wash. Available in multiple sizes for ages 3–12."
   },
-
   {
     "id": 12,
     "name": "Men's Jeans",
@@ -133,7 +140,8 @@ const products = [
     "colors": ["Blue"],
     "price": { "original": 2499, "discounted": 1799 },
     "images": { "thumbnail": "images/products/mens-jeans.jpg", "gallery": ["images/mens-jeans/1.jpg"] },
-    "keywords": ["jeans", "men"]
+    "keywords": ["jeans", "men"],
+    "description": "Classic five-pocket men's jeans cut in a straight-leg silhouette that never goes out of style. Crafted from 98% cotton and 2% elastane denim, they offer just the right amount of stretch for all-day comfort. The medium wash with subtle fading gives a lived-in, authentic look, while reinforced stitching at stress points ensures lasting durability. A versatile wardrobe staple that works equally well with a crisp shirt for smart-casual or a graphic tee for weekends."
   },
   {
     "id": 13,
@@ -144,9 +152,9 @@ const products = [
     "colors": ["Black"],
     "price": { "original": 2599, "discounted": 1899 },
     "images": { "thumbnail": "images/products/womens-jeans.jpg", "gallery": ["images/womens-jeans/1.jpg"] },
-    "keywords": ["jeans", "women"]
+    "keywords": ["jeans", "women"],
+    "description": "These high-rise women's jeans are designed to flatter every body type, offering a sleek silhouette from waist to ankle. Cut in a slim fit from stretch denim with a deep black rinse, they pair effortlessly with heels for an evening out or trainers for a casual day look. The elastane content ensures all-day comfort and shape retention — no sagging or stretching out. Featuring a smooth waistband, belt loops, and classic five-pocket styling for everyday functionality."
   },
-
   {
     "id": 14,
     "name": "Men's Shirt",
@@ -156,7 +164,8 @@ const products = [
     "colors": ["White"],
     "price": { "original": 1999, "discounted": 1399 },
     "images": { "thumbnail": "images/products/mens-shirt.jpg", "gallery": ["images/shirt/1.jpg"] },
-    "keywords": ["shirt", "formal"]
+    "keywords": ["shirt", "formal"],
+    "description": "A timeless white formal shirt crafted from premium 100% cotton poplin, known for its crisp texture and breathability. The classic spread collar, button placket, and box back pleat ensure a sharp, professional appearance whether worn tucked or untucked. Slim-fit tailoring creates a clean silhouette without feeling restrictive. Machine washable and easy to iron, this shirt is the ultimate wardrobe workhorse — perfect for office wear, formal events, and smart-casual occasions alike."
   },
   {
     "id": 15,
@@ -167,7 +176,8 @@ const products = [
     "colors": ["Green"],
     "price": { "original": 4999, "discounted": 3699 },
     "images": { "thumbnail": "images/products/womens-suit.jpg", "gallery": ["images/suit/1.jpg"] },
-    "keywords": ["suit", "ethnic"]
+    "keywords": ["suit", "ethnic"],
+    "description": "An exquisite ethnic suit set that blends traditional craftsmanship with contemporary aesthetics. The kurta is fashioned from premium cotton silk, embellished with delicate embroidery along the neckline and hemline. Paired with matching palazzo pants and a sheer dupatta, this three-piece ensemble is the perfect choice for festivals, weddings, and celebratory occasions. The breathable fabric ensures comfort throughout long events, while the rich green hue complements a wide range of skin tones."
   },
   {
     "id": 17,
@@ -178,7 +188,8 @@ const products = [
     "colors": ["Black"],
     "price": { "original": 1299, "discounted": 899 },
     "images": { "thumbnail": "images/products/Wall Clock.jpg", "gallery": ["images/clock/1.jpg"] },
-    "keywords": ["clock", "decor"]
+    "keywords": ["clock", "decor"],
+    "description": "A sleek minimalist wall clock that adds a touch of modern elegance to any room. The round black metal frame houses a clean white dial with bold Arabic numerals for easy readability from across the room. Powered by a single AA battery (included), the silent quartz movement ensures a distraction-free environment — no ticking noise. Suitable for living rooms, bedrooms, offices, and kitchens. Includes a wall hook and screws for quick, hassle-free installation."
   },
   {
     "id": 18,
@@ -189,9 +200,9 @@ const products = [
     "colors": ["Silver"],
     "price": { "original": 3499, "discounted": 2699 },
     "images": { "thumbnail": "images/products/Wall Mirror.jpg", "gallery": ["images/mirror/1.jpg"] },
-    "keywords": ["mirror", "home"]
+    "keywords": ["mirror", "home"],
+    "description": "Transform any wall into a statement feature with this large decorative wall mirror. The silver aluminium frame features a geometric bevelled edge design that catches the light and adds depth to any space. The high-definition glass provides a crisp, true-colour reflection with zero distortion. Lightweight yet sturdy, it is suitable for entryways, bedrooms, and living areas. Comes with secure wall-mount hardware and protective backing to prevent wall damage."
   },
-
   {
     "id": 19,
     "name": "Leather Belt",
@@ -201,7 +212,8 @@ const products = [
     "colors": ["Brown"],
     "price": { "original": 1299, "discounted": 899 },
     "images": { "thumbnail": "images/products/Leather Belt.jpg", "gallery": ["images/belt/1.jpg"] },
-    "keywords": ["belt", "leather"]
+    "keywords": ["belt", "leather"],
+    "description": "Handcrafted from full-grain top-layer leather, this men's belt develops a rich patina with wear, making it uniquely yours over time. The classic single-prong stainless steel buckle features an antique bronze finish that complements both casual and formal attire. Stitched edges add a refined detail, while the consistent width of 35mm fits most standard trouser belt loops. Available in multiple waist sizes, this belt is designed to last for years with minimal care."
   },
   {
     "id": 20,
@@ -212,9 +224,9 @@ const products = [
     "colors": ["Black"],
     "price": { "original": 1499, "discounted": 1099 },
     "images": { "thumbnail": "images/products/Men-Wallet.jpg", "gallery": ["images/wallet/1.jpg"] },
-    "keywords": ["wallet"]
+    "keywords": ["wallet"],
+    "description": "A slim bifold wallet engineered for the modern man who values organization without the bulk. Crafted from genuine black leather with fine stitching details, it features 6 card slots, one transparent ID window, and a full-length note compartment. The compact profile sits comfortably in both front and back pockets. RFID-blocking lining on the card slots protects your contactless cards from electronic theft. A refined, practical accessory that pairs well with any outfit."
   },
-
   {
     "id": 21,
     "name": "Hand Bag",
@@ -224,9 +236,9 @@ const products = [
     "colors": ["Pink"],
     "price": { "original": 2999, "discounted": 2299 },
     "images": { "thumbnail": "images/products/Hand Bag.jpg", "gallery": ["images/bag/1.jpg"] },
-    "keywords": ["bag", "handbag"]
+    "keywords": ["bag", "handbag"],
+    "description": "A chic structured handbag crafted from premium vegan leather with a smooth, lustrous finish. The roomy main compartment comfortably fits a tablet, planner, and daily essentials, while the inner zip pocket keeps valuables secure. An open front slip pocket offers quick-access storage. The gold-tone hardware — including the clasp closure and chain-link strap — adds a luxurious touch. Available with both a top handle and a detachable shoulder strap for versatile carrying options."
   },
-
   {
     "id": 22,
     "name": "Travel Backpack",
@@ -236,9 +248,9 @@ const products = [
     "colors": ["Grey"],
     "price": { "original": 3499, "discounted": 2699 },
     "images": { "thumbnail": "images/products/Travel Backpack.jpg", "gallery": ["images/backpack/1.jpg"] },
-    "keywords": ["bag", "travel"]
+    "keywords": ["bag", "travel"],
+    "description": "Built for the modern traveller, this 35-litre backpack features a dedicated padded laptop compartment (fits up to 16\"), multiple organiser pockets, and a hidden anti-theft back pocket. The ergonomic padded shoulder straps and breathable mesh back panel ensure comfort even on long journeys. Made from water-resistant ripstop nylon with heavy-duty zippers, it is designed to handle flights, hikes, and city commutes with equal ease. Airline carry-on compliant dimensions."
   },
-
   {
     "id": 23,
     "name": "Earrings",
@@ -248,7 +260,8 @@ const products = [
     "colors": ["Gold"],
     "price": { "original": 999, "discounted": 699 },
     "images": { "thumbnail": "images/products/Earrings.jpg", "gallery": ["images/earrings/1.jpg"] },
-    "keywords": ["earrings", "jewelry"]
+    "keywords": ["earrings", "jewelry"],
+    "description": "Elegant drop earrings plated in 22-karat gold, designed to add a touch of glamour to any outfit. The intricate filigree pattern is inspired by traditional Indian jewellery-making techniques, giving each pair a unique artisan quality. Lightweight and hypoallergenic, the fish-hook fastening is comfortable for all-day wear. They transition effortlessly from office to evening events and make a thoughtful gift for birthdays, anniversaries, and festive occasions."
   },
   {
     "id": 24,
@@ -259,9 +272,9 @@ const products = [
     "colors": ["Silver"],
     "price": { "original": 899, "discounted": 599 },
     "images": { "thumbnail": "images/products/Bracelets.jpg", "gallery": ["images/bracelet/1.jpg"] },
-    "keywords": ["bracelet", "jewelry"]
+    "keywords": ["bracelet", "jewelry"],
+    "description": "A minimalist silver-toned bracelet that makes a subtle yet stylish statement. Crafted from stainless steel with a polished finish, it is resistant to tarnishing, sweat, and everyday wear. The adjustable lobster clasp makes it easy to put on and take off, and accommodates a range of wrist sizes. Suitable for both men and women, this bracelet stacks beautifully with watches or other bracelets and requires no maintenance to keep its shine."
   },
-
   {
     "id": 25,
     "name": "Kids Sports Shoes",
@@ -271,7 +284,8 @@ const products = [
     "colors": ["Blue"],
     "price": { "original": 1999, "discounted": 1499 },
     "images": { "thumbnail": "images/products/Kids Sports Shoes.jpg", "gallery": ["images/kids-shoes/1.jpg"] },
-    "keywords": ["kids", "shoes"]
+    "keywords": ["kids", "shoes"],
+    "description": "Keep young feet happy and supported with these kids' sports shoes, designed for active children who are always on the move. The breathable mesh upper keeps feet cool during play, while the cushioned insole absorbs impact to protect developing joints. A non-marking rubber outsole provides excellent grip on gym floors and playground surfaces. The Velcro strap closure makes it easy for children to put on and remove their shoes independently. Lightweight and durable for everyday school and sports use."
   },
   {
     "id": 26,
@@ -282,7 +296,8 @@ const products = [
     "colors": ["Grey"],
     "price": { "original": 2799, "discounted": 2199 },
     "images": { "thumbnail": "images/products/Men Sports Shoes.jpg", "gallery": ["images/shoes-men2/1.jpg"] },
-    "keywords": ["shoes", "sports"]
+    "keywords": ["shoes", "sports"],
+    "description": "These men's sports shoes are engineered for multi-sport performance — equally at home on the track, in the gym, or on the court. The engineered mesh upper delivers targeted ventilation, while the phylon midsole provides lightweight, responsive cushioning. The flex-grooved rubber outsole adapts to your foot's natural movement, offering stability in all directions. A reinforced toe cap adds durability in high-wear areas, and the padded ankle collar ensures a snug, secure fit for intense training sessions."
   },
   {
     "id": 27,
@@ -293,7 +308,8 @@ const products = [
     "colors": ["Purple"],
     "price": { "original": 2899, "discounted": 2299 },
     "images": { "thumbnail": "images/products/Women Running Shoes.jpg", "gallery": ["images/shoes-women2/1.jpg"] },
-    "keywords": ["shoes", "running"]
+    "keywords": ["shoes", "running"],
+    "description": "Purpose-built for women runners, these shoes feature a gender-specific last designed to accommodate the natural shape of a woman's foot. The ReactFoam cushioning system returns energy with each step, reducing fatigue during long runs. The engineered knit upper provides a seamless, irritation-free fit, and the asymmetric lacing system locks the midfoot securely in place. A durable carbon rubber outsole with waffle-pattern grip ensures confident traction on roads, tracks, and light trails."
   },
   {
     "id": 28,
@@ -304,7 +320,8 @@ const products = [
     "colors": ["Wood"],
     "price": { "original": 7999, "discounted": 6499 },
     "images": { "thumbnail": "images/products/Professional Cricket Bat.jpg", "gallery": ["images/cricket-bat2/1.jpg"] },
-    "keywords": ["cricket", "bat"]
+    "keywords": ["cricket", "bat"],
+    "description": "A Grade 1 English willow cricket bat crafted for serious cricketers who demand excellence. Featuring a thick, scooped spine and pronounced edges, this bat has an exceptional middle that delivers explosive power for big shots. The oval-shaped handle, wrapped with high-grade twin-rubber, minimises vibration on top edges and mis-hits. Each bat is hand-pressed, oiled, and finished by skilled craftsmen. Backed by performance data, this bat is trusted by club and district-level players across the country."
   },
   {
     "id": 29,
@@ -315,7 +332,8 @@ const products = [
     "colors": ["Red"],
     "price": { "original": 999, "discounted": 749 },
     "images": { "thumbnail": "images/products/Leather Cricket Ball.jpg", "gallery": ["images/cricket-ball2/1.jpg"] },
-    "keywords": ["cricket", "ball"]
+    "keywords": ["cricket", "ball"],
+    "description": "Handstitched from premium vegetable-tanned leather, this match-quality cricket ball offers consistent seam movement and reliable bounce throughout long innings. The four-piece construction around a solid cork core maintains shape and weight throughout its life. The raised primary seam is tightly stitched for pronounced swing and reliable seam bowling. Suitable for turf wickets and official match conditions. Meets standard weight specifications of 155.9–163g."
   },
   {
     "id": 30,
@@ -326,7 +344,8 @@ const products = [
     "colors": ["White", "Black"],
     "price": { "original": 1799, "discounted": 1399 },
     "images": { "thumbnail": "images/products/Match Football.jpg", "gallery": ["images/football2/1.jpg"] },
-    "keywords": ["football"]
+    "keywords": ["football"],
+    "description": "A FIFA-inspected match football constructed with a 32-panel thermally bonded design for a perfectly spherical shape and true, predictable flight. The PU cover is highly abrasion-resistant and water-repellent, ensuring consistent weight and performance in all weather conditions. The high-quality latex bladder provides a natural, responsive touch and maintains pressure for extended periods. Suitable for competitive matches on natural and artificial grass surfaces. Comes fully inflated and ready to play."
   },
   {
     "id": 31,
@@ -337,7 +356,8 @@ const products = [
     "colors": ["Orange"],
     "price": { "original": 1599, "discounted": 1199 },
     "images": { "thumbnail": "images/products/Indoor Basketball.jpg", "gallery": ["images/basketball2/1.jpg"] },
-    "keywords": ["basketball"]
+    "keywords": ["basketball"],
+    "description": "Purpose-designed for indoor hardwood courts, this regulation Size 7 basketball features a composite leather cover that delivers superior grip and soft feel — ideal for players who need precise ball control during dribbling and shooting. The deep channel configuration provides a natural, comfortable grip for players of all hand sizes. The butyl bladder maintains consistent air pressure and provides excellent bounce retention across all court surfaces. Suitable for school gyms, sports halls, and club training."
   },
   {
     "id": 32,
@@ -348,7 +368,8 @@ const products = [
     "colors": ["Navy"],
     "price": { "original": 4599, "discounted": 3499 },
     "images": { "thumbnail": "images/products/Men Winter Jacket.jpg", "gallery": ["images/jacket-men2/1.jpg"] },
-    "keywords": ["jacket", "winter"]
+    "keywords": ["jacket", "winter"],
+    "description": "Built for the harshest winter days, this men's jacket is insulated with high-loft synthetic fill that traps warmth even in wet conditions. The durable DWR (Durable Water Repellent) outer shell repels rain and snow, while the adjustable hood, storm cuffs, and hem drawcord seal out biting winds. Two hand pockets, one chest zip pocket, and one internal media pocket provide generous storage. The packable design means it compresses into its own pocket for easy travel and storage."
   },
   {
     "id": 33,
@@ -359,7 +380,8 @@ const products = [
     "colors": ["Beige"],
     "price": { "original": 4899, "discounted": 3799 },
     "images": { "thumbnail": "images/products/Women Long Coat.jpg", "gallery": ["images/jacket-women2/1.jpg"] },
-    "keywords": ["coat", "winter"]
+    "keywords": ["coat", "winter"],
+    "description": "Timeless and sophisticated, this women's long coat is crafted from a premium wool-blend fabric that provides warmth without sacrificing elegance. The double-breasted button closure and lapel collar give it a classic tailored silhouette, while the A-line cut is universally flattering. Two deep side pockets add practicality, and the fully lined interior ensures a smooth, comfortable fit over layers. Whether paired with heels for a formal occasion or boots for a casual outing, this coat is a wardrobe investment."
   },
   {
     "id": 34,
@@ -370,7 +392,8 @@ const products = [
     "colors": ["Red"],
     "price": { "original": 2299, "discounted": 1699 },
     "images": { "thumbnail": "images/products/Kids Party Wear.jpg", "gallery": ["images/kids2/1.jpg"] },
-    "keywords": ["kids", "party"]
+    "keywords": ["kids", "party"],
+    "description": "Make every celebration special with this vibrant kids' party wear ensemble. The richly embroidered kurta is crafted from soft art silk, while the matching churidar pants are made from breathable cotton-blend fabric for comfortable wear throughout long events. Delicate sequin and zari work on the yoke and sleeves adds festive sparkle, and the overall design is inspired by traditional Indian craftsmanship. Machine washable and easy to care for, it is a perfect choice for Diwali, weddings, and family gatherings."
   },
   {
     "id": 37,
@@ -381,7 +404,8 @@ const products = [
     "colors": ["Light Blue"],
     "price": { "original": 2199, "discounted": 1599 },
     "images": { "thumbnail": "images/products/Men Formal Shirt.jpg", "gallery": ["images/shirt2/1.jpg"] },
-    "keywords": ["shirt", "formal"]
+    "keywords": ["shirt", "formal"],
+    "description": "A well-tailored formal shirt in a versatile light blue shade, cut from fine 120 TC cotton that feels soft against the skin and stays wrinkle-resistant throughout the day. The semi-spread collar sits beautifully with or without a tie, and the single-button cuffs are designed to accommodate cufflinks. The slim silhouette is designed for a modern professional look, while the double-stitched seams ensure lasting durability. Available in half-sleeve and full-sleeve options to suit all office dress codes."
   },
   {
     "id": 39,
@@ -392,7 +416,8 @@ const products = [
     "colors": ["Gold"],
     "price": { "original": 1799, "discounted": 1299 },
     "images": { "thumbnail": "images/products/Decorative Wall Clock.jpg", "gallery": ["images/clock2/1.jpg"] },
-    "keywords": ["clock", "decor"]
+    "keywords": ["clock", "decor"],
+    "description": "An eye-catching decorative wall clock that doubles as a piece of art. The open-frame metal design in antique gold features ornate Roman numeral hour markers and sleek, minimalist hands that create a striking contrast. The large 60cm diameter makes it a natural focal point in living rooms, dining areas, or corridors. The silent quartz movement ensures a peaceful environment, and the clock runs on a single AA battery. A statement piece that complements both traditional and contemporary interiors."
   },
   {
     "id": 40,
@@ -403,7 +428,8 @@ const products = [
     "colors": ["Black"],
     "price": { "original": 3899, "discounted": 2999 },
     "images": { "thumbnail": "images/products/Round Wall Mirror.jpg", "gallery": ["images/mirror2/1.jpg"] },
-    "keywords": ["mirror", "decor"]
+    "keywords": ["mirror", "decor"],
+    "description": "A bold, oversized round mirror encased in a sleek matte black metal frame, designed to make any space feel larger, brighter, and more refined. The 70cm circular form works as a standalone statement piece or as part of a gallery wall arrangement. The high-clarity glass provides an undistorted reflection, and the sturdy metal backing includes pre-fitted hanging hardware for easy installation. Suitable for hallways, bedrooms, bathrooms, and living rooms alike."
   },
   {
     "id": 41,
@@ -414,7 +440,8 @@ const products = [
     "colors": ["Black"],
     "price": { "original": 1399, "discounted": 999 },
     "images": { "thumbnail": "images/products/Men Leather Belt.jpg", "gallery": ["images/belt2/1.jpg"] },
-    "keywords": ["belt", "leather"]
+    "keywords": ["belt", "leather"],
+    "description": "A sharp, formal men's belt crafted from genuine top-grain black leather — the ideal finishing touch for business suits and formal trousers. The silver-tone pin buckle is precision-engineered for easy fastening and a polished finish. The 30mm width is designed specifically for formal trouser loops and sits elegantly without bunching. Five evenly-spaced adjustment holes ensure a custom fit for every waist size. The smooth, unembellished surface gives this belt timeless elegance that pairs with any formal footwear."
   },
   {
     "id": 42,
@@ -425,7 +452,8 @@ const products = [
     "colors": ["Brown"],
     "price": { "original": 1599, "discounted": 1199 },
     "images": { "thumbnail": "images/products/Slim Wallet.jpg", "gallery": ["images/wallet2/1.jpg"] },
-    "keywords": ["wallet"]
+    "keywords": ["wallet"],
+    "description": "Engineered for the minimalist, this ultra-slim card wallet holds up to 8 cards and a slim stack of banknotes without any unnecessary bulk. Made from premium tan-brown leather with contrast stitching, its refined look improves with age and use. The snap closure keeps contents secure, while the quick-access outer card slot lets you retrieve your most-used card in seconds. RFID-blocking technology is built into the lining to safeguard your digital cards. Fits comfortably in any pocket."
   },
   {
     "id": 43,
@@ -436,7 +464,8 @@ const products = [
     "colors": ["Tan"],
     "price": { "original": 3299, "discounted": 2499 },
     "images": { "thumbnail": "images/products/Office Handbag.jpg", "gallery": ["images/bag2/1.jpg"] },
-    "keywords": ["bag", "office"]
+    "keywords": ["bag", "office"],
+    "description": "The ideal companion for the working woman, this structured office handbag is crafted from premium tan leather with a refined, professional aesthetic. The spacious main compartment includes a padded sleeve for a 13\" laptop, multiple card slots, a zip coin pocket, and a key clip for seamless organisation. The magnetic snap closure ensures quick access while keeping contents secure. Both a top carry handle and an adjustable shoulder strap are included, making it suitable for carrying to boardrooms and business lunches alike."
   },
   {
     "id": 44,
@@ -447,7 +476,8 @@ const products = [
     "colors": ["Blue"],
     "price": { "original": 2999, "discounted": 2299 },
     "images": { "thumbnail": "images/products/Casual Backpack.jpg", "gallery": ["images/backpack2/1.jpg"] },
-    "keywords": ["bag", "casual"]
+    "keywords": ["bag", "casual"],
+    "description": "A stylish everyday backpack with a 22-litre capacity, perfect for college, commuting, and weekend outings. Constructed from durable water-resistant canvas with reinforced base panels, it features a main zip compartment, a front organiser pocket with built-in slots for pens and cables, and a padded sleeve for a 15\" laptop. The ergonomic padded shoulder straps and breathable back panel distribute weight evenly for comfortable all-day carry. Available in multiple colourways to match your personal style."
   },
   {
     "id": 45,
@@ -458,7 +488,8 @@ const products = [
     "colors": ["Silver"],
     "price": { "original": 1099, "discounted": 799 },
     "images": { "thumbnail": "images/products/Stud Earrings.jpg", "gallery": ["images/earrings2/1.jpg"] },
-    "keywords": ["earrings"]
+    "keywords": ["earrings"],
+    "description": "Classic and understated, these silver stud earrings are a wardrobe essential for every woman. Each stud is set with a round cubic zirconia stone in a four-prong silver setting, catching the light beautifully for subtle sparkle. Made from 925 sterling silver, they are hypoallergenic and gentle on sensitive ears. Secure butterfly backs keep the studs firmly in place throughout the day. Versatile enough for daily wear, they also elevate evening looks effortlessly. Presented in a branded gift box."
   },
   {
     "id": 46,
@@ -469,7 +500,8 @@ const products = [
     "colors": ["Gold"],
     "price": { "original": 1199, "discounted": 899 },
     "images": { "thumbnail": "images/products/Charm Bracelet.jpg", "gallery": ["images/bracelet2/1.jpg"] },
-    "keywords": ["bracelet"]
+    "keywords": ["bracelet"],
+    "description": "A delightfully personal charm bracelet in gold-tone, featuring a dainty link chain adorned with five pre-attached charms — including a star, heart, moon, key, and flower — each symbolising a different sentiment. The lobster clasp fastening allows easy addition of extra charms to build a truly personalised piece over time. Made from tarnish-resistant alloy with gold PVD plating, it maintains its lustre with minimal care. A meaningful gift for birthdays, milestones, and cherished moments."
   },
   {
     "id": 47,
@@ -480,7 +512,8 @@ const products = [
     "colors": ["Red"],
     "price": { "original": 2199, "discounted": 1699 },
     "images": { "thumbnail": "images/products/Kids Sneakers.jpg", "gallery": ["images/kids-shoes2/1.jpg"] },
-    "keywords": ["kids", "shoes"]
+    "keywords": ["kids", "shoes"],
+    "description": "Bright, bold, and built for adventure — these kids' sneakers are designed to keep up with children who love to run, jump, and explore. The lightweight EVA sole provides cushioning and flexibility, while the breathable mesh upper prevents sweaty feet during active play. Velcro straps allow independent dressing for younger children, and the padded collar and tongue add extra comfort around the ankle. The reinforced toe cap handles scuffs and rough surfaces, ensuring these sneakers look great for longer."
   },
   {
     "id": 48,
@@ -491,7 +524,8 @@ const products = [
     "colors": ["Yellow"],
     "price": { "original": 2299, "discounted": 1799 },
     "images": { "thumbnail": "images/products/Cricket Practice Stumps.jpg", "gallery": ["images/stumps2/1.jpg"] },
-    "keywords": ["cricket", "stumps"]
+    "keywords": ["cricket", "stumps"],
+    "description": "Designed specifically for training and net sessions, these high-visibility yellow cricket practice stumps make target bowling and batting practice more effective. The bright colour ensures easy spotting from the bowling crease, and the durable fibreglass construction withstands repeated ball impacts without cracking or splintering. Ground spikes are coated for rust resistance, making them suitable for outdoor pitches in all conditions. Supplied as a complete set of three stumps and two bails, with a carry bag for transport."
   },
   {
     "id": 49,
@@ -502,7 +536,8 @@ const products = [
     "colors": ["Green"],
     "price": { "original": 2099, "discounted": 1499 },
     "images": { "thumbnail": "images/products/Men Casual Shirt.jpg", "gallery": ["images/shirt3/1.jpg"] },
-    "keywords": ["shirt", "casual"]
+    "keywords": ["shirt", "casual"],
+    "description": "A relaxed-fit men's casual shirt in an earthy green that pairs effortlessly with jeans, chinos, or shorts. Made from 100% cotton twill, it is soft, breathable, and gets more comfortable with each wash. The classic point collar and single chest pocket give it a clean, versatile look that works for weekend outings, beach trips, and informal gatherings. Available in both regular and tall fits, with the option to wear it tucked or untucked. A must-have seasonal essential for every man's wardrobe."
   },
   {
     "id": 51,
@@ -510,10 +545,11 @@ const products = [
     "category": "Fashion",
     "subcategory": "Hair Care",
     "gender": "Men",
-    "colors": ["Blue"],
+    "colors": [""],
     "price": { "original": 18000.00, "discounted": 13500.00 },
     "images": { "thumbnail": "images/hair-care2/thumb.jpg", "gallery": ["images/hair-care2/1.jpg"] },
-    "keywords": ["shampoo", "hair care"]
+    "keywords": ["shampoo", "hair care"],
+    "description": "A complete men's hair care system from the iconic Old Spice Swagger range. This bundle includes a 2-in-1 Shampoo & Conditioner that cleanses and softens in a single step, a strong-hold Hair Gel for sleek, defined styles, and a medium-hold Fiber Wax for textured, matte finishes. All products are infused with the bold, confident Swagger fragrance. Free from harsh sulphates, the shampoo is gentle enough for daily use without stripping natural oils. Everything a man needs to look and smell great — in one box."
   },
   {
     "id": 52,
@@ -521,13 +557,19 @@ const products = [
     "category": "Accessories",
     "subcategory": "Jewelry+",
     "gender": "Women",
-    "colors": ["Blue"],
+    "colors": [""],
     "price": { "original": 2000, "discounted": 1990 },
     "images": { "thumbnail": "images/earrings3/thumb.jpg", "gallery": ["images/earrings3/1.jpg"] },
-    "keywords": ["earrings", "gold"]
+    "keywords": ["earrings", "gold"],
+    "description": "Inspired by the grandeur of Mughal-era jewellery, the Lavanya Chandbali earrings are a masterpiece of traditional craftsmanship. Each earring is handcrafted in a crescent-moon (chandbali) silhouette and plated in rich 22-karat gold. Intricate floral motifs are detailed using a combination of kundan stone setting and meenakari enamel work in ivory and ruby tones. The hooked fastening is comfortable for extended wear, making these earrings an ideal choice for weddings, festive celebrations, and traditional ceremonies. A timeless heirloom-quality piece."
   }
 ];
 
 const newArrivals = [3, 7, 12, 18, 22, 29, 34, 41];
 const trending = [2, 5, 9, 14, 21, 27, 33, 45];
 const topRated = [1, 6, 11, 17, 20, 26, 39, 48];
+
+
+const RATINGS = {1:5,2:4,3:5,4:4,5:4,6:5,7:4,8:4,9:4,10:5,11:4,12:4,13:4,14:5,15:4,17:4,18:5,19:4,20:5,21:4,22:4,23:5,24:4,25:4,26:4,27:4,28:5,29:4,30:4,31:4,32:5,33:4,34:4,37:5,39:4,40:5,41:4,42:4,43:5,44:4,45:4,46:4,47:5,48:4,49:4,51:3,52:5};
+const EMOJI_MAP = {Footwear:"👟","Cricket Equipment":"🏏","Sports Balls":"⚽",Outerwear:"🧥","Kids Clothing":"🧸","Men Clothing":"👔","Women Clothing":"👗","Home Decor":"🏠",Belts:"🔗",Wallets:"💼",Bags:"👜",Jewelry:"💎","Hair Care":"🧴","Jewelry+":"💎"};
+const SIZED_CATS = new Set(["Men Clothing","Women Clothing","Outerwear","Kids Clothing","Footwear","Hair Care"]);

@@ -73,7 +73,7 @@ const showcaseNewArrivals2 = document.getElementById('showcase_new_arrivals2');
 newArrivals.forEach(productId => {
   const product = products.find(p => p.id === productId);
   const sbhtml  = `
-      <div class="showcase" style="position: relative;">
+      <div class="showcase" style="position: relative;" onclick="openProductModal(${product.id})">
         <div class="showcase-actions" style="position: absolute; top: 30px; right: 10px;">
           <button class="btn-action wishlist-btn" style="margin-bottom: 10px;" data-id="${product.id}">
             <ion-icon name="heart-outline"></ion-icon>
@@ -110,7 +110,7 @@ const showcaseTrending2 = document.getElementById('showcase_trending2');
 trending.forEach(productId => {
   const product = products.find(p => p.id === productId);
   const sbhtml  = `
-      <div class="showcase" style="position: relative;">
+      <div class="showcase" style="position: relative;" onclick="openProductModal(${product.id})">
         <div class="showcase-actions" style="position: absolute; top: 30px; right: 10px;">
           <button class="btn-action wishlist-btn" style="margin-bottom: 10px;" data-id="${product.id}">
             <ion-icon name="heart-outline"></ion-icon>
@@ -147,7 +147,7 @@ const showcasetoprated2 = document.getElementById('showcase_top_rated2');
 topRated.forEach(productId => {
   const product = products.find(p => p.id === productId);
   const sbhtml  = `
-      <div class="showcase" style="position: relative;">
+      <div class="showcase" style="position: relative;" onclick="openProductModal(${product.id})">
         <div class="showcase-actions" style="position: absolute; top: 30px; right: 10px;">
           <button class="btn-action wishlist-btn" style="margin-bottom: 10px;" data-id="${product.id}">
             <ion-icon name="heart-outline"></ion-icon>
@@ -183,7 +183,7 @@ const product_grid = document.getElementById('product-grid');
 products.forEach(product => {
   if(newArrivals.indexOf(product.id) === -1 && trending.indexOf(product.id) === -1 && topRated.indexOf(product.id) === -1 && product.id !== 51 && product.id !== 52) {
   const sbhtml = `
-      <div class="showcase">
+      <div class="showcase" onclick="openProductModal(${product.id})">
                 <div class="showcase-banner">
                   <img src="assets/${product.images.thumbnail}" alt="${product.name}" width="300" class="product-img default">
                   <img src="assets/${product.images.thumbnail}" alt="${product.name}" width="300" class="product-img hover">
