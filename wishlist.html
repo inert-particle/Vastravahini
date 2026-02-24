@@ -1,0 +1,1970 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Wishlist — Vastra Vahini</title>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap"
+			rel="stylesheet"
+		/>
+		<style>
+			:root {
+				--salmon: #f97d6e;
+				--salmon-light: #fef0ee;
+				--salmon-mid: #fbd5cf;
+				--eerie: #1a1a22;
+				--mid: #4e4e5e;
+				--muted: #9898aa;
+				--border: #ebebf3;
+				--bg: #f8f7fc;
+				--white: #ffffff;
+				--success: #27c47a;
+				--success-bg: #edfbf4;
+				--danger: #e8524a;
+				--shadow-sm: 0 2px 12px rgba(26, 26, 34, 0.07);
+				--shadow-md: 0 8px 32px rgba(26, 26, 34, 0.1);
+				--shadow-lg: 0 20px 60px rgba(26, 26, 34, 0.14);
+				--radius: 18px;
+			}
+
+			*,
+			*::before,
+			*::after {
+				box-sizing: border-box;
+				margin: 0;
+				padding: 0;
+			}
+
+			html {
+				scroll-behavior: smooth;
+			}
+
+			body {
+				font-family: "DM Sans", sans-serif;
+				background: var(--bg);
+				color: var(--eerie);
+				min-height: 100vh;
+				overflow-x: hidden;
+			}
+
+			/* ── DECORATIVE BG ── */
+			body::before {
+				content: "";
+				position: fixed;
+				top: -200px;
+				right: -200px;
+				width: 600px;
+				height: 600px;
+				border-radius: 50%;
+				background: radial-gradient(
+					circle,
+					rgba(249, 125, 110, 0.08) 0%,
+					transparent 70%
+				);
+				pointer-events: none;
+				z-index: 0;
+			}
+			body::after {
+				content: "";
+				position: fixed;
+				bottom: -150px;
+				left: -150px;
+				width: 500px;
+				height: 500px;
+				border-radius: 50%;
+				background: radial-gradient(
+					circle,
+					rgba(39, 196, 122, 0.06) 0%,
+					transparent 70%
+				);
+				pointer-events: none;
+				z-index: 0;
+			}
+
+			/* ── HEADER ── */
+			header {
+				background: var(--white);
+				border-bottom: 1px solid var(--border);
+				position: sticky;
+				top: 0;
+				z-index: 100;
+				box-shadow: var(--shadow-sm);
+			}
+			.header-inner {
+				max-width: 1260px;
+				margin: 0 auto;
+				padding: 16px 28px;
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+			}
+			.logo {
+				font-family: "DM Sans", sans-serif;
+				font-size: 1.5rem;
+				font-weight: 700;
+				text-decoration: none;
+				line-height: 1;
+			}
+			.logo .v1 {
+				color: var(--eerie);
+			}
+			.logo .v2 {
+				color: var(--salmon);
+			}
+			.logo .dot {
+				color: var(--muted);
+				font-weight: 300;
+			}
+
+			.header-right {
+				display: flex;
+				align-items: center;
+				gap: 16px;
+			}
+			.back-link {
+				display: flex;
+				align-items: center;
+				gap: 7px;
+				font-size: 0.84rem;
+				font-weight: 600;
+				color: var(--mid);
+				text-decoration: none;
+				padding: 8px 16px;
+				border: 1.5px solid var(--border);
+				border-radius: 40px;
+				transition: all 0.2s;
+			}
+			.back-link:hover {
+				border-color: var(--salmon);
+				color: var(--salmon);
+				background: var(--salmon-light);
+			}
+			.back-link svg {
+				width: 14px;
+				height: 14px;
+				flex-shrink: 0;
+			}
+
+			.go-checkout-btn {
+				display: flex;
+				align-items: center;
+				gap: 8px;
+				font-size: 0.84rem;
+				font-weight: 700;
+				color: #fff;
+				background: var(--eerie);
+				text-decoration: none;
+				padding: 9px 20px;
+				border-radius: 40px;
+				border: none;
+				cursor: pointer;
+				transition: all 0.2s;
+			}
+			.go-checkout-btn:hover {
+				background: var(--salmon);
+				transform: translateY(-1px);
+				box-shadow: 0 6px 20px rgba(249, 125, 110, 0.35);
+			}
+			.go-checkout-btn svg {
+				width: 15px;
+				height: 15px;
+			}
+
+			/* ── HERO STRIP ── */
+			.hero-strip {
+				background: linear-gradient(
+					135deg,
+					var(--eerie) 0%,
+					#2c2c3e 50%,
+					#1a1a22 100%
+				);
+				position: relative;
+				overflow: hidden;
+				padding: 48px 28px 40px;
+			}
+			.hero-strip::before {
+				content: "♡";
+				position: absolute;
+				right: 8%;
+				top: 50%;
+				transform: translateY(-50%);
+				font-size: 160px;
+				opacity: 0.04;
+				color: #fff;
+				pointer-events: none;
+				user-select: none;
+				line-height: 1;
+			}
+			.hero-inner {
+				max-width: 1260px;
+				margin: 0 auto;
+				position: relative;
+				z-index: 1;
+			}
+			.hero-eyebrow {
+				font-size: 0.74rem;
+				font-weight: 700;
+				text-transform: uppercase;
+				letter-spacing: 0.14em;
+				color: var(--salmon);
+				margin-bottom: 10px;
+				display: flex;
+				align-items: center;
+				gap: 8px;
+			}
+			.hero-eyebrow::before {
+				content: "";
+				display: inline-block;
+				width: 24px;
+				height: 2px;
+				background: var(--salmon);
+				border-radius: 2px;
+			}
+			.hero-title {
+				font-family: "Cormorant Garamond", serif;
+				font-size: clamp(2rem, 4vw, 3rem);
+				font-weight: 700;
+				color: #fff;
+				line-height: 1.15;
+				margin-bottom: 12px;
+			}
+			.hero-title em {
+				color: var(--salmon);
+				font-style: italic;
+			}
+			.hero-meta {
+				display: flex;
+				align-items: center;
+				gap: 20px;
+				flex-wrap: wrap;
+			}
+			.hero-stat {
+				display: flex;
+				align-items: center;
+				gap: 8px;
+				font-size: 0.84rem;
+				color: rgba(255, 255, 255, 0.55);
+			}
+			.hero-stat strong {
+				color: #fff;
+				font-size: 1.1rem;
+			}
+			.hero-stat-divider {
+				width: 1px;
+				height: 20px;
+				background: rgba(255, 255, 255, 0.15);
+			}
+
+			/* ── TOOLBAR ── */
+			.toolbar {
+				max-width: 1260px;
+				margin: 0 auto;
+				padding: 20px 28px 0;
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				gap: 12px;
+				flex-wrap: wrap;
+				position: relative;
+				z-index: 1;
+			}
+			.toolbar-left {
+				display: flex;
+				align-items: center;
+				gap: 10px;
+				flex-wrap: wrap;
+			}
+			.filter-btn {
+				padding: 8px 16px;
+				border-radius: 30px;
+				border: 1.5px solid var(--border);
+				background: var(--white);
+				font-family: "DM Sans", sans-serif;
+				font-size: 0.8rem;
+				font-weight: 600;
+				color: var(--mid);
+				cursor: pointer;
+				transition: all 0.18s;
+			}
+			.filter-btn.active,
+			.filter-btn:hover {
+				border-color: var(--salmon);
+				color: var(--salmon);
+				background: var(--salmon-light);
+			}
+			.toolbar-right {
+				display: flex;
+				align-items: center;
+				gap: 10px;
+			}
+			.clear-all-btn {
+				padding: 8px 16px;
+				border-radius: 30px;
+				border: 1.5px solid var(--border);
+				background: var(--white);
+				font-family: "DM Sans", sans-serif;
+				font-size: 0.8rem;
+				font-weight: 600;
+				color: var(--muted);
+				cursor: pointer;
+				transition: all 0.18s;
+				display: flex;
+				align-items: center;
+				gap: 6px;
+			}
+			.clear-all-btn:hover {
+				border-color: var(--danger);
+				color: var(--danger);
+			}
+			.move-all-btn {
+				padding: 8px 18px;
+				border-radius: 30px;
+				border: none;
+				background: var(--salmon);
+				font-family: "DM Sans", sans-serif;
+				font-size: 0.8rem;
+				font-weight: 700;
+				color: #fff;
+				cursor: pointer;
+				transition: all 0.18s;
+				display: flex;
+				align-items: center;
+				gap: 6px;
+			}
+			.move-all-btn:hover {
+				background: #e8604f;
+				transform: translateY(-1px);
+				box-shadow: 0 4px 14px rgba(249, 125, 110, 0.35);
+			}
+
+			/* ── MAIN LAYOUT ── */
+			.page-layout {
+				max-width: 1260px;
+				margin: 0 auto;
+				padding: 24px 28px 80px;
+				display: grid;
+				grid-template-columns: 1fr 320px;
+				gap: 24px;
+				align-items: start;
+				position: relative;
+				z-index: 1;
+			}
+			@media (max-width: 960px) {
+				.page-layout {
+					grid-template-columns: 1fr;
+				}
+				.summary-col {
+					order: -1;
+				}
+			}
+
+			/* ── PRODUCT GRID ── */
+			.wishlist-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+				gap: 18px;
+			}
+
+			/* ── PRODUCT CARD ── */
+			.w-card {
+				background: var(--white);
+				border-radius: var(--radius);
+				overflow: hidden;
+				box-shadow: var(--shadow-sm);
+				border: 1px solid var(--border);
+				transition:
+					transform 0.25s ease,
+					box-shadow 0.25s ease;
+				position: relative;
+				animation: cardIn 0.4s ease both;
+			}
+			.w-card:hover {
+				transform: translateY(-5px);
+				box-shadow: var(--shadow-md);
+			}
+			@keyframes cardIn {
+				from {
+					opacity: 0;
+					transform: translateY(16px) scale(0.98);
+				}
+				to {
+					opacity: 1;
+					transform: translateY(0) scale(1);
+				}
+			}
+
+			/* staggered delay */
+			.w-card:nth-child(1) {
+				animation-delay: 0.04s;
+			}
+			.w-card:nth-child(2) {
+				animation-delay: 0.08s;
+			}
+			.w-card:nth-child(3) {
+				animation-delay: 0.12s;
+			}
+			.w-card:nth-child(4) {
+				animation-delay: 0.16s;
+			}
+			.w-card:nth-child(5) {
+				animation-delay: 0.2s;
+			}
+			.w-card:nth-child(6) {
+				animation-delay: 0.24s;
+			}
+			.w-card:nth-child(7) {
+				animation-delay: 0.28s;
+			}
+			.w-card:nth-child(8) {
+				animation-delay: 0.32s;
+			}
+
+			.w-card-img {
+				width: 100%;
+				aspect-ratio: 1/1;
+				overflow: hidden;
+				background: var(--bg);
+				position: relative;
+			}
+			.w-card-img img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+				transition: transform 0.4s ease;
+			}
+			.w-card:hover .w-card-img img {
+				transform: scale(1.06);
+			}
+			.w-card-img-placeholder {
+				width: 100%;
+				height: 100%;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				font-size: 3.5rem;
+				background: linear-gradient(135deg, #f8f7fc, #ebebf3);
+			}
+
+			/* discount badge */
+			.w-badge {
+				position: absolute;
+				top: 12px;
+				left: 12px;
+				background: var(--salmon);
+				color: #fff;
+				font-size: 0.7rem;
+				font-weight: 800;
+				padding: 3px 9px;
+				border-radius: 20px;
+				letter-spacing: 0.02em;
+				box-shadow: 0 2px 8px rgba(249, 125, 110, 0.4);
+			}
+
+			/* remove button */
+			.w-remove-btn {
+				position: absolute;
+				top: 10px;
+				right: 10px;
+				width: 32px;
+				height: 32px;
+				border-radius: 50%;
+				border: none;
+				background: rgba(255, 255, 255, 0.92);
+				cursor: pointer;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+				transition: all 0.2s;
+				color: var(--muted);
+				backdrop-filter: blur(4px);
+			}
+			.w-remove-btn:hover {
+				background: var(--danger);
+				color: #fff;
+				transform: scale(1.1);
+			}
+			.w-remove-btn svg {
+				width: 14px;
+				height: 14px;
+			}
+
+			/* card body */
+			.w-card-body {
+				padding: 14px 16px 16px;
+			}
+			.w-category {
+				font-size: 0.71rem;
+				font-weight: 700;
+				text-transform: uppercase;
+				letter-spacing: 0.09em;
+				color: var(--salmon);
+				margin-bottom: 5px;
+			}
+			.w-name {
+				font-size: 0.92rem;
+				font-weight: 600;
+				color: var(--eerie);
+				margin-bottom: 10px;
+				line-height: 1.3;
+				display: -webkit-box;
+				-webkit-line-clamp: 2;
+				-webkit-box-orient: vertical;
+				overflow: hidden;
+			}
+
+			/* color + rating row */
+			.w-meta {
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				margin-bottom: 10px;
+			}
+			.w-color {
+				display: flex;
+				align-items: center;
+				gap: 5px;
+				font-size: 0.75rem;
+				color: var(--mid);
+			}
+			.color-swatch {
+				width: 12px;
+				height: 12px;
+				border-radius: 50%;
+				border: 1.5px solid rgba(0, 0, 0, 0.1);
+				flex-shrink: 0;
+			}
+			.w-stars {
+				display: flex;
+				gap: 2px;
+			}
+			.star {
+				color: #fbbf24;
+				font-size: 0.7rem;
+			}
+			.star.empty {
+				color: var(--border);
+			}
+
+			/* price row */
+			.w-price-row {
+				display: flex;
+				align-items: baseline;
+				gap: 8px;
+				margin-bottom: 14px;
+			}
+			.w-price {
+				font-size: 1.05rem;
+				font-weight: 800;
+				color: var(--eerie);
+			}
+			.w-original {
+				font-size: 0.8rem;
+				color: var(--muted);
+				text-decoration: line-through;
+			}
+			.w-saving {
+				font-size: 0.72rem;
+				font-weight: 700;
+				color: var(--success);
+				background: var(--success-bg);
+				padding: 2px 7px;
+				border-radius: 20px;
+				margin-left: auto;
+			}
+
+			/* card actions */
+			.w-card-actions {
+				display: flex;
+				gap: 8px;
+			}
+			.w-cart-btn {
+				flex: 1;
+				padding: 10px 8px;
+				background: var(--eerie);
+				color: #fff;
+				border: none;
+				border-radius: 10px;
+				font-family: "DM Sans", sans-serif;
+				font-size: 0.8rem;
+				font-weight: 700;
+				cursor: pointer;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				gap: 6px;
+				transition: all 0.2s;
+			}
+			.w-cart-btn:hover {
+				background: var(--salmon);
+				transform: translateY(-1px);
+			}
+			.w-cart-btn.in-cart {
+				background: var(--success);
+			}
+			.w-cart-btn.in-cart:hover {
+				background: #1da865;
+			}
+			.w-cart-btn svg {
+				width: 15px;
+				height: 15px;
+				flex-shrink: 0;
+			}
+
+			.w-share-btn {
+				width: 38px;
+				height: 38px;
+				border-radius: 10px;
+				border: 1.5px solid var(--border);
+				background: var(--white);
+				cursor: pointer;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				color: var(--muted);
+				transition: all 0.2s;
+				flex-shrink: 0;
+			}
+			.w-share-btn:hover {
+				border-color: var(--salmon);
+				color: var(--salmon);
+			}
+			.w-share-btn svg {
+				width: 14px;
+				height: 14px;
+			}
+
+			/* ── EMPTY STATE ── */
+			.empty-wishlist {
+				grid-column: 1 / -1;
+				text-align: center;
+				padding: 80px 24px;
+				background: var(--white);
+				border-radius: var(--radius);
+				border: 1.5px dashed var(--border);
+			}
+			.empty-heart {
+				font-size: 5rem;
+				margin-bottom: 20px;
+				animation: heartbeat 2s ease infinite;
+			}
+			@keyframes heartbeat {
+				0%,
+				100% {
+					transform: scale(1);
+				}
+				50% {
+					transform: scale(1.08);
+				}
+			}
+			.empty-title {
+				font-family: "Cormorant Garamond", serif;
+				font-size: 1.8rem;
+				font-weight: 600;
+				color: var(--eerie);
+				margin-bottom: 10px;
+			}
+			.empty-sub {
+				font-size: 0.9rem;
+				color: var(--muted);
+				margin-bottom: 28px;
+				line-height: 1.6;
+			}
+			.empty-shop-btn {
+				display: inline-flex;
+				align-items: center;
+				gap: 8px;
+				background: var(--salmon);
+				color: #fff;
+				padding: 13px 30px;
+				border-radius: 40px;
+				text-decoration: none;
+				font-weight: 700;
+				font-size: 0.9rem;
+				transition: all 0.2s;
+				box-shadow: 0 6px 20px rgba(249, 125, 110, 0.35);
+			}
+			.empty-shop-btn:hover {
+				background: #e8604f;
+				transform: translateY(-2px);
+			}
+
+			/* ── SUMMARY SIDEBAR ── */
+			.summary-col {
+				position: sticky;
+				top: 80px;
+			}
+
+			.summary-card {
+				background: var(--white);
+				border-radius: var(--radius);
+				box-shadow: var(--shadow-sm);
+				border: 1px solid var(--border);
+				overflow: hidden;
+				animation: cardIn 0.4s 0.1s ease both;
+			}
+
+			.summary-header {
+				padding: 20px 22px 16px;
+				border-bottom: 1px solid var(--border);
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+			}
+			.summary-title {
+				font-family: "Cormorant Garamond", serif;
+				font-size: 1.2rem;
+				font-weight: 700;
+				color: var(--eerie);
+			}
+			.summary-count {
+				background: var(--salmon-light);
+				color: var(--salmon);
+				font-size: 0.75rem;
+				font-weight: 800;
+				padding: 3px 11px;
+				border-radius: 20px;
+			}
+
+			.summary-rows {
+				padding: 16px 22px;
+			}
+			.s-row {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				padding: 9px 0;
+				font-size: 0.88rem;
+				color: var(--mid);
+			}
+			.s-row + .s-row {
+				border-top: 1px solid var(--border);
+			}
+			.s-row .s-val {
+				font-weight: 700;
+				color: var(--eerie);
+			}
+			.s-row.savings .s-val {
+				color: var(--success);
+			}
+			.s-row.potential .s-val {
+				color: var(--salmon);
+			}
+
+			.summary-divider {
+				height: 1px;
+				background: var(--border);
+				margin: 0 22px;
+			}
+
+			.summary-cta {
+				padding: 18px 22px 22px;
+			}
+			.move-all-cart-btn {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				gap: 8px;
+				width: 100%;
+				padding: 14px;
+				background: linear-gradient(135deg, var(--salmon), #e8604f);
+				color: #fff;
+				border: none;
+				border-radius: 12px;
+				font-family: "DM Sans", sans-serif;
+				font-size: 0.95rem;
+				font-weight: 800;
+				cursor: pointer;
+				transition: all 0.2s;
+				box-shadow: 0 6px 20px rgba(249, 125, 110, 0.32);
+				margin-bottom: 10px;
+			}
+			.move-all-cart-btn:hover {
+				transform: translateY(-2px);
+				box-shadow: 0 10px 28px rgba(249, 125, 110, 0.42);
+			}
+			.move-all-cart-btn svg {
+				width: 18px;
+				height: 18px;
+			}
+			.continue-shop-link {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				gap: 6px;
+				width: 100%;
+				padding: 12px;
+				background: var(--bg);
+				color: var(--mid);
+				border: 1.5px solid var(--border);
+				border-radius: 12px;
+				font-family: "DM Sans", sans-serif;
+				font-size: 0.85rem;
+				font-weight: 600;
+				text-decoration: none;
+				cursor: pointer;
+				transition: all 0.2s;
+				border: none;
+				cursor: pointer;
+			}
+			.continue-shop-link:hover {
+				color: var(--salmon);
+			}
+
+			/* share wishlist card */
+			.share-card {
+				background: linear-gradient(135deg, var(--eerie), #2c2c3e);
+				border-radius: var(--radius);
+				padding: 22px;
+				margin-top: 16px;
+				text-align: center;
+				animation: cardIn 0.4s 0.2s ease both;
+			}
+			.share-card-icon {
+				font-size: 2rem;
+				margin-bottom: 10px;
+			}
+			.share-card-title {
+				font-family: "Cormorant Garamond", serif;
+				font-size: 1.05rem;
+				font-weight: 700;
+				color: #fff;
+				margin-bottom: 6px;
+			}
+			.share-card-sub {
+				font-size: 0.78rem;
+				color: rgba(255, 255, 255, 0.5);
+				margin-bottom: 14px;
+				line-height: 1.5;
+			}
+			.share-link-box {
+				background: rgba(255, 255, 255, 0.08);
+				border-radius: 10px;
+				display: flex;
+				align-items: center;
+				gap: 8px;
+				padding: 10px 12px;
+			}
+			.share-link-text {
+				flex: 1;
+				font-size: 0.75rem;
+				color: rgba(255, 255, 255, 0.6);
+				font-family: monospace;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				white-space: nowrap;
+			}
+			.share-copy-btn {
+				background: var(--salmon);
+				border: none;
+				border-radius: 8px;
+				padding: 5px 12px;
+				color: #fff;
+				font-family: "DM Sans", sans-serif;
+				font-size: 0.75rem;
+				font-weight: 700;
+				cursor: pointer;
+				transition: opacity 0.2s;
+				flex-shrink: 0;
+			}
+			.share-copy-btn:hover {
+				opacity: 0.85;
+			}
+
+			/* ── TOAST ── */
+			#toast {
+				position: fixed;
+				bottom: 28px;
+				right: 28px;
+				background: var(--eerie);
+				color: #fff;
+				padding: 13px 22px;
+				border-radius: 12px;
+				font-size: 0.87rem;
+				font-weight: 500;
+				box-shadow: var(--shadow-lg);
+				transform: translateY(16px);
+				opacity: 0;
+				transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+				z-index: 999;
+				pointer-events: none;
+				display: flex;
+				align-items: center;
+				gap: 10px;
+				max-width: 340px;
+			}
+			#toast.show {
+				transform: translateY(0);
+				opacity: 1;
+			}
+			#toast .toast-icon {
+				font-size: 1rem;
+				flex-shrink: 0;
+			}
+
+			/* ── "REMOVED" animation ── */
+			.w-card.removing {
+				animation: cardOut 0.35s ease forwards !important;
+			}
+			@keyframes cardOut {
+				to {
+					opacity: 0;
+					transform: scale(0.85) translateY(10px);
+				}
+			}
+
+			/* ── MOBILE ── */
+			@media (max-width: 600px) {
+				.hero-strip {
+					padding: 36px 20px 32px;
+				}
+				.toolbar,
+				.page-layout {
+					padding-left: 16px;
+					padding-right: 16px;
+				}
+				.wishlist-grid {
+					grid-template-columns: repeat(2, 1fr);
+					gap: 12px;
+				}
+				.header-inner {
+					padding: 14px 16px;
+				}
+				.back-link span {
+					display: none;
+				}
+				.go-checkout-btn span {
+					display: none;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<!-- ── HEADER ── -->
+		<header>
+			<div class="header-inner">
+				<a href="index.html" class="logo">
+					<span class="v1">Vastra</span>&nbsp;<span class="v2">Vahini</span
+					><span class="dot">.</span>
+				</a>
+				<div class="header-right">
+					<a href="index.html" class="back-link">
+						<svg
+							viewBox="0 0 24 24"
+							fill="none"
+							stroke="currentColor"
+							stroke-width="2.5"
+						>
+							<polyline points="15 18 9 12 15 6" />
+						</svg>
+						<span>Continue Shopping</span>
+					</a>
+					<button
+						class="go-checkout-btn"
+						onclick="window.location.href = 'checkout.html'"
+					>
+						<svg
+							viewBox="0 0 24 24"
+							fill="none"
+							stroke="currentColor"
+							stroke-width="2.5"
+						>
+							<path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
+							<line x1="3" y1="6" x2="21" y2="6" />
+							<path d="M16 10a4 4 0 0 1-8 0" />
+						</svg>
+						<span>Go to Cart</span>
+					</button>
+				</div>
+			</div>
+		</header>
+
+		<!-- ── HERO ── -->
+		<div class="hero-strip">
+			<div class="hero-inner">
+				<div class="hero-eyebrow">My Collection</div>
+				<h1 class="hero-title">Your <em>Wishlist</em></h1>
+				<div class="hero-meta">
+					<div class="hero-stat">
+						<strong id="hero-count">0</strong>
+						<span>saved items</span>
+					</div>
+					<div class="hero-stat-divider"></div>
+					<div class="hero-stat">
+						Potential savings of&nbsp;<strong id="hero-savings">₹0</strong>
+					</div>
+					<div class="hero-stat-divider"></div>
+					<div class="hero-stat">
+						Total value&nbsp;<strong id="hero-total">₹0</strong>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- ── TOOLBAR ── -->
+		<div class="toolbar">
+			<div class="toolbar-left">
+				<button class="filter-btn active" onclick="filterCards('all', this)">
+					All Items
+				</button>
+				<button class="filter-btn" onclick="filterCards('Fashion', this)">
+					Fashion
+				</button>
+				<button
+					class="filter-btn"
+					onclick="filterCards('Sports & Fitness', this)"
+				>
+					Sports
+				</button>
+				<button class="filter-btn" onclick="filterCards('Accessories', this)">
+					Accessories
+				</button>
+				<button class="filter-btn" onclick="filterCards('Home & Living', this)">
+					Home
+				</button>
+			</div>
+			<div class="toolbar-right">
+				<button class="clear-all-btn" onclick="clearAll()">
+					<svg
+						width="13"
+						height="13"
+						viewBox="0 0 24 24"
+						fill="none"
+						stroke="currentColor"
+						stroke-width="2.5"
+					>
+						<polyline points="3 6 5 6 21 6" />
+						<path d="M19 6l-1 14H6L5 6" />
+						<path d="M10 11v6M14 11v6" />
+						<path d="M9 6V4h6v2" />
+					</svg>
+					Clear All
+				</button>
+				<button class="move-all-btn" onclick="moveAllToCart()">
+					<svg
+						width="13"
+						height="13"
+						viewBox="0 0 24 24"
+						fill="none"
+						stroke="currentColor"
+						stroke-width="2.5"
+					>
+						<path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
+						<line x1="3" y1="6" x2="21" y2="6" />
+					</svg>
+					Add All to Cart
+				</button>
+			</div>
+		</div>
+
+		<!-- ── MAIN LAYOUT ── -->
+		<div class="page-layout">
+			<!-- GRID -->
+			<div class="wishlist-grid" id="wishlist-grid">
+				<!-- rendered by JS -->
+			</div>
+
+			<!-- SIDEBAR -->
+			<div class="summary-col">
+				<div class="summary-card">
+					<div class="summary-header">
+						<span class="summary-title">Summary</span>
+						<span class="summary-count" id="summary-count-badge">0 items</span>
+					</div>
+					<div class="summary-rows">
+						<div class="s-row">
+							<span>Items saved</span>
+							<span class="s-val" id="s-items">0</span>
+						</div>
+						<div class="s-row">
+							<span>Total MRP</span>
+							<span class="s-val" id="s-mrp">₹0</span>
+						</div>
+						<div class="s-row savings">
+							<span>
+								<svg
+									width="13"
+									height="13"
+									viewBox="0 0 24 24"
+									fill="none"
+									stroke="currentColor"
+									stroke-width="2"
+									style="vertical-align: middle; margin-right: 4px"
+								>
+									<path
+										d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"
+									/>
+									<line x1="7" y1="7" x2="7.01" y2="7" />
+								</svg>
+								Total Savings
+							</span>
+							<span class="s-val" id="s-savings">₹0</span>
+						</div>
+						<div class="s-row potential">
+							<span>You'll pay if bought</span>
+							<span class="s-val" id="s-potential">₹0</span>
+						</div>
+					</div>
+					<div class="summary-divider"></div>
+					<div class="summary-cta">
+						<button class="move-all-cart-btn" onclick="moveAllToCart()">
+							<svg
+								viewBox="0 0 24 24"
+								fill="none"
+								stroke="currentColor"
+								stroke-width="2.5"
+							>
+								<path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
+								<line x1="3" y1="6" x2="21" y2="6" />
+								<path d="M16 10a4 4 0 0 1-8 0" />
+							</svg>
+							Move All to Cart
+						</button>
+						<button
+							class="continue-shop-link"
+							onclick="window.location.href = 'index.html'"
+						>
+							Continue Shopping →
+						</button>
+					</div>
+				</div>
+
+				<!-- <div class="share-card">
+      <div class="share-card-icon">🔗</div>
+      <div class="share-card-title">Share Your Wishlist</div>
+      <div class="share-card-sub">Let friends & family know what you're eyeing</div>
+      <div class="share-link-box">
+        <span class="share-link-text" id="share-link-text">vastravahini.com/wishlist/...</span>
+        <button class="share-copy-btn" onclick="copyShareLink()">Copy</button>
+      </div>
+    </div> -->
+			</div>
+		</div>
+
+		<!-- TOAST -->
+		<div id="toast">
+			<span class="toast-icon" id="toast-icon">✓</span
+			><span id="toast-msg"></span>
+		</div>
+
+		<script>
+			/* ══════════════════════════════════════════
+   FULL PRODUCT CATALOGUE  (mirrors data.js)
+══════════════════════════════════════════ */
+			const products = [
+				{
+					id: 1,
+					name: "Running Shoes",
+					category: "Sports & Fitness",
+					subcategory: "Footwear",
+					price: { original: 2999, discounted: 1999 },
+					images: { thumbnail: "images/products/sports-1.jpg" },
+				},
+				{
+					id: 2,
+					name: "Training Shoes",
+					category: "Sports & Fitness",
+					subcategory: "Footwear",
+					price: { original: 2899, discounted: 2099 },
+					images: { thumbnail: "images/products/sports-3.jpg" },
+				},
+				{
+					id: 3,
+					name: "Cricket Kit",
+					category: "Sports & Fitness",
+					subcategory: "Cricket Equipment",
+					price: { original: 8999, discounted: 7499 },
+					images: { thumbnail: "images/products/cricketkit.jpg" },
+				},
+				{
+					id: 4,
+					name: "Cricket Bat",
+					category: "Sports & Fitness",
+					subcategory: "Cricket Equipment",
+					price: { original: 5999, discounted: 4599 },
+					images: { thumbnail: "images/products/cricketbat.jpg" },
+				},
+				{
+					id: 5,
+					name: "Cricket Ball",
+					category: "Sports & Fitness",
+					subcategory: "Cricket Equipment",
+					price: { original: 799, discounted: 599 },
+					images: { thumbnail: "images/products/cricketball.jpg" },
+				},
+				{
+					id: 6,
+					name: "Basketball",
+					category: "Sports & Fitness",
+					subcategory: "Sports Balls",
+					price: { original: 1499, discounted: 1099 },
+					images: { thumbnail: "images/products/basketball.jpg" },
+				},
+				{
+					id: 7,
+					name: "Football",
+					category: "Sports & Fitness",
+					subcategory: "Sports Balls",
+					price: { original: 1599, discounted: 1199 },
+					images: { thumbnail: "images/products/football.jpg" },
+				},
+				{
+					id: 8,
+					name: "Cricket Stumps",
+					category: "Sports & Fitness",
+					subcategory: "Cricket Equipment",
+					price: { original: 1999, discounted: 1499 },
+					images: { thumbnail: "images/products/stumps.jpg" },
+				},
+				{
+					id: 9,
+					name: "Men's Jacket",
+					category: "Fashion",
+					subcategory: "Outerwear",
+					price: { original: 3999, discounted: 2999 },
+					images: { thumbnail: "images/products/jacket-1.jpg" },
+				},
+				{
+					id: 10,
+					name: "Women's Jacket",
+					category: "Fashion",
+					subcategory: "Outerwear",
+					price: { original: 4299, discounted: 3299 },
+					images: { thumbnail: "images/products/jacket-5.jpg" },
+				},
+				{
+					id: 11,
+					name: "Kids Wear Set",
+					category: "Fashion",
+					subcategory: "Kids Clothing",
+					price: { original: 1999, discounted: 1499 },
+					images: { thumbnail: "images/products/Kids Wear Set.jpg" },
+				},
+				{
+					id: 12,
+					name: "Men's Jeans",
+					category: "Fashion",
+					subcategory: "Men Clothing",
+					price: { original: 2499, discounted: 1799 },
+					images: { thumbnail: "images/products/mens-jeans.jpg" },
+				},
+				{
+					id: 13,
+					name: "Women's Jeans",
+					category: "Fashion",
+					subcategory: "Women Clothing",
+					price: { original: 2599, discounted: 1899 },
+					images: { thumbnail: "images/products/womens-jeans.jpg" },
+				},
+				{
+					id: 14,
+					name: "Men's Shirt",
+					category: "Fashion",
+					subcategory: "Men Clothing",
+					price: { original: 1999, discounted: 1399 },
+					images: { thumbnail: "images/products/mens-shirt.jpg" },
+				},
+				{
+					id: 15,
+					name: "Women's Suit",
+					category: "Fashion",
+					subcategory: "Women Clothing",
+					price: { original: 4999, discounted: 3699 },
+					images: { thumbnail: "images/products/womens-suit.jpg" },
+				},
+				{
+					id: 17,
+					name: "Wall Clock",
+					category: "Home & Living",
+					subcategory: "Home Decor",
+					price: { original: 1299, discounted: 899 },
+					images: { thumbnail: "images/products/Wall Clock.jpg" },
+				},
+				{
+					id: 18,
+					name: "Wall Mirror",
+					category: "Home & Living",
+					subcategory: "Home Decor",
+					price: { original: 3499, discounted: 2699 },
+					images: { thumbnail: "images/products/Wall Mirror.jpg" },
+				},
+				{
+					id: 19,
+					name: "Leather Belt",
+					category: "Accessories",
+					subcategory: "Belts",
+					price: { original: 1299, discounted: 899 },
+					images: { thumbnail: "images/products/Leather Belt.jpg" },
+				},
+				{
+					id: 20,
+					name: "Men's Wallet",
+					category: "Accessories",
+					subcategory: "Wallets",
+					price: { original: 1499, discounted: 1099 },
+					images: { thumbnail: "images/products/Men-Wallet.jpg" },
+				},
+				{
+					id: 21,
+					name: "Hand Bag",
+					category: "Accessories",
+					subcategory: "Bags",
+					price: { original: 2999, discounted: 2299 },
+					images: { thumbnail: "images/products/Hand Bag.jpg" },
+				},
+				{
+					id: 22,
+					name: "Travel Backpack",
+					category: "Accessories",
+					subcategory: "Bags",
+					price: { original: 3499, discounted: 2699 },
+					images: { thumbnail: "images/products/Travel Backpack.jpg" },
+				},
+				{
+					id: 23,
+					name: "Earrings",
+					category: "Accessories",
+					subcategory: "Jewelry",
+					price: { original: 999, discounted: 699 },
+					images: { thumbnail: "images/products/Earrings.jpg" },
+				},
+				{
+					id: 24,
+					name: "Bracelets",
+					category: "Accessories",
+					subcategory: "Jewelry",
+					price: { original: 899, discounted: 599 },
+					images: { thumbnail: "images/products/Bracelets.jpg" },
+				},
+				{
+					id: 25,
+					name: "Kids Sports Shoes",
+					category: "Sports & Fitness",
+					subcategory: "Footwear",
+					price: { original: 1999, discounted: 1499 },
+					images: { thumbnail: "images/products/Kids Sports Shoes.jpg" },
+				},
+				{
+					id: 26,
+					name: "Men's Sports Shoes",
+					category: "Sports & Fitness",
+					subcategory: "Footwear",
+					price: { original: 2799, discounted: 2199 },
+					images: { thumbnail: "images/products/Men Sports Shoes.jpg" },
+				},
+				{
+					id: 27,
+					name: "Women's Running Shoes",
+					category: "Sports & Fitness",
+					subcategory: "Footwear",
+					price: { original: 2899, discounted: 2299 },
+					images: { thumbnail: "images/products/Women Running Shoes.jpg" },
+				},
+				{
+					id: 28,
+					name: "Professional Cricket Bat",
+					category: "Sports & Fitness",
+					subcategory: "Cricket Equipment",
+					price: { original: 7999, discounted: 6499 },
+					images: { thumbnail: "images/products/Professional Cricket Bat.jpg" },
+				},
+				{
+					id: 29,
+					name: "Leather Cricket Ball",
+					category: "Sports & Fitness",
+					subcategory: "Cricket Equipment",
+					price: { original: 999, discounted: 749 },
+					images: { thumbnail: "images/products/Leather Cricket Ball.jpg" },
+				},
+				{
+					id: 30,
+					name: "Match Football",
+					category: "Sports & Fitness",
+					subcategory: "Sports Balls",
+					price: { original: 1799, discounted: 1399 },
+					images: { thumbnail: "images/products/Match Football.jpg" },
+				},
+				{
+					id: 31,
+					name: "Indoor Basketball",
+					category: "Sports & Fitness",
+					subcategory: "Sports Balls",
+					price: { original: 1599, discounted: 1199 },
+					images: { thumbnail: "images/products/Indoor Basketball.jpg" },
+				},
+				{
+					id: 32,
+					name: "Men's Winter Jacket",
+					category: "Fashion",
+					subcategory: "Outerwear",
+					price: { original: 4599, discounted: 3499 },
+					images: { thumbnail: "images/products/Men Winter Jacket.jpg" },
+				},
+				{
+					id: 33,
+					name: "Women's Long Coat",
+					category: "Fashion",
+					subcategory: "Outerwear",
+					price: { original: 4899, discounted: 3799 },
+					images: { thumbnail: "images/products/Women Long Coat.jpg" },
+				},
+				{
+					id: 34,
+					name: "Kids Party Wear",
+					category: "Fashion",
+					subcategory: "Kids Clothing",
+					price: { original: 2299, discounted: 1699 },
+					images: { thumbnail: "images/products/Kids Party Wear.jpg" },
+				},
+				{
+					id: 37,
+					name: "Men's Formal Shirt",
+					category: "Fashion",
+					subcategory: "Men Clothing",
+					price: { original: 2199, discounted: 1599 },
+					images: { thumbnail: "images/products/Men Formal Shirt.jpg" },
+				},
+				{
+					id: 39,
+					name: "Decorative Wall Clock",
+					category: "Home & Living",
+					subcategory: "Home Decor",
+					price: { original: 1799, discounted: 1299 },
+					images: { thumbnail: "images/products/Decorative Wall Clock.jpg" },
+				},
+				{
+					id: 40,
+					name: "Round Wall Mirror",
+					category: "Home & Living",
+					subcategory: "Home Decor",
+					price: { original: 3899, discounted: 2999 },
+					images: { thumbnail: "images/products/Round Wall Mirror.jpg" },
+				},
+				{
+					id: 41,
+					name: "Men's Leather Belt",
+					category: "Accessories",
+					subcategory: "Belts",
+					price: { original: 1399, discounted: 999 },
+					images: { thumbnail: "images/products/Men Leather Belt.jpg" },
+				},
+				{
+					id: 42,
+					name: "Slim Wallet",
+					category: "Accessories",
+					subcategory: "Wallets",
+					price: { original: 1599, discounted: 1199 },
+					images: { thumbnail: "images/products/Slim Wallet.jpg" },
+				},
+				{
+					id: 43,
+					name: "Office Handbag",
+					category: "Accessories",
+					subcategory: "Bags",
+					price: { original: 3299, discounted: 2499 },
+					images: { thumbnail: "images/products/Office Handbag.jpg" },
+				},
+				{
+					id: 44,
+					name: "Casual Backpack",
+					category: "Accessories",
+					subcategory: "Bags",
+					price: { original: 2999, discounted: 2299 },
+					images: { thumbnail: "images/products/Casual Backpack.jpg" },
+				},
+				{
+					id: 45,
+					name: "Stud Earrings",
+					category: "Accessories",
+					subcategory: "Jewelry",
+					price: { original: 1099, discounted: 799 },
+					images: { thumbnail: "images/products/Stud Earrings.jpg" },
+				},
+				{
+					id: 46,
+					name: "Charm Bracelet",
+					category: "Accessories",
+					subcategory: "Jewelry",
+					price: { original: 1199, discounted: 899 },
+					images: { thumbnail: "images/products/Charm Bracelet.jpg" },
+				},
+				{
+					id: 47,
+					name: "Kids Sneakers",
+					category: "Sports & Fitness",
+					subcategory: "Footwear",
+					price: { original: 2199, discounted: 1699 },
+					images: { thumbnail: "images/products/Kids Sneakers.jpg" },
+				},
+				{
+					id: 48,
+					name: "Cricket Practice Stumps",
+					category: "Sports & Fitness",
+					subcategory: "Cricket Equipment",
+					price: { original: 2299, discounted: 1799 },
+					images: { thumbnail: "images/products/Cricket Practice Stumps.jpg" },
+				},
+				{
+					id: 49,
+					name: "Men's Casual Shirt",
+					category: "Fashion",
+					subcategory: "Men Clothing",
+					price: { original: 2099, discounted: 1499 },
+					images: { thumbnail: "images/products/Men Casual Shirt.jpg" },
+				},
+				{
+					id: 51,
+					name: "Old Spice Swagger 2-in-1 Shampoo",
+					category: "Fashion",
+					subcategory: "Hair Care",
+					price: { original: 18000, discounted: 13500 },
+					images: { thumbnail: "images/products/shampoo.jpg" },
+				},
+				{
+					id: 52,
+					name: "Lavanya Chandbali Gold Earring",
+					category: "Accessories",
+					subcategory: "Jewelry",
+					price: { original: 2000, discounted: 1990 },
+					images: { thumbnail: "images/products/jewellery-1.jpg" },
+				},
+			];
+
+			/* color data */
+			const COLORS_MAP = {
+				1: "Black",
+				2: "Pink",
+				3: "Blue",
+				4: "Wood",
+				5: "Red",
+				6: "Orange",
+				7: "White",
+				8: "Brown",
+				9: "Black",
+				10: "Maroon",
+				11: "Blue",
+				12: "Blue",
+				13: "Black",
+				14: "White",
+				15: "Green",
+				17: "Black",
+				18: "Silver",
+				19: "Brown",
+				20: "Black",
+				21: "Pink",
+				22: "Grey",
+				23: "Gold",
+				24: "Silver",
+				25: "Blue",
+				26: "Grey",
+				27: "Purple",
+				28: "Wood",
+				29: "Red",
+				30: "White",
+				31: "Orange",
+				32: "Navy",
+				33: "Beige",
+				34: "Red",
+				37: "Blue",
+				39: "Gold",
+				40: "Black",
+				41: "Black",
+				42: "Brown",
+				43: "Tan",
+				44: "Blue",
+				45: "Silver",
+				46: "Gold",
+				47: "Red",
+				48: "Yellow",
+				49: "Green",
+				51: "Blue",
+				52: "Gold",
+			};
+			const COLOR_HEX = {
+				Black: "#222",
+				Red: "#e74c3c",
+				Blue: "#3498db",
+				Pink: "#ff69b4",
+				White: "#efefef",
+				Wood: "#8B5E3C",
+				Orange: "#e67e22",
+				Maroon: "#800000",
+				Brown: "#8B4513",
+				Gold: "#FFD700",
+				Silver: "#C0C0C0",
+				Green: "#27ae60",
+				Grey: "#95a5a6",
+				Purple: "#9b59b6",
+				Navy: "#001f5b",
+				Beige: "#f5f0e8",
+				Yellow: "#f1c40f",
+				Tan: "#D2B48C",
+			};
+			const EMOJI_MAP = {
+				Footwear: "👟",
+				"Cricket Equipment": "🏏",
+				"Sports Balls": "⚽",
+				Outerwear: "🧥",
+				"Kids Clothing": "🧸",
+				"Men Clothing": "👔",
+				"Women Clothing": "👗",
+				"Home Decor": "🏠",
+				Belts: "🔗",
+				Wallets: "👛",
+				Bags: "👜",
+				Jewelry: "💎",
+				"Hair Care": "🧴",
+				Wallets: "💼",
+				Belts: "👔",
+			};
+			/* star ratings (static per product) */
+			const RATINGS = {
+				1: 5,
+				2: 4,
+				3: 5,
+				4: 4,
+				5: 4,
+				6: 5,
+				7: 4,
+				8: 4,
+				9: 4,
+				10: 5,
+				11: 4,
+				12: 4,
+				13: 4,
+				14: 5,
+				15: 4,
+				17: 4,
+				18: 5,
+				19: 4,
+				20: 5,
+				21: 4,
+				22: 4,
+				23: 5,
+				24: 4,
+				25: 4,
+				26: 4,
+				27: 4,
+				28: 5,
+				29: 4,
+				30: 4,
+				31: 4,
+				32: 5,
+				33: 4,
+				34: 4,
+				37: 5,
+				39: 4,
+				40: 5,
+				41: 4,
+				42: 4,
+				43: 5,
+				44: 4,
+				45: 4,
+				46: 4,
+				47: 5,
+				48: 4,
+				49: 4,
+				51: 3,
+				52: 5,
+			};
+
+			/* ══════════════════════════════════════════
+   STORAGE HELPERS
+══════════════════════════════════════════ */
+			function getWishlist() {
+				return JSON.parse(localStorage.getItem("wishlist")) || [];
+			}
+			function saveWishlist(w) {
+				localStorage.setItem("wishlist", JSON.stringify(w));
+			}
+			function getCart() {
+				return JSON.parse(localStorage.getItem("cart")) || [];
+			}
+			function saveCart(c) {
+				localStorage.setItem("cart", JSON.stringify(c));
+			}
+
+			/* ══════════════════════════════════════════
+   RENDER
+══════════════════════════════════════════ */
+			let activeFilter = "all";
+
+			function renderWishlist() {
+				const ids = getWishlist();
+				const cart = getCart();
+				const grid = document.getElementById("wishlist-grid");
+
+				if (ids.length === 0) {
+					grid.innerHTML = `
+      <div class="empty-wishlist">
+        <div class="empty-heart">🤍</div>
+        <div class="empty-title">Your wishlist is empty</div>
+        <p class="empty-sub">Save items you love by tapping the heart icon<br>on any product — they'll appear right here.</p>
+        <a href="index.html" class="empty-shop-btn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+          Start Shopping
+        </a>
+      </div>`;
+					updateSummary([], cart);
+					updateHeroStats([], cart);
+					return;
+				}
+
+				let wishlistProducts = ids
+					.map((id) => products.find((p) => p.id === parseInt(id)))
+					.filter(Boolean);
+
+				// Apply category filter
+				if (activeFilter !== "all") {
+					wishlistProducts = wishlistProducts.filter(
+						(p) => p.category === activeFilter,
+					);
+				}
+
+				if (wishlistProducts.length === 0) {
+					grid.innerHTML = `
+      <div class="empty-wishlist">
+        <div class="empty-heart">🔍</div>
+        <div class="empty-title">No items in this category</div>
+        <p class="empty-sub">You haven't saved any items from this category yet.</p>
+      </div>`;
+					return;
+				}
+
+				grid.innerHTML = wishlistProducts
+					.map((p) => {
+						const pct = Math.round(
+							(1 - p.price.discounted / p.price.original) * 100,
+						);
+						const saving = p.price.original - p.price.discounted;
+						const colorName = COLORS_MAP[p.id] || "Black";
+						const colorHex = COLOR_HEX[colorName] || "#222";
+						const emoji = EMOJI_MAP[p.subcategory] || "🛍";
+						const rating = RATINGS[p.id] || 4;
+						const inCart = cart.includes(String(p.id));
+
+						const stars = Array.from(
+							{ length: 5 },
+							(_, i) =>
+								`<span class="star${i < rating ? "" : " empty"}">★</span>`,
+						).join("");
+
+						return `
+      <div class="w-card" id="wcard-${p.id}" data-category="${p.category}">
+        <div class="w-card-img">
+          <img src="assets/${p.images.thumbnail}" alt="${p.name}"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="w-card-img-placeholder" style="display:none">${emoji}</div>
+          ${pct > 0 ? `<div class="w-badge">${pct}% OFF</div>` : ""}
+          <button class="w-remove-btn" onclick="removeFromWishlist(${p.id})" title="Remove from wishlist">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          </button>
+        </div>
+        <div class="w-card-body">
+          <div class="w-category">${p.subcategory}</div>
+          <div class="w-name">${p.name}</div>
+          <div class="w-meta">
+            <div class="w-color">
+              <span class="color-swatch" style="background:${colorHex}"></span>
+              ${colorName}
+            </div>
+            <div class="w-stars">${stars}</div>
+          </div>
+          <div class="w-price-row">
+            <span class="w-price">₹${p.price.discounted.toLocaleString("en-IN")}</span>
+            ${
+							p.price.original !== p.price.discounted
+								? `<span class="w-original">₹${p.price.original.toLocaleString("en-IN")}</span>
+                 <span class="w-saving">Save ₹${saving.toLocaleString("en-IN")}</span>`
+								: ""
+						}
+          </div>
+          <div class="w-card-actions">
+            <button class="w-cart-btn${inCart ? " in-cart" : ""}"
+                    id="cartbtn-${p.id}"
+                    onclick="toggleCart(${p.id}, this)">
+              ${
+								inCart
+									? `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> In Cart`
+									: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg> Add to Cart`
+							}
+            </button>
+            <button class="w-share-btn" onclick="shareItem(${p.id})" title="Share">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>`;
+					})
+					.join("");
+
+				// compute for ALL items (not filtered) for sidebar
+				const allWishlistProducts = ids
+					.map((id) => products.find((p) => p.id === parseInt(id)))
+					.filter(Boolean);
+				updateSummary(allWishlistProducts, cart);
+				updateHeroStats(allWishlistProducts, cart);
+			}
+
+			/* ══════════════════════════════════════════
+   SUMMARY & HERO STATS
+══════════════════════════════════════════ */
+			function updateSummary(items, cart) {
+				const count = items.length;
+				const mrp = items.reduce((s, p) => s + p.price.original, 0);
+				const discounted = items.reduce((s, p) => s + p.price.discounted, 0);
+				const savings = mrp - discounted;
+
+				document.getElementById("summary-count-badge").textContent =
+					`${count} item${count !== 1 ? "s" : ""}`;
+				document.getElementById("s-items").textContent = count;
+				document.getElementById("s-mrp").textContent =
+					`₹${mrp.toLocaleString("en-IN")}`;
+				document.getElementById("s-savings").textContent =
+					`−₹${savings.toLocaleString("en-IN")}`;
+				document.getElementById("s-potential").textContent =
+					`₹${discounted.toLocaleString("en-IN")}`;
+			}
+
+			function updateHeroStats(items, cart) {
+				const count = items.length;
+				const mrp = items.reduce((s, p) => s + p.price.original, 0);
+				const disc = items.reduce((s, p) => s + p.price.discounted, 0);
+				const savings = mrp - disc;
+
+				document.getElementById("hero-count").textContent = count;
+				document.getElementById("hero-savings").textContent =
+					`₹${savings.toLocaleString("en-IN")}`;
+				document.getElementById("hero-total").textContent =
+					`₹${disc.toLocaleString("en-IN")}`;
+			}
+
+			/* ══════════════════════════════════════════
+   ACTIONS
+══════════════════════════════════════════ */
+			function removeFromWishlist(id) {
+				const card = document.getElementById("wcard-" + id);
+				if (card) {
+					card.classList.add("removing");
+					setTimeout(() => {
+						let wl = getWishlist().filter((x) => parseInt(x) !== id);
+						saveWishlist(wl);
+						renderWishlist();
+						showToast("Removed from wishlist", "🗑️");
+					}, 340);
+				}
+			}
+
+			function toggleCart(id, btn) {
+				let cart = getCart();
+				const sid = String(id);
+				if (cart.includes(sid)) {
+					cart = cart.filter((x) => x !== sid);
+					saveCart(cart);
+					btn.classList.remove("in-cart");
+					btn.innerHTML = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg> Add to Cart`;
+					showToast("Removed from cart", "🛍️");
+				} else {
+					cart.push(sid);
+					saveCart(cart);
+					btn.classList.add("in-cart");
+					btn.innerHTML = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> In Cart`;
+					showToast("Added to cart! Go to checkout →", "🛒");
+				}
+			}
+
+			function moveAllToCart() {
+				const ids = getWishlist();
+				let cart = getCart();
+				let added = 0;
+				ids.forEach((id) => {
+					if (!cart.includes(String(id))) {
+						cart.push(String(id));
+						added++;
+					}
+				});
+				saveCart(cart);
+				// re-render to update button states
+				renderWishlist();
+				if (added > 0) {
+					showToast(
+						`${added} item${added > 1 ? "s" : ""} added to cart!`,
+						"🛒",
+					);
+				} else {
+					showToast("All items already in cart!", "✓");
+				}
+			}
+
+			function clearAll() {
+				if (getWishlist().length === 0) {
+					showToast("Wishlist is already empty", "🤍");
+					return;
+				}
+				const cards = document.querySelectorAll(".w-card");
+				cards.forEach((c, i) => {
+					setTimeout(() => c.classList.add("removing"), i * 60);
+				});
+				setTimeout(
+					() => {
+						saveWishlist([]);
+						renderWishlist();
+						showToast("Wishlist cleared", "🗑️");
+					},
+					cards.length * 60 + 360,
+				);
+			}
+
+			function filterCards(cat, btn) {
+				activeFilter = cat;
+				document
+					.querySelectorAll(".filter-btn")
+					.forEach((b) => b.classList.remove("active"));
+				btn.classList.add("active");
+				renderWishlist();
+			}
+
+			function shareItem(id) {
+				const p = products.find((x) => x.id === id);
+				const url = `${window.location.origin}/wishlist.html?item=${id}`;
+				if (navigator.share) {
+					navigator.share({ title: p?.name || "Check this out", url });
+				} else {
+					navigator.clipboard
+						.writeText(url)
+						.then(() => showToast("Link copied!", "🔗"));
+				}
+			}
+
+			function copyShareLink() {
+				const url = `${window.location.origin}/wishlist.html?shared=1`;
+				navigator.clipboard
+					.writeText(url)
+					.then(() => showToast("Wishlist link copied!", "🔗"))
+					.catch(() => showToast("Copy: " + url, "🔗"));
+			}
+
+			/* ══════════════════════════════════════════
+   TOAST
+══════════════════════════════════════════ */
+			function showToast(msg, icon = "✓") {
+				document.getElementById("toast-msg").textContent = msg;
+				document.getElementById("toast-icon").textContent = icon;
+				const t = document.getElementById("toast");
+				t.classList.add("show");
+				clearTimeout(t._timer);
+				t._timer = setTimeout(() => t.classList.remove("show"), 3200);
+			}
+
+			/* ══════════════════════════════════════════
+   INIT
+══════════════════════════════════════════ */
+			renderWishlist();
+
+			// Update share link display
+			document.getElementById("share-link-text").textContent =
+				window.location.hostname + "/wishlist.html?ref=share";
+		</script>
+	</body>
+</html>

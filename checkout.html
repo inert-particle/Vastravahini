@@ -1,0 +1,2869 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Checkout — Vastra Vahini</title>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=DM+Sans:wght@300;400;500;600&display=swap"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" href="assets/css/style.css" />
+		<style>
+			:root {
+				--salmon: #f97d6e;
+				--salmon-light: #fde8e6;
+				--eerie: #1c1c1e;
+				--mid: #4a4a52;
+				--muted: #9a9aaa;
+				--border: #e8e8f0;
+				--bg: #f6f6f9;
+				--white: #ffffff;
+				--success: #2ecc71;
+				--gold: #f0a500;
+				--shadow: 0 4px 24px rgba(28, 28, 30, 0.08);
+				--shadow-lg: 0 12px 48px rgba(28, 28, 30, 0.14);
+			}
+
+			*,
+			*::before,
+			*::after {
+				box-sizing: border-box;
+				margin: 0;
+				padding: 0;
+			}
+
+			body {
+				font-family: "DM Sans", sans-serif;
+				background: var(--bg);
+				color: var(--eerie);
+				min-height: 100vh;
+			}
+
+			/* ─── HEADER ─────────────────────────────── */
+			header {
+				background: var(--white);
+				border-bottom: 1px solid var(--border);
+				position: sticky;
+				top: 0;
+				z-index: 100;
+			}
+
+			.header-inner {
+				max-width: 1200px;
+				margin: 0 auto;
+				padding: 16px 24px;
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+			}
+
+			.logo {
+				font-family: "DM Sans", sans-serif;
+				font-size: 1.5rem;
+				font-weight: 600;
+				text-decoration: none;
+			}
+			.logo span:first-child {
+				color: var(--eerie);
+			}
+			.logo span:last-child {
+				color: var(--salmon);
+			}
+
+			.checkout-badge {
+				display: flex;
+				align-items: center;
+				gap: 8px;
+				font-size: 0.85rem;
+				color: var(--muted);
+				font-weight: 500;
+			}
+			.checkout-badge svg {
+				width: 18px;
+				height: 18px;
+				color: var(--success);
+			}
+
+			/* ─── STEPS ───────────────────────────────── */
+			.steps-bar {
+				background: var(--white);
+				border-bottom: 1px solid var(--border);
+			}
+			.steps-inner {
+				max-width: 1200px;
+				margin: 0 auto;
+				padding: 14px 24px;
+				display: flex;
+				align-items: center;
+				gap: 8px;
+			}
+			.step {
+				display: flex;
+				align-items: center;
+				gap: 8px;
+				font-size: 0.82rem;
+				font-weight: 500;
+				color: var(--muted);
+			}
+			.step.active {
+				color: var(--salmon);
+			}
+			.step.done {
+				color: var(--success);
+			}
+			.step-num {
+				width: 24px;
+				height: 24px;
+				border-radius: 50%;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				font-size: 0.75rem;
+				font-weight: 700;
+				background: var(--border);
+				color: var(--muted);
+				flex-shrink: 0;
+			}
+			.step.active .step-num {
+				background: var(--salmon);
+				color: #fff;
+			}
+			.step.done .step-num {
+				background: var(--success);
+				color: #fff;
+			}
+			.step-divider {
+				flex: 1;
+				height: 1px;
+				background: var(--border);
+				min-width: 20px;
+			}
+
+			/* ─── LAYOUT ──────────────────────────────── */
+			.checkout-layout {
+				max-width: 1200px;
+				margin: 0 auto;
+				padding: 32px 24px 60px;
+				display: grid;
+				grid-template-columns: 1fr 380px;
+				gap: 28px;
+				align-items: start;
+			}
+
+			@media (max-width: 900px) {
+				.checkout-layout {
+					grid-template-columns: 1fr;
+				}
+			}
+
+			/* ─── CARDS ───────────────────────────────── */
+			.card {
+				background: var(--white);
+				border-radius: 16px;
+				box-shadow: var(--shadow);
+				overflow: hidden;
+			}
+
+			.card-header {
+				padding: 20px 24px 16px;
+				border-bottom: 1px solid var(--border);
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+			}
+
+			.card-title {
+				font-family: "Playfair Display", serif;
+				font-size: 1.15rem;
+				font-weight: 600;
+				color: var(--eerie);
+			}
+
+			.item-count {
+				background: var(--salmon-light);
+				color: var(--salmon);
+				font-size: 0.78rem;
+				font-weight: 700;
+				padding: 3px 10px;
+				border-radius: 20px;
+			}
+
+			/* ─── CART ITEMS ──────────────────────────── */
+			.cart-item {
+				display: grid;
+				grid-template-columns: 88px 1fr auto;
+				gap: 16px;
+				align-items: center;
+				padding: 20px 24px;
+				border-bottom: 1px solid var(--border);
+				transition: background 0.2s;
+			}
+			.cart-item:last-child {
+				border-bottom: none;
+			}
+			.cart-item:hover {
+				background: #fafafa;
+			}
+
+			.item-img-wrap {
+				width: 88px;
+				height: 88px;
+				border-radius: 12px;
+				overflow: hidden;
+				background: var(--bg);
+				flex-shrink: 0;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+			}
+			.item-img-wrap img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+			}
+			.item-img-placeholder {
+				font-size: 2rem;
+			}
+
+			.item-info {
+				min-width: 0;
+			}
+			.item-category {
+				font-size: 0.72rem;
+				text-transform: uppercase;
+				letter-spacing: 0.08em;
+				color: var(--salmon);
+				font-weight: 600;
+				margin-bottom: 4px;
+			}
+			.item-name {
+				font-size: 0.95rem;
+				font-weight: 600;
+				color: var(--eerie);
+				margin-bottom: 6px;
+				white-space: nowrap;
+				overflow: hidden;
+				text-overflow: ellipsis;
+			}
+			.item-meta {
+				display: flex;
+				align-items: center;
+				gap: 12px;
+				flex-wrap: wrap;
+			}
+			.item-color {
+				display: flex;
+				align-items: center;
+				gap: 5px;
+				font-size: 0.78rem;
+				color: var(--mid);
+			}
+			.color-dot {
+				width: 10px;
+				height: 10px;
+				border-radius: 50%;
+				border: 1px solid rgba(0, 0, 0, 0.12);
+			}
+
+			.qty-control {
+				display: flex;
+				align-items: center;
+				gap: 8px;
+				margin-top: 10px;
+			}
+			.qty-btn {
+				width: 28px;
+				height: 28px;
+				border-radius: 8px;
+				border: 1.5px solid var(--border);
+				background: transparent;
+				cursor: pointer;
+				font-size: 1rem;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				color: var(--eerie);
+				transition: all 0.15s;
+			}
+			.qty-btn:hover {
+				border-color: var(--salmon);
+				color: var(--salmon);
+				background: var(--salmon-light);
+			}
+			.qty-val {
+				font-size: 0.9rem;
+				font-weight: 600;
+				min-width: 24px;
+				text-align: center;
+			}
+
+			.remove-btn {
+				background: none;
+				border: none;
+				cursor: pointer;
+				color: var(--muted);
+				font-size: 0.78rem;
+				display: flex;
+				align-items: center;
+				gap: 4px;
+				margin-top: 10px;
+				padding: 0;
+				transition: color 0.15s;
+			}
+			.remove-btn:hover {
+				color: #e74c3c;
+			}
+
+			.item-price-col {
+				text-align: right;
+				flex-shrink: 0;
+			}
+			.item-price {
+				font-size: 1.05rem;
+				font-weight: 700;
+				color: var(--eerie);
+			}
+			.item-original {
+				font-size: 0.8rem;
+				color: var(--muted);
+				text-decoration: line-through;
+				margin-top: 2px;
+			}
+			.item-savings {
+				font-size: 0.75rem;
+				color: var(--success);
+				font-weight: 600;
+				margin-top: 4px;
+			}
+
+			/* empty state */
+			.empty-cart {
+				padding: 60px 24px;
+				text-align: center;
+			}
+			.empty-cart .icon {
+				font-size: 3rem;
+				margin-bottom: 12px;
+			}
+			.empty-cart p {
+				color: var(--muted);
+				margin-bottom: 20px;
+			}
+			.shop-btn {
+				display: inline-block;
+				background: var(--salmon);
+				color: #fff;
+				padding: 10px 28px;
+				border-radius: 10px;
+				text-decoration: none;
+				font-weight: 600;
+				font-size: 0.9rem;
+				transition: opacity 0.2s;
+			}
+			.shop-btn:hover {
+				opacity: 0.88;
+			}
+
+			/* ─── COUPON ──────────────────────────────── */
+			.coupon-section {
+				padding: 20px 24px;
+				background: var(--white);
+				border-radius: 16px;
+				box-shadow: var(--shadow);
+			}
+			.coupon-row {
+				display: flex;
+				gap: 10px;
+			}
+			.coupon-input {
+				flex: 1;
+				border: 1.5px solid var(--border);
+				border-radius: 10px;
+				padding: 10px 14px;
+				font-family: inherit;
+				font-size: 0.9rem;
+				color: var(--eerie);
+				outline: none;
+				transition: border-color 0.2s;
+			}
+			.coupon-input:focus {
+				border-color: var(--salmon);
+			}
+			.coupon-input::placeholder {
+				color: var(--muted);
+			}
+			.apply-btn {
+				background: var(--eerie);
+				color: #fff;
+				border: none;
+				border-radius: 10px;
+				padding: 10px 20px;
+				font-family: inherit;
+				font-size: 0.88rem;
+				font-weight: 600;
+				cursor: pointer;
+				transition: background 0.2s;
+				white-space: nowrap;
+			}
+			.apply-btn:hover {
+				background: var(--salmon);
+			}
+			.coupon-hint {
+				font-size: 0.78rem;
+				color: var(--muted);
+				margin-top: 8px;
+			}
+			.coupon-success {
+				color: var(--success);
+				font-size: 0.82rem;
+				margin-top: 8px;
+				display: none;
+				font-weight: 600;
+			}
+
+			/* ─── ORDER SUMMARY ───────────────────────── */
+			.summary-card {
+				position: sticky;
+				top: 90px;
+			}
+
+			.summary-rows {
+				padding: 20px 24px;
+			}
+			.summary-row {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				padding: 10px 0;
+				font-size: 0.9rem;
+				color: var(--mid);
+			}
+			.summary-row + .summary-row {
+				border-top: 1px solid var(--border);
+			}
+			.summary-row .label {
+				display: flex;
+				align-items: center;
+				gap: 6px;
+			}
+			.summary-row .val {
+				font-weight: 600;
+				color: var(--eerie);
+			}
+			.summary-row.saving .val {
+				color: var(--success);
+			}
+			.summary-row.free .val {
+				color: var(--success);
+				font-weight: 700;
+			}
+
+			.summary-total {
+				margin: 0 24px;
+				padding: 18px 20px;
+				background: var(--eerie);
+				border-radius: 12px;
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				color: #fff;
+			}
+			.total-label {
+				font-size: 0.95rem;
+				font-weight: 500;
+				opacity: 0.8;
+			}
+			.total-val {
+				font-family: "Playfair Display", serif;
+				font-size: 1.5rem;
+				font-weight: 700;
+			}
+
+			.place-order-btn {
+				display: block;
+				margin: 20px 24px;
+				background: var(--salmon);
+				color: #fff;
+				border: none;
+				border-radius: 12px;
+				padding: 16px;
+				font-family: inherit;
+				font-size: 1rem;
+				font-weight: 700;
+				cursor: pointer;
+				text-align: center;
+				letter-spacing: 0.03em;
+				transition: all 0.2s;
+				position: relative;
+				overflow: hidden;
+			}
+			.place-order-btn::after {
+				content: "";
+				position: absolute;
+				inset: 0;
+				background: rgba(255, 255, 255, 0.15);
+				opacity: 0;
+				transition: opacity 0.2s;
+			}
+			.place-order-btn:hover {
+				transform: translateY(-1px);
+				box-shadow: 0 8px 24px rgba(249, 125, 110, 0.38);
+			}
+			.place-order-btn:hover::after {
+				opacity: 1;
+			}
+			.place-order-btn:active {
+				transform: translateY(0);
+			}
+
+			.secure-note {
+				padding: 0 24px 20px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				gap: 6px;
+				font-size: 0.78rem;
+				color: var(--muted);
+			}
+			.secure-note svg {
+				width: 14px;
+				height: 14px;
+			}
+
+			/* payment icons */
+			.payment-icons {
+				padding: 0 24px 20px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				gap: 8px;
+				flex-wrap: wrap;
+			}
+			.pay-icon {
+				background: var(--bg);
+				border: 1px solid var(--border);
+				border-radius: 6px;
+				padding: 5px 10px;
+				font-size: 0.72rem;
+				font-weight: 700;
+				color: var(--mid);
+				letter-spacing: 0.04em;
+			}
+
+			/* ─── SECTIONS LEFT ───────────────────────── */
+			.left-col {
+				display: flex;
+				flex-direction: column;
+				gap: 20px;
+			}
+
+			/* ─── ADDRESS SECTION ─────────────────────── */
+			.address-grid {
+				padding: 20px 24px;
+				display: grid;
+				grid-template-columns: 1fr 1fr;
+				gap: 14px;
+			}
+			.address-grid .full {
+				grid-column: 1 / -1;
+			}
+			.field-label {
+				font-size: 0.78rem;
+				font-weight: 600;
+				color: var(--mid);
+				margin-bottom: 5px;
+				text-transform: uppercase;
+				letter-spacing: 0.06em;
+			}
+			.field-input {
+				width: 100%;
+				border: 1.5px solid var(--border);
+				border-radius: 10px;
+				padding: 10px 14px;
+				font-family: inherit;
+				font-size: 0.9rem;
+				color: var(--eerie);
+				outline: none;
+				background: var(--white);
+				transition: border-color 0.2s;
+			}
+			.field-input:focus {
+				border-color: var(--salmon);
+			}
+			.field-input::placeholder {
+				color: var(--muted);
+			}
+
+			/* ─── PAYMENT ─────────────────────────────── */
+			.payment-options {
+				padding: 20px 24px;
+				display: flex;
+				flex-direction: column;
+				gap: 12px;
+			}
+			.payment-option {
+				border: 2px solid var(--border);
+				border-radius: 12px;
+				padding: 14px 18px;
+				display: flex;
+				align-items: center;
+				gap: 14px;
+				cursor: pointer;
+				transition: all 0.2s;
+			}
+			.payment-option.selected {
+				border-color: var(--salmon);
+				background: var(--salmon-light);
+			}
+			.payment-option input[type="radio"] {
+				accent-color: var(--salmon);
+				width: 18px;
+				height: 18px;
+				cursor: pointer;
+			}
+			.pay-label {
+				font-size: 0.9rem;
+				font-weight: 600;
+			}
+			.pay-sub {
+				font-size: 0.78rem;
+				color: var(--muted);
+				margin-top: 1px;
+			}
+			.pay-icon-badge {
+				margin-left: auto;
+				font-size: 1.2rem;
+			}
+
+			/* ─── TOAST ───────────────────────────────── */
+			#toast {
+				position: fixed;
+				bottom: 30px;
+				right: 30px;
+				background: var(--eerie);
+				color: #fff;
+				padding: 14px 22px;
+				border-radius: 12px;
+				font-size: 0.88rem;
+				font-weight: 500;
+				box-shadow: var(--shadow-lg);
+				transform: translateY(20px);
+				opacity: 0;
+				transition: all 0.3s;
+				z-index: 999;
+				pointer-events: none;
+			}
+			#toast.show {
+				transform: translateY(0);
+				opacity: 1;
+			}
+
+			/* ─── ANIMATIONS ──────────────────────────── */
+			@keyframes fadeUp {
+				from {
+					opacity: 0;
+					transform: translateY(14px);
+				}
+				to {
+					opacity: 1;
+					transform: translateY(0);
+				}
+			}
+			.card {
+				animation: fadeUp 0.4s ease both;
+			}
+			.card:nth-child(1) {
+				animation-delay: 0.05s;
+			}
+			.card:nth-child(2) {
+				animation-delay: 0.12s;
+			}
+			.card:nth-child(3) {
+				animation-delay: 0.19s;
+			}
+			.summary-card {
+				animation: fadeUp 0.4s 0.08s ease both;
+			}
+
+			/* ─── SECTION LABEL ───────────────────────── */
+			.section-label {
+				font-size: 0.78rem;
+				font-weight: 700;
+				text-transform: uppercase;
+				letter-spacing: 0.1em;
+				color: var(--salmon);
+				padding: 0 24px 0;
+				margin-bottom: -6px;
+			}
+
+			/* mobile responsive helpers */
+			@media (max-width: 520px) {
+				.cart-item {
+					grid-template-columns: 72px 1fr;
+				}
+				.item-price-col {
+					grid-column: 2;
+					text-align: left;
+				}
+				.address-grid {
+					grid-template-columns: 1fr;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<!-- HEADER -->
+		<header>
+			<div class="header-inner">
+				<a href="index.html" class="logo"
+					><span class="logo-icon1" style="color: var(--eerie-black)"
+						>Vastra</span
+					>&nbsp;<span class="logo-icon2" style="color: var(--salmon-pink)"
+						>Vahini</span
+					><span class="logo-text" style="color: var(--muted)">.</span></a
+				>
+				<div style="display: flex; align-items: center; gap: 20px">
+					<a
+						href="index.html"
+						style="
+							display: flex;
+							align-items: center;
+							gap: 6px;
+							font-size: 0.85rem;
+							color: var(--mid);
+							text-decoration: none;
+							font-weight: 500;
+							transition: color 0.2s;
+						"
+						onmouseover="this.style.color = 'var(--salmon)'"
+						onmouseout="this.style.color = 'var(--mid)'"
+					>
+						<svg
+							width="16"
+							height="16"
+							viewBox="0 0 24 24"
+							fill="none"
+							stroke="currentColor"
+							stroke-width="2.5"
+						>
+							<polyline points="15 18 9 12 15 6" />
+						</svg>
+						Continue Shopping
+					</a>
+					<div class="checkout-badge">
+						<svg
+							viewBox="0 0 24 24"
+							fill="none"
+							stroke="currentColor"
+							stroke-width="2.5"
+						>
+							<polyline points="20 6 9 17 4 12" />
+						</svg>
+						Secure Checkout
+					</div>
+				</div>
+			</div>
+		</header>
+
+		<!-- STEP INDICATOR -->
+		<!-- <div class="steps-bar">
+			<div class="steps-inner">
+				<div class="step done">
+					<div class="step-num">✓</div>
+					Cart
+				</div>
+				<div class="step-divider"></div>
+				<div class="step active">
+					<div class="step-num">2</div>
+					Details
+				</div>
+				<div class="step-divider"></div>
+				<div class="step">
+					<div class="step-num">3</div>
+					Payment
+				</div>
+				<div class="step-divider"></div>
+				<div class="step">
+					<div class="step-num">4</div>
+					Confirm
+				</div>
+			</div>
+		</div> -->
+
+		<!-- MAIN LAYOUT -->
+		<div class="checkout-layout">
+			<!-- LEFT COLUMN -->
+			<div class="left-col">
+				<!-- CART ITEMS -->
+				<div class="card">
+					<div class="card-header">
+						<span class="card-title">Your Cart</span>
+						<span class="item-count" id="item-count-badge">0 items</span>
+					</div>
+					<div id="cart-items-container">
+						<!-- Populated by JS -->
+					</div>
+				</div>
+
+				<!-- COUPON -->
+				<div class="coupon-section">
+					<div class="field-label">Promo / Coupon Code</div>
+					<div class="coupon-row">
+						<input
+							type="text"
+							id="coupon-input"
+							class="coupon-input"
+							placeholder="e.g. VASTRA20"
+						/>
+						<button class="apply-btn" onclick="applyCoupon()">Apply</button>
+					</div>
+					<div class="coupon-hint">
+						Try <b>VASTRA20</b> for 20% off your order!
+					</div>
+					<div class="coupon-success" id="coupon-success">
+						🎉 Coupon applied! 20% discount added.
+					</div>
+				</div>
+
+				<!-- SHIPPING ADDRESS -->
+				<div class="card">
+					<div class="card-header">
+						<span class="card-title">Shipping Address</span>
+					</div>
+					<div class="address-grid">
+						<div>
+							<div class="field-label">First Name</div>
+							<input type="text" class="field-input" placeholder="Arjun" />
+						</div>
+						<div>
+							<div class="field-label">Last Name</div>
+							<input type="text" class="field-input" placeholder="Sharma" />
+						</div>
+						<div class="full">
+							<div class="field-label">Street Address</div>
+							<input
+								type="text"
+								class="field-input"
+								placeholder="House no., Street, Colony"
+							/>
+						</div>
+						<div>
+							<div class="field-label">City</div>
+							<input type="text" class="field-input" placeholder="New Delhi" />
+						</div>
+						<div>
+							<div class="field-label">PIN Code</div>
+							<input
+								type="text"
+								class="field-input"
+								placeholder="110030"
+								maxlength="6"
+							/>
+						</div>
+						<div>
+							<div class="field-label">State</div>
+							<select class="field-input">
+								<option value="">Select state</option>
+								<option>Delhi</option>
+								<option>Maharashtra</option>
+								<option>Karnataka</option>
+								<option>Tamil Nadu</option>
+								<option>West Bengal</option>
+								<option>Uttar Pradesh</option>
+								<option>Rajasthan</option>
+							</select>
+						</div>
+						<div>
+							<div class="field-label">Phone Number</div>
+							<input
+								type="tel"
+								class="field-input"
+								placeholder="+91 98765 43210"
+							/>
+						</div>
+						<div class="full">
+							<div class="field-label">Email Address</div>
+							<input
+								type="email"
+								class="field-input"
+								placeholder="you@example.com"
+							/>
+						</div>
+					</div>
+				</div>
+
+				<!-- PAYMENT METHOD -->
+				<div class="card">
+					<div class="card-header">
+						<span class="card-title">Payment Method</span>
+					</div>
+					<div class="payment-options">
+						<!-- <label class="payment-option selected" onclick="selectPay(this)">
+							<input type="radio" name="pay" checked />
+							<div>
+								<div class="pay-label">Credit / Debit Card</div>
+								<div class="pay-sub">Visa, Mastercard, RuPay, Amex</div>
+							</div>
+							<span class="pay-icon-badge">💳</span>
+						</label> -->
+						<label class="payment-option selected" onclick="selectPay(this)">
+							<input type="radio" name="pay" />
+							<div>
+								<div class="pay-label">UPI</div>
+								<div class="pay-sub">GPay, PhonePe, Paytm, BHIM</div>
+							</div>
+							<span class="pay-icon-badge">📱</span>
+						</label>
+						<!-- <label class="payment-option" onclick="selectPay(this)">
+							<input type="radio" name="pay" />
+							<div>
+								<div class="pay-label">Net Banking</div>
+								<div class="pay-sub">All major banks supported</div>
+							</div>
+							<span class="pay-icon-badge">🏦</span>
+						</label>
+						<label class="payment-option" onclick="selectPay(this)">
+							<input type="radio" name="pay" />
+							<div>
+								<div class="pay-label">Cash on Delivery</div>
+								<div class="pay-sub">Pay when your order arrives</div>
+							</div>
+							<span class="pay-icon-badge">💵</span>
+						</label> -->
+					</div>
+				</div>
+			</div>
+			<!-- /left-col -->
+
+			<!-- RIGHT COLUMN: ORDER SUMMARY -->
+			<div class="summary-card card">
+				<div class="card-header">
+					<span class="card-title">Order Summary</span>
+				</div>
+
+				<div class="summary-rows">
+					<div class="summary-row">
+						<span class="label">Items (<span id="s-count">0</span>)</span>
+						<span class="val" id="s-subtotal">₹0</span>
+					</div>
+					<div class="summary-row saving">
+						<span class="label">
+							<svg
+								width="14"
+								height="14"
+								viewBox="0 0 24 24"
+								fill="none"
+								stroke="currentColor"
+								stroke-width="2"
+							>
+								<path
+									d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"
+								/>
+								<line x1="7" y1="7" x2="7.01" y2="7" />
+							</svg>
+							Discount Savings
+						</span>
+						<span class="val" id="s-savings">−₹0</span>
+					</div>
+					<div class="summary-row" id="coupon-row" style="display: none">
+						<span class="label">Coupon (VASTRA20)</span>
+						<span class="val" style="color: var(--success)" id="s-coupon"
+							>−₹0</span
+						>
+					</div>
+					<div class="summary-row free">
+						<span class="label">
+							<svg
+								width="14"
+								height="14"
+								viewBox="0 0 24 24"
+								fill="none"
+								stroke="currentColor"
+								stroke-width="2"
+							>
+								<rect x="1" y="3" width="15" height="13" />
+								<polygon points="16 8 20 8 23 11 23 16 16 16 16 8" />
+								<circle cx="5.5" cy="18.5" r="2.5" />
+								<circle cx="18.5" cy="18.5" r="2.5" />
+							</svg>
+							Shipping
+						</span>
+						<span class="val">FREE</span>
+					</div>
+					<div class="summary-row">
+						<span class="label">GST (18%)</span>
+						<span class="val" id="s-tax">₹0</span>
+					</div>
+				</div>
+
+				<div class="summary-total">
+					<span class="total-label">Order Total</span>
+					<span class="total-val" id="s-total">₹0</span>
+				</div>
+
+				<button class="place-order-btn" onclick="placeOrder()">
+					Place Order →
+				</button>
+
+				<div class="secure-note">
+					<svg
+						viewBox="0 0 24 24"
+						fill="none"
+						stroke="currentColor"
+						stroke-width="2"
+					>
+						<rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+						<path d="M7 11V7a5 5 0 0 1 10 0v4" />
+					</svg>
+					Secured by SSL encryption
+				</div>
+
+				<div class="payment-icons">
+					<!-- <div class="pay-icon">VISA</div>
+					<div class="pay-icon">MASTER</div> -->
+					<div class="pay-icon">UPI</div>
+					<!-- <div class="pay-icon">RUPAY</div>
+					<div class="pay-icon">COD</div> -->
+				</div>
+			</div>
+		</div>
+		<!-- /checkout-layout -->
+
+		<!-- TOAST -->
+		<div id="toast"></div>
+
+		<script>
+			/* ── FULL product catalogue — mirrors data.js exactly ── */
+			const products = [
+				{
+					id: 1,
+					name: "Running Shoes",
+					category: "Sports & Fitness",
+					subcategory: "Footwear",
+					price: { original: 2999, discounted: 1999 },
+					images: { thumbnail: "images/products/sports-1.jpg" },
+				},
+				{
+					id: 2,
+					name: "Training Shoes",
+					category: "Sports & Fitness",
+					subcategory: "Footwear",
+					price: { original: 2899, discounted: 2099 },
+					images: { thumbnail: "images/products/sports-3.jpg" },
+				},
+				{
+					id: 3,
+					name: "Cricket Kit",
+					category: "Sports & Fitness",
+					subcategory: "Cricket Equipment",
+					price: { original: 8999, discounted: 7499 },
+					images: { thumbnail: "images/products/cricketkit.jpg" },
+				},
+				{
+					id: 4,
+					name: "Cricket Bat",
+					category: "Sports & Fitness",
+					subcategory: "Cricket Equipment",
+					price: { original: 5999, discounted: 4599 },
+					images: { thumbnail: "images/products/cricketbat.jpg" },
+				},
+				{
+					id: 5,
+					name: "Cricket Ball",
+					category: "Sports & Fitness",
+					subcategory: "Cricket Equipment",
+					price: { original: 799, discounted: 599 },
+					images: { thumbnail: "images/products/cricketball.jpg" },
+				},
+				{
+					id: 6,
+					name: "Basketball",
+					category: "Sports & Fitness",
+					subcategory: "Sports Balls",
+					price: { original: 1499, discounted: 1099 },
+					images: { thumbnail: "images/products/basketball.jpg" },
+				},
+				{
+					id: 7,
+					name: "Football",
+					category: "Sports & Fitness",
+					subcategory: "Sports Balls",
+					price: { original: 1599, discounted: 1199 },
+					images: { thumbnail: "images/products/football.jpg" },
+				},
+				{
+					id: 8,
+					name: "Cricket Stumps",
+					category: "Sports & Fitness",
+					subcategory: "Cricket Equipment",
+					price: { original: 1999, discounted: 1499 },
+					images: { thumbnail: "images/products/stumps.jpg" },
+				},
+				{
+					id: 9,
+					name: "Men's Jacket",
+					category: "Fashion",
+					subcategory: "Outerwear",
+					price: { original: 3999, discounted: 2999 },
+					images: { thumbnail: "images/products/jacket-1.jpg" },
+				},
+				{
+					id: 10,
+					name: "Women's Jacket",
+					category: "Fashion",
+					subcategory: "Outerwear",
+					price: { original: 4299, discounted: 3299 },
+					images: { thumbnail: "images/products/jacket-5.jpg" },
+				},
+				{
+					id: 11,
+					name: "Kids Wear Set",
+					category: "Fashion",
+					subcategory: "Kids Clothing",
+					price: { original: 1999, discounted: 1499 },
+					images: { thumbnail: "images/products/Kids Wear Set.jpg" },
+				},
+				{
+					id: 12,
+					name: "Men's Jeans",
+					category: "Fashion",
+					subcategory: "Men Clothing",
+					price: { original: 2499, discounted: 1799 },
+					images: { thumbnail: "images/products/mens-jeans.jpg" },
+				},
+				{
+					id: 13,
+					name: "Women's Jeans",
+					category: "Fashion",
+					subcategory: "Women Clothing",
+					price: { original: 2599, discounted: 1899 },
+					images: { thumbnail: "images/products/womens-jeans.jpg" },
+				},
+				{
+					id: 14,
+					name: "Men's Shirt",
+					category: "Fashion",
+					subcategory: "Men Clothing",
+					price: { original: 1999, discounted: 1399 },
+					images: { thumbnail: "images/products/mens-shirt.jpg" },
+				},
+				{
+					id: 15,
+					name: "Women's Suit",
+					category: "Fashion",
+					subcategory: "Women Clothing",
+					price: { original: 4999, discounted: 3699 },
+					images: { thumbnail: "images/products/womens-suit.jpg" },
+				},
+				{
+					id: 17,
+					name: "Wall Clock",
+					category: "Home & Living",
+					subcategory: "Home Decor",
+					price: { original: 1299, discounted: 899 },
+					images: { thumbnail: "images/products/Wall Clock.jpg" },
+				},
+				{
+					id: 18,
+					name: "Wall Mirror",
+					category: "Home & Living",
+					subcategory: "Home Decor",
+					price: { original: 3499, discounted: 2699 },
+					images: { thumbnail: "images/products/Wall Mirror.jpg" },
+				},
+				{
+					id: 19,
+					name: "Leather Belt",
+					category: "Accessories",
+					subcategory: "Belts",
+					price: { original: 1299, discounted: 899 },
+					images: { thumbnail: "images/products/Leather Belt.jpg" },
+				},
+				{
+					id: 20,
+					name: "Men's Wallet",
+					category: "Accessories",
+					subcategory: "Wallets",
+					price: { original: 1499, discounted: 1099 },
+					images: { thumbnail: "images/products/Men-Wallet.jpg" },
+				},
+				{
+					id: 21,
+					name: "Hand Bag",
+					category: "Accessories",
+					subcategory: "Bags",
+					price: { original: 2999, discounted: 2299 },
+					images: { thumbnail: "images/products/Hand Bag.jpg" },
+				},
+				{
+					id: 22,
+					name: "Travel Backpack",
+					category: "Accessories",
+					subcategory: "Bags",
+					price: { original: 3499, discounted: 2699 },
+					images: { thumbnail: "images/products/Travel Backpack.jpg" },
+				},
+				{
+					id: 23,
+					name: "Earrings",
+					category: "Accessories",
+					subcategory: "Jewelry",
+					price: { original: 999, discounted: 699 },
+					images: { thumbnail: "images/products/Earrings.jpg" },
+				},
+				{
+					id: 24,
+					name: "Bracelets",
+					category: "Accessories",
+					subcategory: "Jewelry",
+					price: { original: 899, discounted: 599 },
+					images: { thumbnail: "images/products/Bracelets.jpg" },
+				},
+				{
+					id: 25,
+					name: "Kids Sports Shoes",
+					category: "Sports & Fitness",
+					subcategory: "Footwear",
+					price: { original: 1999, discounted: 1499 },
+					images: { thumbnail: "images/products/Kids Sports Shoes.jpg" },
+				},
+				{
+					id: 26,
+					name: "Men's Sports Shoes",
+					category: "Sports & Fitness",
+					subcategory: "Footwear",
+					price: { original: 2799, discounted: 2199 },
+					images: { thumbnail: "images/products/Men Sports Shoes.jpg" },
+				},
+				{
+					id: 27,
+					name: "Women's Running Shoes",
+					category: "Sports & Fitness",
+					subcategory: "Footwear",
+					price: { original: 2899, discounted: 2299 },
+					images: { thumbnail: "images/products/Women Running Shoes.jpg" },
+				},
+				{
+					id: 28,
+					name: "Professional Cricket Bat",
+					category: "Sports & Fitness",
+					subcategory: "Cricket Equipment",
+					price: { original: 7999, discounted: 6499 },
+					images: { thumbnail: "images/products/Professional Cricket Bat.jpg" },
+				},
+				{
+					id: 29,
+					name: "Leather Cricket Ball",
+					category: "Sports & Fitness",
+					subcategory: "Cricket Equipment",
+					price: { original: 999, discounted: 749 },
+					images: { thumbnail: "images/products/Leather Cricket Ball.jpg" },
+				},
+				{
+					id: 30,
+					name: "Match Football",
+					category: "Sports & Fitness",
+					subcategory: "Sports Balls",
+					price: { original: 1799, discounted: 1399 },
+					images: { thumbnail: "images/products/Match Football.jpg" },
+				},
+				{
+					id: 31,
+					name: "Indoor Basketball",
+					category: "Sports & Fitness",
+					subcategory: "Sports Balls",
+					price: { original: 1599, discounted: 1199 },
+					images: { thumbnail: "images/products/Indoor Basketball.jpg" },
+				},
+				{
+					id: 32,
+					name: "Men's Winter Jacket",
+					category: "Fashion",
+					subcategory: "Outerwear",
+					price: { original: 4599, discounted: 3499 },
+					images: { thumbnail: "images/products/Men Winter Jacket.jpg" },
+				},
+				{
+					id: 33,
+					name: "Women's Long Coat",
+					category: "Fashion",
+					subcategory: "Outerwear",
+					price: { original: 4899, discounted: 3799 },
+					images: { thumbnail: "images/products/Women Long Coat.jpg" },
+				},
+				{
+					id: 34,
+					name: "Kids Party Wear",
+					category: "Fashion",
+					subcategory: "Kids Clothing",
+					price: { original: 2299, discounted: 1699 },
+					images: { thumbnail: "images/products/Kids Party Wear.jpg" },
+				},
+				{
+					id: 37,
+					name: "Men's Formal Shirt",
+					category: "Fashion",
+					subcategory: "Men Clothing",
+					price: { original: 2199, discounted: 1599 },
+					images: { thumbnail: "images/products/Men Formal Shirt.jpg" },
+				},
+				{
+					id: 39,
+					name: "Decorative Wall Clock",
+					category: "Home & Living",
+					subcategory: "Home Decor",
+					price: { original: 1799, discounted: 1299 },
+					images: { thumbnail: "images/products/Decorative Wall Clock.jpg" },
+				},
+				{
+					id: 40,
+					name: "Round Wall Mirror",
+					category: "Home & Living",
+					subcategory: "Home Decor",
+					price: { original: 3899, discounted: 2999 },
+					images: { thumbnail: "images/products/Round Wall Mirror.jpg" },
+				},
+				{
+					id: 41,
+					name: "Men's Leather Belt",
+					category: "Accessories",
+					subcategory: "Belts",
+					price: { original: 1399, discounted: 999 },
+					images: { thumbnail: "images/products/Men Leather Belt.jpg" },
+				},
+				{
+					id: 42,
+					name: "Slim Wallet",
+					category: "Accessories",
+					subcategory: "Wallets",
+					price: { original: 1599, discounted: 1199 },
+					images: { thumbnail: "images/products/Slim Wallet.jpg" },
+				},
+				{
+					id: 43,
+					name: "Office Handbag",
+					category: "Accessories",
+					subcategory: "Bags",
+					price: { original: 3299, discounted: 2499 },
+					images: { thumbnail: "images/products/Office Handbag.jpg" },
+				},
+				{
+					id: 44,
+					name: "Casual Backpack",
+					category: "Accessories",
+					subcategory: "Bags",
+					price: { original: 2999, discounted: 2299 },
+					images: { thumbnail: "images/products/Casual Backpack.jpg" },
+				},
+				{
+					id: 45,
+					name: "Stud Earrings",
+					category: "Accessories",
+					subcategory: "Jewelry",
+					price: { original: 1099, discounted: 799 },
+					images: { thumbnail: "images/products/Stud Earrings.jpg" },
+				},
+				{
+					id: 46,
+					name: "Charm Bracelet",
+					category: "Accessories",
+					subcategory: "Jewelry",
+					price: { original: 1199, discounted: 899 },
+					images: { thumbnail: "images/products/Charm Bracelet.jpg" },
+				},
+				{
+					id: 47,
+					name: "Kids Sneakers",
+					category: "Sports & Fitness",
+					subcategory: "Footwear",
+					price: { original: 2199, discounted: 1699 },
+					images: { thumbnail: "images/products/Kids Sneakers.jpg" },
+				},
+				{
+					id: 48,
+					name: "Cricket Practice Stumps",
+					category: "Sports & Fitness",
+					subcategory: "Cricket Equipment",
+					price: { original: 2299, discounted: 1799 },
+					images: { thumbnail: "images/products/Cricket Practice Stumps.jpg" },
+				},
+				{
+					id: 49,
+					name: "Men's Casual Shirt",
+					category: "Fashion",
+					subcategory: "Men Clothing",
+					price: { original: 2099, discounted: 1499 },
+					images: { thumbnail: "images/products/Men Casual Shirt.jpg" },
+				},
+				{
+					id: 51,
+					name: "Old Spice Swagger 2-in-1 Shampoo",
+					category: "Fashion",
+					subcategory: "Hair Care",
+					price: { original: 18000, discounted: 13500 },
+					images: { thumbnail: "images/products/shampoo.jpg" },
+				},
+				{
+					id: 52,
+					name: "Lavanya Chandbali Gold Earring",
+					category: "Accessories",
+					subcategory: "Jewelry",
+					price: { original: 2000, discounted: 1990 },
+					images: { thumbnail: "images/products/jewellery-1.jpg" },
+				},
+			];
+
+			const COLORS_MAP = {
+				1: "Black",
+				2: "Pink",
+				3: "Blue",
+				4: "Wood",
+				5: "Red",
+				6: "Orange",
+				7: "White",
+				8: "Brown",
+				9: "Black",
+				10: "Maroon",
+				11: "Blue",
+				12: "Blue",
+				13: "Black",
+				14: "White",
+				15: "Green",
+				17: "Black",
+				18: "Silver",
+				19: "Brown",
+				20: "Black",
+				21: "Pink",
+				22: "Grey",
+				23: "Gold",
+				24: "Silver",
+				25: "Blue",
+				26: "Grey",
+				27: "Purple",
+				28: "Wood",
+				29: "Red",
+				30: "White",
+				31: "Orange",
+				32: "Navy",
+				33: "Beige",
+				34: "Red",
+				37: "Blue",
+				39: "Gold",
+				40: "Black",
+				41: "Black",
+				42: "Brown",
+				43: "Tan",
+				44: "Blue",
+				45: "Silver",
+				46: "Gold",
+				47: "Red",
+				48: "Yellow",
+				49: "Green",
+				51: "Blue",
+				52: "Gold",
+			};
+			const COLOR_HEX = {
+				Black: "#222",
+				Red: "#e74c3c",
+				Blue: "#3498db",
+				Pink: "#ff69b4",
+				White: "#f0f0f0",
+				Wood: "#8B5E3C",
+				Orange: "#e67e22",
+				Maroon: "#800000",
+				Brown: "#8B4513",
+				Gold: "#FFD700",
+				Silver: "#C0C0C0",
+				Green: "#27ae60",
+				Grey: "#95a5a6",
+				Purple: "#9b59b6",
+				Navy: "#001f5b",
+				Beige: "#f5f0e8",
+				Yellow: "#f1c40f",
+				Tan: "#D2B48C",
+			};
+			const EMOJI_MAP = {
+				Footwear: "👟",
+				"Cricket Equipment": "🏏",
+				"Sports Balls": "⚽",
+				Outerwear: "🧥",
+				"Kids Clothing": "🧸",
+				"Men Clothing": "👔",
+				"Women Clothing": "👗",
+				"Home Decor": "🏠",
+				Belts: "🔗",
+				Wallets: "👛",
+				Bags: "👜",
+				Jewelry: "💎",
+			};
+
+			let cartDiscount = false;
+
+			/* ── load & render cart ── */
+			function getCart() {
+				return JSON.parse(localStorage.getItem("cart")) || [];
+			}
+
+			function saveCart(cart) {
+				localStorage.setItem("cart", JSON.stringify(cart));
+			}
+
+			/* quantities stored separately */
+			function getQty() {
+				return JSON.parse(localStorage.getItem("cart_qty")) || {};
+			}
+			function saveQty(qty) {
+				localStorage.setItem("cart_qty", JSON.stringify(qty));
+			}
+
+			function renderCart() {
+				const cartIds = getCart();
+				const qty = getQty();
+				const container = document.getElementById("cart-items-container");
+
+				if (cartIds.length === 0) {
+					container.innerHTML = `
+        <div class="empty-cart">
+          <div class="icon">🛒</div>
+          <p>Your cart is empty. Add some products first!</p>
+          <a href="index.html" class="shop-btn">Continue Shopping</a>
+        </div>`;
+					updateSummary([], qty);
+					return;
+				}
+
+				const cartProducts = cartIds
+					.map((id) => products.find((p) => p.id === parseInt(id)))
+					.filter(Boolean);
+
+				document.getElementById("item-count-badge").textContent =
+					`${cartProducts.length} item${cartProducts.length !== 1 ? "s" : ""}`;
+
+				container.innerHTML = cartProducts
+					.map((p) => {
+						const q = qty[p.id] || 1;
+						const colorName = COLORS_MAP[p.id] || "Black";
+						const colorHex = COLOR_HEX[colorName] || "#333";
+						const emoji = EMOJI_MAP[p.subcategory] || "🛍";
+						const savings = (p.price.original - p.price.discounted) * q;
+						const pct = Math.round(
+							(1 - p.price.discounted / p.price.original) * 100,
+						);
+						return `
+        <div class="cart-item" id="item-${p.id}">
+          <div class="item-img-wrap">
+            <img src="assets/${p.images.thumbnail}" alt="${p.name}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <div class="item-img-placeholder" style="display:none">${emoji}</div>
+          </div>
+          <div class="item-info">
+            <div class="item-category">${p.subcategory}</div>
+            <div class="item-name" title="${p.name}">${p.name}</div>
+            <div class="item-meta">
+              <span class="item-color">
+                <span class="color-dot" style="background:${colorHex}"></span>
+                ${colorName}
+              </span>
+              ${pct > 0 ? `<span style="font-size:0.73rem;background:var(--salmon-light);color:var(--salmon);padding:2px 7px;border-radius:20px;font-weight:700;">${pct}% off</span>` : ""}
+            </div>
+            <div class="qty-control">
+              <button class="qty-btn" onclick="changeQty(${p.id}, -1)">−</button>
+              <span class="qty-val" id="qty-${p.id}">${q}</span>
+              <button class="qty-btn" onclick="changeQty(${p.id}, +1)">+</button>
+            </div>
+            <button class="remove-btn" onclick="removeItem(${p.id})">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14H6L5 6"/><path d="M10 11v6M14 11v6"/><path d="M9 6V4h6v2"/></svg>
+              Remove
+            </button>
+          </div>
+          <div class="item-price-col">
+            <div class="item-price">₹${(p.price.discounted * q).toLocaleString("en-IN")}</div>
+            ${p.price.original !== p.price.discounted ? `<div class="item-original">₹${(p.price.original * q).toLocaleString("en-IN")}</div>` : ""}
+            ${savings > 0 ? `<div class="item-savings">Save ₹${savings.toLocaleString("en-IN")}</div>` : ""}
+          </div>
+        </div>`;
+					})
+					.join("");
+
+				updateSummary(cartProducts, qty);
+			}
+
+			function changeQty(id, delta) {
+				const qty = getQty();
+				qty[id] = Math.max(1, (qty[id] || 1) + delta);
+				saveQty(qty);
+				renderCart();
+			}
+
+			function removeItem(id) {
+				let cart = getCart();
+				cart = cart.filter((cid) => parseInt(cid) !== id);
+				saveCart(cart);
+				const qty = getQty();
+				delete qty[id];
+				saveQty(qty);
+				showToast("Item removed from cart");
+				renderCart();
+			}
+
+			function updateSummary(cartProducts, qty) {
+				const count = cartProducts.length;
+				let subtotalOrig = 0,
+					subtotalDisc = 0;
+				cartProducts.forEach((p) => {
+					const q = qty[p.id] || 1;
+					subtotalOrig += p.price.original * q;
+					subtotalDisc += p.price.discounted * q;
+				});
+				const savings = subtotalOrig - subtotalDisc;
+				let couponAmt = 0;
+				if (cartDiscount) {
+					couponAmt = Math.round(subtotalDisc * 0.2);
+				}
+				const afterCoupon = subtotalDisc - couponAmt;
+				const tax = Math.round(afterCoupon * 0.18);
+				const total = afterCoupon + tax;
+
+				document.getElementById("s-count").textContent = count;
+				document.getElementById("s-subtotal").textContent =
+					`₹${subtotalOrig.toLocaleString("en-IN")}`;
+				document.getElementById("s-savings").textContent =
+					`−₹${savings.toLocaleString("en-IN")}`;
+				document.getElementById("s-tax").textContent =
+					`₹${tax.toLocaleString("en-IN")}`;
+				document.getElementById("s-total").textContent =
+					`₹${total.toLocaleString("en-IN")}`;
+
+				const couponRow = document.getElementById("coupon-row");
+				if (cartDiscount) {
+					couponRow.style.display = "flex";
+					document.getElementById("s-coupon").textContent =
+						`−₹${couponAmt.toLocaleString("en-IN")}`;
+				} else {
+					couponRow.style.display = "none";
+				}
+			}
+
+			function applyCoupon() {
+				const code = document
+					.getElementById("coupon-input")
+					.value.trim()
+					.toUpperCase();
+				if (code === "VASTRA20") {
+					cartDiscount = true;
+					document.getElementById("coupon-success").style.display = "block";
+					document.getElementById("coupon-input").disabled = true;
+					showToast("Coupon applied! 20% discount added 🎉");
+					renderCart();
+				} else {
+					showToast("Invalid coupon code. Try VASTRA20!");
+				}
+			}
+
+			function selectPay(el) {
+				document
+					.querySelectorAll(".payment-option")
+					.forEach((o) => o.classList.remove("selected"));
+				el.classList.add("selected");
+				el.querySelector('input[type="radio"]').checked = true;
+			}
+
+			function placeOrder() {
+				const cart = getCart();
+				if (cart.length === 0) {
+					showToast("Your cart is empty!");
+					return;
+				}
+				openPaymentModal();
+			}
+
+			function showToast(msg) {
+				const t = document.getElementById("toast");
+				t.textContent = msg;
+				t.classList.add("show");
+				setTimeout(() => t.classList.remove("show"), 3500);
+			}
+
+			/* init */
+			renderCart();
+		</script>
+
+		<!-- ═══════════════════════════════════════════════
+     PAYMENT MODAL
+═══════════════════════════════════════════════ -->
+		<style>
+			/* ── overlay ── */
+			#pay-modal-overlay {
+				position: fixed;
+				inset: 0;
+				background: rgba(15, 15, 20, 0.72);
+				backdrop-filter: blur(6px);
+				-webkit-backdrop-filter: blur(6px);
+				z-index: 2000;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				padding: 16px;
+				opacity: 0;
+				pointer-events: none;
+				transition: opacity 0.3s ease;
+			}
+			#pay-modal-overlay.open {
+				opacity: 1;
+				pointer-events: all;
+			}
+
+			/* ── modal box ── */
+			#pay-modal {
+				background: #fff;
+				border-radius: 24px;
+				width: 100%;
+				max-width: 440px;
+				box-shadow: 0 32px 80px rgba(0, 0, 0, 0.28);
+				overflow: hidden;
+				transform: translateY(28px) scale(0.97);
+				transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+				position: relative;
+			}
+			#pay-modal-overlay.open #pay-modal {
+				transform: translateY(0) scale(1);
+			}
+
+			/* ── modal header ── */
+			.pm-header {
+				background: linear-gradient(135deg, #1c1c1e 0%, #2d2d35 100%);
+				padding: 24px 24px 20px;
+				position: relative;
+				text-align: center;
+			}
+			.pm-close {
+				position: absolute;
+				top: 16px;
+				right: 16px;
+				width: 32px;
+				height: 32px;
+				border-radius: 50%;
+				border: none;
+				background: rgba(255, 255, 255, 0.12);
+				color: #fff;
+				font-size: 1.1rem;
+				line-height: 1;
+				cursor: pointer;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				transition: background 0.2s;
+			}
+			.pm-close:hover {
+				background: rgba(255, 255, 255, 0.22);
+			}
+			.pm-brand {
+				font-family: "DM Sans", sans-serif;
+				font-size: 0.78rem;
+				font-weight: 600;
+				color: rgba(255, 255, 255, 0.5);
+				text-transform: uppercase;
+				letter-spacing: 0.12em;
+				margin-bottom: 4px;
+			}
+			.pm-title {
+				font-family: "Playfair Display", serif;
+				font-size: 1.25rem;
+				font-weight: 600;
+				color: #fff;
+				margin-bottom: 12px;
+			}
+			.pm-amount-pill {
+				display: inline-flex;
+				align-items: baseline;
+				gap: 4px;
+				background: rgba(249, 125, 110, 0.18);
+				border: 1px solid rgba(249, 125, 110, 0.4);
+				border-radius: 40px;
+				padding: 6px 20px;
+			}
+			.pm-amount-currency {
+				font-size: 0.9rem;
+				color: #f97d6e;
+				font-weight: 600;
+			}
+			.pm-amount-val {
+				font-family: "Playfair Display", serif;
+				font-size: 1.6rem;
+				font-weight: 700;
+				color: #fff;
+			}
+
+			/* ── tabs ── */
+			.pm-tabs {
+				display: flex;
+				border-bottom: 2px solid #f0f0f5;
+				background: #fafafa;
+			}
+			.pm-tab {
+				flex: 1;
+				padding: 13px 8px;
+				font-family: "DM Sans", sans-serif;
+				font-size: 0.82rem;
+				font-weight: 600;
+				color: #9a9aaa;
+				background: none;
+				border: none;
+				cursor: pointer;
+				border-bottom: 3px solid transparent;
+				margin-bottom: -2px;
+				transition: all 0.2s;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				gap: 6px;
+			}
+			.pm-tab.active {
+				color: #f97d6e;
+				border-bottom-color: #f97d6e;
+				background: #fff;
+			}
+			.pm-tab:hover:not(.active) {
+				color: #4a4a52;
+				background: #f5f5f8;
+			}
+
+			/* ── tab panels ── */
+			.pm-panel {
+				display: none;
+				padding: 24px;
+			}
+			.pm-panel.active {
+				display: block;
+			}
+
+			/* ── UPI QR panel ── */
+			.qr-wrap {
+				text-align: center;
+			}
+			.qr-instruction {
+				font-size: 0.82rem;
+				color: #6b6b7a;
+				margin-bottom: 16px;
+				line-height: 1.5;
+			}
+			.qr-box {
+				display: inline-block;
+				background: #fff;
+				border: 2px solid #e8e8f0;
+				border-radius: 16px;
+				padding: 14px;
+				box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+				position: relative;
+				margin-bottom: 16px;
+			}
+			.qr-box canvas {
+				display: block;
+				border-radius: 8px;
+			}
+			.qr-logo {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+				width: 40px;
+				height: 40px;
+				background: #fff;
+				border-radius: 8px;
+				border: 2px solid #e8e8f0;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				font-size: 1.2rem;
+			}
+			.upi-apps {
+				display: flex;
+				justify-content: center;
+				gap: 12px;
+				margin-bottom: 16px;
+			}
+			.upi-app-btn {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				gap: 4px;
+				background: none;
+				border: 1.5px solid #e8e8f0;
+				border-radius: 12px;
+				padding: 8px 12px;
+				cursor: pointer;
+				font-size: 0.72rem;
+				font-weight: 600;
+				color: #4a4a52;
+				transition: all 0.2s;
+				text-decoration: none;
+			}
+			.upi-app-btn:hover {
+				border-color: #f97d6e;
+				color: #f97d6e;
+				background: #fff5f4;
+			}
+			.upi-app-btn span {
+				font-size: 1.4rem;
+			}
+
+			/* UPI ID copy row */
+			.upi-id-row {
+				display: flex;
+				align-items: center;
+				gap: 8px;
+				background: #f6f6f9;
+				border: 1.5px solid #e8e8f0;
+				border-radius: 10px;
+				padding: 10px 14px;
+				margin-bottom: 20px;
+			}
+			.upi-id-label {
+				font-size: 0.75rem;
+				color: #9a9aaa;
+				font-weight: 600;
+				flex-shrink: 0;
+			}
+			.upi-id-val {
+				flex: 1;
+				font-size: 0.85rem;
+				font-weight: 700;
+				color: #1c1c1e;
+				font-family: monospace;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				white-space: nowrap;
+			}
+			.copy-btn {
+				background: none;
+				border: none;
+				cursor: pointer;
+				color: #9a9aaa;
+				padding: 2px 4px;
+				border-radius: 6px;
+				transition: all 0.15s;
+				display: flex;
+				align-items: center;
+				flex-shrink: 0;
+			}
+			.copy-btn:hover {
+				color: #f97d6e;
+				background: #fff0ee;
+			}
+			.copy-btn svg {
+				width: 16px;
+				height: 16px;
+			}
+
+			/* ── Card panel ── */
+			.card-fields {
+				display: flex;
+				flex-direction: column;
+				gap: 14px;
+			}
+			.cf-row {
+				display: grid;
+				grid-template-columns: 1fr 1fr;
+				gap: 12px;
+			}
+			.cf-group {
+				display: flex;
+				flex-direction: column;
+				gap: 5px;
+			}
+			.cf-label {
+				font-size: 0.75rem;
+				font-weight: 700;
+				color: #6b6b7a;
+				text-transform: uppercase;
+				letter-spacing: 0.07em;
+			}
+			.cf-input {
+				border: 1.5px solid #e8e8f0;
+				border-radius: 10px;
+				padding: 11px 14px;
+				font-family: "DM Sans", sans-serif;
+				font-size: 0.9rem;
+				color: #1c1c1e;
+				outline: none;
+				transition: border-color 0.2s;
+				background: #fff;
+			}
+			.cf-input:focus {
+				border-color: #f97d6e;
+			}
+			.cf-input::placeholder {
+				color: #c0c0cc;
+			}
+			.card-brands {
+				display: flex;
+				gap: 8px;
+				margin-top: 2px;
+			}
+			.card-brand {
+				background: #f6f6f9;
+				border: 1px solid #e8e8f0;
+				border-radius: 6px;
+				padding: 3px 8px;
+				font-size: 0.7rem;
+				font-weight: 800;
+				color: #4a4a52;
+				letter-spacing: 0.04em;
+			}
+
+			/* ── Net Banking panel ── */
+			.bank-grid {
+				display: grid;
+				grid-template-columns: repeat(3, 1fr);
+				gap: 10px;
+				margin-bottom: 16px;
+			}
+			.bank-btn {
+				border: 1.5px solid #e8e8f0;
+				border-radius: 12px;
+				padding: 12px 8px;
+				background: #fff;
+				cursor: pointer;
+				text-align: center;
+				font-size: 0.75rem;
+				font-weight: 600;
+				color: #4a4a52;
+				transition: all 0.18s;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				gap: 6px;
+			}
+			.bank-btn span {
+				font-size: 1.5rem;
+			}
+			.bank-btn:hover,
+			.bank-btn.selected {
+				border-color: #f97d6e;
+				color: #f97d6e;
+				background: #fff5f4;
+			}
+			.bank-select {
+				width: 100%;
+				border: 1.5px solid #e8e8f0;
+				border-radius: 10px;
+				padding: 11px 14px;
+				font-family: "DM Sans", sans-serif;
+				font-size: 0.88rem;
+				color: #1c1c1e;
+				outline: none;
+				transition: border-color 0.2s;
+				background: #fff;
+				margin-bottom: 16px;
+			}
+			.bank-select:focus {
+				border-color: #f97d6e;
+			}
+
+			/* ── COD panel ── */
+			.cod-wrap {
+				text-align: center;
+				padding: 8px 0;
+			}
+			.cod-icon {
+				font-size: 3rem;
+				margin-bottom: 12px;
+			}
+			.cod-title {
+				font-family: "Playfair Display", serif;
+				font-size: 1.1rem;
+				font-weight: 600;
+				color: #1c1c1e;
+				margin-bottom: 8px;
+			}
+			.cod-desc {
+				font-size: 0.85rem;
+				color: #6b6b7a;
+				line-height: 1.6;
+				margin-bottom: 16px;
+			}
+			.cod-note {
+				background: #fff8e1;
+				border: 1px solid #ffe082;
+				border-radius: 10px;
+				padding: 10px 14px;
+				font-size: 0.8rem;
+				color: #7a6000;
+				font-weight: 500;
+				text-align: left;
+			}
+
+			/* ── Confirm / pay button ── */
+			.pm-pay-btn {
+				display: block;
+				width: 100%;
+				background: linear-gradient(135deg, #f97d6e, #e8604f);
+				color: #fff;
+				border: none;
+				border-radius: 14px;
+				padding: 15px;
+				font-family: "DM Sans", sans-serif;
+				font-size: 1rem;
+				font-weight: 700;
+				cursor: pointer;
+				margin-top: 4px;
+				transition: all 0.2s;
+				box-shadow: 0 6px 20px rgba(249, 125, 110, 0.35);
+				position: relative;
+				overflow: hidden;
+			}
+			.pm-pay-btn:hover {
+				transform: translateY(-1px);
+				box-shadow: 0 10px 28px rgba(249, 125, 110, 0.45);
+			}
+			.pm-pay-btn:active {
+				transform: translateY(0);
+			}
+			.pm-pay-btn.loading {
+				pointer-events: none;
+				opacity: 0.8;
+			}
+			.pm-pay-btn .btn-text {
+				transition: opacity 0.2s;
+			}
+			.pm-pay-btn .btn-spinner {
+				display: none;
+				position: absolute;
+				inset: 0;
+				align-items: center;
+				justify-content: center;
+			}
+			.pm-pay-btn.loading .btn-text {
+				opacity: 0;
+			}
+			.pm-pay-btn.loading .btn-spinner {
+				display: flex;
+			}
+			@keyframes spin {
+				to {
+					transform: rotate(360deg);
+				}
+			}
+			.spinner-ring {
+				width: 22px;
+				height: 22px;
+				border: 3px solid rgba(255, 255, 255, 0.35);
+				border-top-color: #fff;
+				border-radius: 50%;
+				animation: spin 0.75s linear infinite;
+			}
+
+			.pm-secure {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				gap: 5px;
+				font-size: 0.75rem;
+				color: #9a9aaa;
+				margin-top: 12px;
+			}
+			.pm-secure svg {
+				width: 13px;
+				height: 13px;
+			}
+
+			/* ── SUCCESS screen ── */
+			#pm-success {
+				display: none;
+				padding: 40px 24px 36px;
+				text-align: center;
+			}
+			.success-anim {
+				width: 80px;
+				height: 80px;
+				border-radius: 50%;
+				background: linear-gradient(135deg, #2ecc71, #27ae60);
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				margin: 0 auto 20px;
+				box-shadow: 0 8px 28px rgba(46, 204, 113, 0.38);
+				animation: popIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+			}
+			@keyframes popIn {
+				from {
+					transform: scale(0);
+					opacity: 0;
+				}
+				to {
+					transform: scale(1);
+					opacity: 1;
+				}
+			}
+			.success-check {
+				width: 36px;
+				height: 36px;
+				stroke: #fff;
+				stroke-width: 3;
+				fill: none;
+				stroke-linecap: round;
+				stroke-linejoin: round;
+				stroke-dasharray: 60;
+				stroke-dashoffset: 60;
+				animation: drawCheck 0.5s 0.35s ease forwards;
+			}
+			@keyframes drawCheck {
+				to {
+					stroke-dashoffset: 0;
+				}
+			}
+			.success-title {
+				font-family: "Playfair Display", serif;
+				font-size: 1.5rem;
+				font-weight: 700;
+				color: #1c1c1e;
+				margin-bottom: 8px;
+			}
+			.success-sub {
+				font-size: 0.88rem;
+				color: #6b6b7a;
+				line-height: 1.6;
+				margin-bottom: 4px;
+			}
+			.order-id {
+				display: inline-block;
+				background: #f6f6f9;
+				border: 1px solid #e8e8f0;
+				border-radius: 8px;
+				padding: 6px 16px;
+				font-family: monospace;
+				font-size: 0.85rem;
+				font-weight: 700;
+				color: #1c1c1e;
+				margin: 12px 0 24px;
+				letter-spacing: 0.05em;
+			}
+			.success-actions {
+				display: flex;
+				gap: 10px;
+			}
+			.success-btn {
+				flex: 1;
+				padding: 12px;
+				border-radius: 12px;
+				font-family: "DM Sans", sans-serif;
+				font-size: 0.88rem;
+				font-weight: 700;
+				cursor: pointer;
+				transition: all 0.2s;
+				border: none;
+			}
+			.success-btn.primary {
+				background: #1c1c1e;
+				color: #fff;
+			}
+			.success-btn.primary:hover {
+				background: #f97d6e;
+			}
+			.success-btn.secondary {
+				background: #f6f6f9;
+				color: #1c1c1e;
+				border: 1.5px solid #e8e8f0;
+			}
+			.success-btn.secondary:hover {
+				border-color: #f97d6e;
+				color: #f97d6e;
+			}
+
+			/* ── confetti dots ── */
+			.confetti-dot {
+				position: absolute;
+				border-radius: 50%;
+				pointer-events: none;
+				animation: confettiFall 1.2s ease-out forwards;
+				opacity: 0;
+			}
+			@keyframes confettiFall {
+				0% {
+					opacity: 1;
+					transform: translateY(0) rotate(0deg);
+				}
+				100% {
+					opacity: 0;
+					transform: translateY(120px) rotate(360deg);
+				}
+			}
+		</style>
+
+		<!-- MODAL HTML -->
+		<div
+			id="pay-modal-overlay"
+			role="dialog"
+			aria-modal="true"
+			aria-label="Payment"
+		>
+			<div id="pay-modal">
+				<!-- Header -->
+				<div class="pm-header">
+					<button
+						class="pm-close"
+						onclick="closePaymentModal()"
+						aria-label="Close"
+					>
+						✕
+					</button>
+					<div class="pm-brand">Vastra Vahini · Secure Payment</div>
+					<div class="pm-title">Complete Your Order</div>
+					<div class="pm-amount-pill">
+						<span class="pm-amount-currency">₹</span>
+						<span class="pm-amount-val" id="pm-amount">0</span>
+					</div>
+				</div>
+
+				<!-- Tabs -->
+				<div class="pm-tabs">
+					<button class="pm-tab active" onclick="switchTab('upi', this)">
+						<svg
+							width="14"
+							height="14"
+							viewBox="0 0 24 24"
+							fill="none"
+							stroke="currentColor"
+							stroke-width="2.5"
+						>
+							<rect x="2" y="5" width="20" height="14" rx="2" />
+							<path d="M2 10h20" />
+						</svg>
+						UPI / QR
+					</button>
+					<!-- <button class="pm-tab" onclick="switchTab('card', this)">
+						<svg
+							width="14"
+							height="14"
+							viewBox="0 0 24 24"
+							fill="none"
+							stroke="currentColor"
+							stroke-width="2.5"
+						>
+							<rect x="1" y="4" width="22" height="16" rx="2" />
+							<path d="M1 10h22" />
+						</svg>
+						Card
+					</button>
+					<button class="pm-tab" onclick="switchTab('netbanking', this)">
+						<svg
+							width="14"
+							height="14"
+							viewBox="0 0 24 24"
+							fill="none"
+							stroke="currentColor"
+							stroke-width="2.5"
+						>
+							<line x1="12" y1="1" x2="12" y2="23" />
+							<path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+						</svg>
+						Net Banking
+					</button>
+					<button class="pm-tab" onclick="switchTab('cod', this)">
+						<svg
+							width="14"
+							height="14"
+							viewBox="0 0 24 24"
+							fill="none"
+							stroke="currentColor"
+							stroke-width="2.5"
+						>
+							<path
+								d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"
+							/>
+							<path d="M12 6v6l4 2" />
+						</svg>
+						COD
+					</button> -->
+				</div>
+
+				<!-- PANELS wrapper (hidden during success) -->
+				<div id="pm-panels">
+					<!-- UPI Panel -->
+					<div class="pm-panel active" id="panel-upi">
+						<div class="qr-wrap">
+							<p class="qr-instruction">
+								Scan the QR code below using any UPI app to pay instantly
+							</p>
+							<div class="qr-box">
+								<canvas id="qr-canvas" width="180" height="180"></canvas>
+								<div class="qr-logo">₹</div>
+							</div>
+							<div class="upi-apps">
+								<a class="upi-app-btn" id="gpay-link" href="#">
+									<span></span> GPay
+								</a>
+								<a class="upi-app-btn" id="phonepe-link" href="#">
+									<span></span> PhonePe
+								</a>
+								<a class="upi-app-btn" id="paytm-link" href="#">
+									<span></span> Paytm
+								</a>
+								<a class="upi-app-btn" id="bhim-link" href="#">
+									<span></span> BHIM
+								</a>
+							</div>
+						</div>
+						<div class="upi-id-row">
+							<span class="upi-id-label">UPI ID</span>
+							<span class="upi-id-val" id="upi-id-display"
+								>shivamjha705@axl</span
+							>
+							<button
+								class="copy-btn"
+								onclick="copyUpiId()"
+								title="Copy UPI ID"
+							>
+								<svg
+									viewBox="0 0 24 24"
+									fill="none"
+									stroke="currentColor"
+									stroke-width="2"
+								>
+									<rect x="9" y="9" width="13" height="13" rx="2" />
+									<path
+										d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"
+									/>
+								</svg>
+							</button>
+						</div>
+						<button class="pm-pay-btn" onclick="confirmPayment()">
+							<span class="btn-text">I've Completed the Payment ✓</span>
+							<span class="btn-spinner"><div class="spinner-ring"></div></span>
+						</button>
+						<div class="pm-secure">
+							<svg
+								viewBox="0 0 24 24"
+								fill="none"
+								stroke="currentColor"
+								stroke-width="2"
+							>
+								<rect x="3" y="11" width="18" height="11" rx="2" />
+								<path d="M7 11V7a5 5 0 0 1 10 0v4" />
+							</svg>
+							256-bit SSL · Payments secured by RBI guidelines
+						</div>
+					</div>
+
+					<!-- Card Panel -->
+					<div class="pm-panel" id="panel-card">
+						<div class="card-fields">
+							<div class="cf-group">
+								<label class="cf-label">Card Number</label>
+								<input
+									class="cf-input"
+									type="text"
+									placeholder="1234  5678  9012  3456"
+									maxlength="19"
+									oninput="formatCardNum(this)"
+								/>
+								<div class="card-brands">
+									<span class="card-brand">VISA</span>
+									<span class="card-brand">MASTER</span>
+									<span class="card-brand">RUPAY</span>
+									<span class="card-brand">AMEX</span>
+								</div>
+							</div>
+							<div class="cf-group">
+								<label class="cf-label">Cardholder Name</label>
+								<input
+									class="cf-input"
+									type="text"
+									placeholder="As printed on card"
+								/>
+							</div>
+							<div class="cf-row">
+								<div class="cf-group">
+									<label class="cf-label">Expiry</label>
+									<input
+										class="cf-input"
+										type="text"
+										placeholder="MM / YY"
+										maxlength="7"
+										oninput="formatExpiry(this)"
+									/>
+								</div>
+								<div class="cf-group">
+									<label class="cf-label">CVV</label>
+									<input
+										class="cf-input"
+										type="password"
+										placeholder="•••"
+										maxlength="4"
+									/>
+								</div>
+							</div>
+						</div>
+						<br />
+						<button class="pm-pay-btn" onclick="confirmPayment()">
+							<span class="btn-text"
+								>Pay <span id="card-pay-amt">₹0</span> Securely →</span
+							>
+							<span class="btn-spinner"><div class="spinner-ring"></div></span>
+						</button>
+						<div class="pm-secure">
+							<svg
+								viewBox="0 0 24 24"
+								fill="none"
+								stroke="currentColor"
+								stroke-width="2"
+							>
+								<rect x="3" y="11" width="18" height="11" rx="2" />
+								<path d="M7 11V7a5 5 0 0 1 10 0v4" />
+							</svg>
+							Powered by Razorpay · PCI-DSS Compliant
+						</div>
+					</div>
+
+					<!-- Net Banking Panel -->
+					<div class="pm-panel" id="panel-netbanking">
+						<div class="bank-grid">
+							<button class="bank-btn" onclick="selectBank(this)">
+								<span>🏦</span>SBI
+							</button>
+							<button class="bank-btn" onclick="selectBank(this)">
+								<span>🔵</span>HDFC
+							</button>
+							<button class="bank-btn" onclick="selectBank(this)">
+								<span>🟠</span>ICICI
+							</button>
+							<button class="bank-btn" onclick="selectBank(this)">
+								<span>🟢</span>Axis
+							</button>
+							<button class="bank-btn" onclick="selectBank(this)">
+								<span>🔴</span>Kotak
+							</button>
+							<button class="bank-btn" onclick="selectBank(this)">
+								<span>🟡</span>PNB
+							</button>
+						</div>
+						<select class="bank-select">
+							<option value="">— Or select another bank —</option>
+							<option>Bank of Baroda</option>
+							<option>Canara Bank</option>
+							<option>Union Bank</option>
+							<option>IndusInd Bank</option>
+							<option>Yes Bank</option>
+							<option>Federal Bank</option>
+							<option>IDBI Bank</option>
+						</select>
+						<button class="pm-pay-btn" onclick="confirmPayment()">
+							<span class="btn-text">Proceed to Bank →</span>
+							<span class="btn-spinner"><div class="spinner-ring"></div></span>
+						</button>
+						<div class="pm-secure">
+							<svg
+								viewBox="0 0 24 24"
+								fill="none"
+								stroke="currentColor"
+								stroke-width="2"
+							>
+								<rect x="3" y="11" width="18" height="11" rx="2" />
+								<path d="M7 11V7a5 5 0 0 1 10 0v4" />
+							</svg>
+							Redirects to your bank's secure portal
+						</div>
+					</div>
+
+					<!-- COD Panel -->
+					<div class="pm-panel" id="panel-cod">
+						<div class="cod-wrap">
+							<div class="cod-icon">📦</div>
+							<div class="cod-title">Cash on Delivery</div>
+							<p class="cod-desc">
+								Pay in cash when your order arrives at your doorstep. No online
+								payment required.
+							</p>
+							<div class="cod-note">
+								⚠️ A handling fee of <strong>₹49</strong> applies for COD
+								orders. Please keep exact change ready at delivery.
+							</div>
+						</div>
+						<br />
+						<button class="pm-pay-btn" onclick="confirmPayment()">
+							<span class="btn-text">Confirm COD Order →</span>
+							<span class="btn-spinner"><div class="spinner-ring"></div></span>
+						</button>
+						<div class="pm-secure">
+							<svg
+								viewBox="0 0 24 24"
+								fill="none"
+								stroke="currentColor"
+								stroke-width="2"
+							>
+								<rect x="3" y="11" width="18" height="11" rx="2" />
+								<path d="M7 11V7a5 5 0 0 1 10 0v4" />
+							</svg>
+							Free cancellation before dispatch
+						</div>
+					</div>
+				</div>
+				<!-- /#pm-panels -->
+
+				<!-- SUCCESS SCREEN -->
+				<div id="pm-success">
+					<div class="success-anim">
+						<svg class="success-check" viewBox="0 0 52 52">
+							<polyline points="14 27 22 35 38 17" />
+						</svg>
+					</div>
+					<div class="success-title">Payment Successful! 🎉</div>
+					<p class="success-sub">
+						Your order has been placed with Vastra Vahini.
+					</p>
+					<p class="success-sub">A confirmation will be sent to your email.</p>
+					<div class="order-id" id="order-id-display">ORDER #VV-000000</div>
+					<div class="success-actions">
+						<button class="success-btn secondary" onclick="closePaymentModal()">
+							Close
+						</button>
+						<button class="success-btn primary" onclick="goHome()">
+							Continue Shopping
+						</button>
+					</div>
+				</div>
+			</div>
+			<!-- /#pay-modal -->
+		</div>
+		<!-- /#pay-modal-overlay -->
+
+		<script>
+			/* ════════════════════════════════════════
+   TINY QR CODE GENERATOR (no CDN needed)
+   Implements QR Code Model 2 via data URL
+   We'll use Google Charts API as fallback
+════════════════════════════════════════ */
+			const UPI_ID = "shivamjha705@axl";
+			const UPI_NAME = "Shivam Kumar Jha";
+
+			function buildUpiString(amount) {
+				return `upi://pay?pa=${UPI_ID}&pn=${encodeURIComponent(UPI_NAME)}&am=${amount}&cu=INR&tn=${encodeURIComponent("Vastra Vahini Order")}`;
+			}
+
+			// function drawQR(upiStr) {
+			// 	const canvas = document.getElementById("qr-canvas");
+			// 	const size = 180;
+			// 	// Use Google Charts QR API rendered into an Image, then drawn on canvas
+			// 	const apiUrl = `https://chart.googleapis.com/chart?cht=qr&chs=${size}x${size}&chl=${encodeURIComponent(upiStr)}&choe=UTF-8&chld=M|2`;
+			// 	const img = new Image();
+			// 	img.crossOrigin = "anonymous";
+			// 	img.onload = () => {
+			// 		const ctx = canvas.getContext("2d");
+			// 		ctx.clearRect(0, 0, size, size);
+			// 		ctx.drawImage(img, 0, 0, size, size);
+			// 	};
+			// 	img.onerror = () => {
+			// 		// Fallback: draw a placeholder pattern
+			// 		const ctx = canvas.getContext("2d");
+			// 		ctx.fillStyle = "#fff";
+			// 		ctx.fillRect(0, 0, size, size);
+			// 		ctx.fillStyle = "#1c1c1e";
+			// 		ctx.font = "13px DM Sans, sans-serif";
+			// 		ctx.textAlign = "center";
+			// 		ctx.fillText("Scan with UPI app", size / 2, size / 2 - 8);
+			// 		ctx.fillText(UPI_ID, size / 2, size / 2 + 14);
+			// 	};
+			// 	img.src = apiUrl;
+			// }
+
+			function drawQR() {
+				const canvas = document.getElementById("qr-canvas");
+				const size = 180;
+
+				const img = new Image();
+				img.onload = () => {
+					const ctx = canvas.getContext("2d");
+					ctx.clearRect(0, 0, size, size);
+					ctx.drawImage(img, 0, 0, size, size);
+				};
+
+				img.onerror = () => {
+					const ctx = canvas.getContext("2d");
+					ctx.fillStyle = "#fff";
+					ctx.fillRect(0, 0, size, size);
+					ctx.fillStyle = "#1c1c1e";
+					ctx.font = "13px DM Sans, sans-serif";
+					ctx.textAlign = "center";
+					ctx.fillText("QR failed to load", size / 2, size / 2);
+				};
+
+				// Path to your static QR image
+				img.src = "./assets/images/qr-code.jpg"; // <-- change this to your file path
+			}
+
+			function setUpiDeepLinks(amount) {
+				const encoded = encodeURIComponent(`Vastra Vahini Order`);
+				const base = `pa=${UPI_ID}&pn=${encodeURIComponent(UPI_NAME)}&am=${amount}&cu=INR&tn=${encoded}`;
+				document.getElementById("gpay-link").href = `gpay://upi/pay?${base}`;
+				document.getElementById("phonepe-link").href = `phonepe://pay?${base}`;
+				document.getElementById("paytm-link").href = `paytmmp://pay?${base}`;
+				document.getElementById("bhim-link").href = `upi://pay?${base}`;
+			}
+
+			/* ════════════════════════════════════════
+   MODAL CONTROL
+════════════════════════════════════════ */
+			function openPaymentModal() {
+				// Read current total from summary
+				const totalEl = document.getElementById("s-total");
+				const raw = totalEl ? totalEl.textContent.replace(/[₹,\s]/g, "") : "0";
+				const amount = parseFloat(raw) || 0;
+
+				document.getElementById("pm-amount").textContent =
+					amount.toLocaleString("en-IN");
+				document.getElementById("card-pay-amt").textContent =
+					`₹${amount.toLocaleString("en-IN")}`;
+				document.getElementById("upi-id-display").textContent = UPI_ID;
+
+				// Generate QR
+				const upiStr = buildUpiString(amount);
+				drawQR(upiStr);
+				setUpiDeepLinks(amount);
+
+				// Reset to UPI tab & hide success
+				switchTab("upi", document.querySelector(".pm-tab"));
+				document.getElementById("pm-success").style.display = "none";
+				document.getElementById("pm-panels").style.display = "block";
+
+				// Open overlay
+				document.getElementById("pay-modal-overlay").classList.add("open");
+				document.body.style.overflow = "hidden";
+			}
+
+			function closePaymentModal() {
+				document.getElementById("pay-modal-overlay").classList.remove("open");
+				document.body.style.overflow = "";
+			}
+
+			// Close on backdrop click
+			document
+				.getElementById("pay-modal-overlay")
+				.addEventListener("click", function (e) {
+					if (e.target === this) closePaymentModal();
+				});
+
+			// Close on Escape
+			document.addEventListener("keydown", (e) => {
+				if (e.key === "Escape") closePaymentModal();
+			});
+
+			/* ════════════════════════════════════════
+   TABS
+════════════════════════════════════════ */
+			function switchTab(id, btn) {
+				document
+					.querySelectorAll(".pm-tab")
+					.forEach((t) => t.classList.remove("active"));
+				document
+					.querySelectorAll(".pm-panel")
+					.forEach((p) => p.classList.remove("active"));
+				if (btn) btn.classList.add("active");
+				const panel = document.getElementById("panel-" + id);
+				if (panel) panel.classList.add("active");
+			}
+
+			/* ════════════════════════════════════════
+   HELPERS
+════════════════════════════════════════ */
+			function copyUpiId() {
+				navigator.clipboard
+					.writeText(UPI_ID)
+					.then(() => {
+						showToast("UPI ID copied to clipboard!");
+					})
+					.catch(() => {
+						showToast("UPI ID: " + UPI_ID);
+					});
+			}
+
+			function formatCardNum(el) {
+				let v = el.value.replace(/\D/g, "").substring(0, 16);
+				el.value = v.replace(/(.{4})/g, "$1  ").trim();
+			}
+
+			function formatExpiry(el) {
+				let v = el.value.replace(/\D/g, "").substring(0, 4);
+				if (v.length >= 2) v = v.substring(0, 2) + " / " + v.substring(2);
+				el.value = v;
+			}
+
+			function selectBank(btn) {
+				document
+					.querySelectorAll(".bank-btn")
+					.forEach((b) => b.classList.remove("selected"));
+				btn.classList.add("selected");
+			}
+
+			/* ════════════════════════════════════════
+   CONFIRM PAYMENT → SUCCESS
+════════════════════════════════════════ */
+			function confirmPayment() {
+				const btn = event.currentTarget;
+				btn.classList.add("loading");
+
+				setTimeout(() => {
+					btn.classList.remove("loading");
+
+					// Generate order ID
+					const orderId = "VV-" + Date.now().toString().slice(-6);
+					document.getElementById("order-id-display").textContent =
+						"ORDER #" + orderId;
+
+					// Hide panels, show success
+					document.getElementById("pm-panels").style.display = "none";
+					document.getElementById("pm-success").style.display = "block";
+
+					// Confetti burst
+					spawnConfetti();
+
+					// Clear cart
+					localStorage.removeItem("cart");
+					localStorage.removeItem("cart_qty");
+
+					// Update header counter
+					const cartCounter = document.querySelector("#cart-counter .count");
+					if (cartCounter) cartCounter.textContent = "0";
+
+					// Re-render cart page (will show empty state)
+					if (typeof renderCart === "function") renderCart();
+				}, 1800);
+			}
+
+			function goHome() {
+				closePaymentModal();
+				window.location.href = "index.html";
+			}
+
+			/* ════════════════════════════════════════
+   CONFETTI
+════════════════════════════════════════ */
+			function spawnConfetti() {
+				const modal = document.getElementById("pay-modal");
+				const colors = [
+					"#f97d6e",
+					"#2ecc71",
+					"#3498db",
+					"#f1c40f",
+					"#9b59b6",
+					"#e74c3c",
+					"#1abc9c",
+				];
+				for (let i = 0; i < 28; i++) {
+					const dot = document.createElement("div");
+					dot.className = "confetti-dot";
+					const size = 6 + Math.random() * 8;
+					dot.style.cssText = `
+      width:${size}px; height:${size}px;
+      background:${colors[Math.floor(Math.random() * colors.length)]};
+      left:${10 + Math.random() * 80}%;
+      top:${20 + Math.random() * 30}%;
+      animation-delay:${Math.random() * 0.4}s;
+      animation-duration:${0.9 + Math.random() * 0.6}s;
+    `;
+					modal.appendChild(dot);
+					setTimeout(() => dot.remove(), 1800);
+				}
+			}
+		</script>
+	</body>
+</html>
