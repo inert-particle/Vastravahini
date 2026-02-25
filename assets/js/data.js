@@ -540,22 +540,10 @@ const products = [
     "description": "A relaxed-fit men's casual shirt in an earthy green that pairs effortlessly with jeans, chinos, or shorts. Made from 100% cotton twill, it is soft, breathable, and gets more comfortable with each wash. The classic point collar and single chest pocket give it a clean, versatile look that works for weekend outings, beach trips, and informal gatherings. Available in both regular and tall fits, with the option to wear it tucked or untucked. A must-have seasonal essential for every man's wardrobe."
   },
   {
-    "id": 51,
-    "name": "Old Spice Swagger 2-in-1 Shampoo & Conditioner, Hair Gel, and Fiber Wax",
-    "category": "Fashion",
-    "subcategory": "Hair Care",
-    "gender": "Men",
-    "colors": [""],
-    "price": { "original": 18000.00, "discounted": 13500.00 },
-    "images": { "thumbnail": "images/hair-care2/thumb.jpg", "gallery": ["images/hair-care2/1.jpg"] },
-    "keywords": ["shampoo", "hair care"],
-    "description": "A complete men's hair care system from the iconic Old Spice Swagger range. This bundle includes a 2-in-1 Shampoo & Conditioner that cleanses and softens in a single step, a strong-hold Hair Gel for sleek, defined styles, and a medium-hold Fiber Wax for textured, matte finishes. All products are infused with the bold, confident Swagger fragrance. Free from harsh sulphates, the shampoo is gentle enough for daily use without stripping natural oils. Everything a man needs to look and smell great — in one box."
-  },
-  {
     "id": 52,
     "name": "Lavanya Chandbali Gold Earring",
     "category": "Accessories",
-    "subcategory": "Jewelry+",
+    "subcategory": "Jewelry",
     "gender": "Women",
     "colors": [""],
     "price": { "original": 2000, "discounted": 1990 },
