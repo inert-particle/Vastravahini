@@ -7,7 +7,7 @@ function openProductModal(id) {
 	_currentProduct = p;
 
 	const img       = `assets/${p.images.thumbnail}`;
-	const rating    = 4;
+	const rating    = RATINGS[p.id] || 4;
 	const pct       = Math.round((1 - p.price.discounted / p.price.original) * 100);
 	const saving    = p.price.original - p.price.discounted;
 	const emoji     = EMOJI_MAP[p.subcategory] || "🛍";

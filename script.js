@@ -208,11 +208,7 @@ products.forEach(product => {
                     <h3 class="showcase-title">${product.name}</h3>
                   </a>
                   <div class="showcase-rating">
-                    <ion-icon name="star"></ion-icon>
-                    <ion-icon name="star"></ion-icon>
-                    <ion-icon name="star"></ion-icon>
-                    <ion-icon name="star-outline"></ion-icon>
-                    <ion-icon name="star-outline"></ion-icon>
+                    ${getRatingHTML(RATINGS[product.id] || 4)}
                   </div>
                   <div class="price-box">
                     <p class="price">₹${product.price.discounted}</p>
@@ -369,3 +365,18 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
 });
+
+
+function getRatingHTML(rating) {
+  let stars = "";
+
+  for (let i = 1; i <= 5; i++) {
+    if (i <= rating) {
+      stars += `<ion-icon name="star"></ion-icon>`;
+    } else {
+      stars += `<ion-icon name="star-outline"></ion-icon>`;
+    }
+  }
+
+  return stars;
+}

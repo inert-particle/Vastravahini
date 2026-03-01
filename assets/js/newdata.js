@@ -1,4 +1,4 @@
-const products = [
+[
   {
     "id": 1,
     "name": "Floral Summer Dress",
@@ -7,7 +7,7 @@ const products = [
     "gender": "Women",
     "colors": ["Red", "White"],
     "price": { "original": 2499, "discounted": 1899 },
-    "images": { "thumbnail": "images/products/women-dress-1.jpeg", "gallery": ["images/women/dresses/1.jpg"] },
+    "images": { "thumbnail": "images/products/women-dress-1.jpg", "gallery": ["images/women/dresses/1.jpg"] },
     "keywords": ["dress", "summer", "floral", "women"],
     "description": "Lightweight floral summer dress crafted from breathable fabric, perfect for warm days and casual outings."
   },
@@ -19,7 +19,7 @@ const products = [
     "gender": "Women",
     "colors": ["Pink", "Black"],
     "price": { "original": 999, "discounted": 699 },
-    "images": { "thumbnail": "images/products/women-top-1.jpeg", "gallery": ["images/women/tops/1.jpg"] },
+    "images": { "thumbnail": "images/products/women-top-1.jpg", "gallery": ["images/women/tops/1.jpg"] },
     "keywords": ["tshirt", "cotton", "casual", "women"],
     "description": "Soft cotton t-shirt designed for everyday comfort with a relaxed fit and breathable fabric."
   },
@@ -31,7 +31,7 @@ const products = [
     "gender": "Women",
     "colors": ["Blue", "Dark Blue"],
     "price": { "original": 2799, "discounted": 2199 },
-    "images": { "thumbnail": "images/products/women-jeans-1.jpeg", "gallery": ["images/women/bottoms/1.jpg"] },
+    "images": { "thumbnail": "images/products/women-jeans-1.jpg", "gallery": ["images/women/bottoms/1.jpg"] },
     "keywords": ["jeans", "denim", "skinny", "women"],
     "description": "Stretchable high-waist skinny jeans offering a flattering fit and all-day comfort."
   },
@@ -43,7 +43,7 @@ const products = [
     "gender": "Women",
     "colors": ["Black", "Maroon"],
     "price": { "original": 5999, "discounted": 4599 },
-    "images": { "thumbnail": "images/products/women-gown-1.jpeg", "gallery": ["images/women/dresses/2.jpg"] },
+    "images": { "thumbnail": "images/products/women-gown-1.jpg", "gallery": ["images/women/dresses/2.jpg"] },
     "keywords": ["gown", "evening", "party", "women"],
     "description": "Floor-length evening gown designed with premium fabric and a graceful silhouette for special occasions."
   },
@@ -55,7 +55,7 @@ const products = [
     "gender": "Women",
     "colors": ["Yellow", "Green"],
     "price": { "original": 1999, "discounted": 1499 },
-    "images": { "thumbnail": "images/products/women-kurti-1.jpeg", "gallery": ["images/women/ethnic/1.jpg"] },
+    "images": { "thumbnail": "images/products/women-kurti-1.jpg", "gallery": ["images/women/ethnic/1.jpg"] },
     "keywords": ["kurti", "ethnic", "printed", "women"],
     "description": "Comfortable printed kurti ideal for daily wear and festive gatherings."
   },
@@ -67,7 +67,7 @@ const products = [
     "gender": "Women",
     "colors": ["Grey", "Black"],
     "price": { "original": 3499, "discounted": 2899 },
-    "images": { "thumbnail": "images/products/women-blazer-1.jpeg", "gallery": ["images/women/outerwear/1.jpg"] },
+    "images": { "thumbnail": "images/products/women-blazer-1.jpg", "gallery": ["images/women/outerwear/1.jpg"] },
     "keywords": ["blazer", "formal", "office", "women"],
     "description": "Tailored formal blazer with a structured fit, perfect for office and business meetings."
   },
@@ -75,11 +75,11 @@ const products = [
     "id": 7,
     "name": "Athletic Leggings",
     "category": "Fashion",
-    "subcategory": "Bottomwear",
+    "subcategory": "Activewear",
     "gender": "Women",
     "colors": ["Black", "Purple"],
     "price": { "original": 1799, "discounted": 1299 },
-    "images": { "thumbnail": "images/products/women-leggings-1.jpeg", "gallery": ["images/women/activewear/1.jpg"] },
+    "images": { "thumbnail": "images/products/women-leggings-1.jpg", "gallery": ["images/women/activewear/1.jpg"] },
     "keywords": ["leggings", "activewear", "fitness", "women"],
     "description": "High-stretch athletic leggings designed for yoga, gym sessions, and casual wear."
   },
@@ -91,7 +91,7 @@ const products = [
     "gender": "Women",
     "colors": ["Light Blue", "Blue"],
     "price": { "original": 3299, "discounted": 2599 },
-    "images": { "thumbnail": "images/products/women-jacket-1.jpeg", "gallery": ["images/women/outerwear/2.jpg"] },
+    "images": { "thumbnail": "images/products/women-jacket-1.jpg", "gallery": ["images/women/outerwear/2.jpg"] },
     "keywords": ["jacket", "denim", "casual", "women"],
     "description": "Classic denim jacket crafted for layering across seasons with timeless appeal."
   },
@@ -103,7 +103,7 @@ const products = [
     "gender": "Women",
     "colors": ["Beige", "Pink"],
     "price": { "original": 1899, "discounted": 1399 },
-    "images": { "thumbnail": "images/products/women-skirt-1.jpeg", "gallery": ["images/women/bottoms/2.jpg"] },
+    "images": { "thumbnail": "images/products/women-skirt-1.jpg", "gallery": ["images/women/bottoms/2.jpg"] },
     "keywords": ["skirt", "midi", "pleated", "women"],
     "description": "Elegant pleated midi skirt offering a flowy silhouette for both casual and semi-formal wear."
   },
@@ -115,7 +115,7 @@ const products = [
     "gender": "Women",
     "colors": ["Blue", "Silver"],
     "price": { "original": 3999, "discounted": 3299 },
-    "images": { "thumbnail": "images/products/women-saree-1.jpeg", "gallery": ["images/women/ethnic/2.jpg"] },
+    "images": { "thumbnail": "images/products/women-saree-1.jpg", "gallery": ["images/women/ethnic/2.jpg"] },
     "keywords": ["saree", "chiffon", "ethnic", "women"],
     "description": "Graceful chiffon saree with elegant drape and subtle embellishments for festive occasions."
   },
@@ -127,7 +127,7 @@ const products = [
     "gender": "Women",
     "colors": ["Grey", "White"],
     "price": { "original": 2199, "discounted": 1699 },
-    "images": { "thumbnail": "images/products/women-hoodie-1.jpeg", "gallery": ["images/women/outerwear/3.jpg"] },
+    "images": { "thumbnail": "images/products/women-hoodie-1.jpg", "gallery": ["images/women/outerwear/3.jpg"] },
     "keywords": ["hoodie", "casual", "winter", "women"],
     "description": "Cozy oversized hoodie made from soft fleece fabric, perfect for relaxed everyday wear."
   },
@@ -139,7 +139,7 @@ const products = [
     "gender": "Women",
     "colors": ["Black", "Navy"],
     "price": { "original": 2999, "discounted": 2399 },
-    "images": { "thumbnail": "images/products/women-trousers-1.jpeg", "gallery": ["images/women/bottoms/3.jpg"] },
+    "images": { "thumbnail": "images/products/women-trousers-1.jpg", "gallery": ["images/women/bottoms/3.jpg"] },
     "keywords": ["trousers", "formal", "wideleg", "women"],
     "description": "High-waist wide-leg trousers offering comfort and sophistication for formal occasions."
   },
@@ -151,7 +151,7 @@ const products = [
     "gender": "Women",
     "colors": ["Green", "Floral"],
     "price": { "original": 3299, "discounted": 2699 },
-    "images": { "thumbnail": "images/products/women-maxi-1.jpeg", "gallery": ["images/women/dresses/3.jpg"] },
+    "images": { "thumbnail": "images/products/women-maxi-1.jpg", "gallery": ["images/women/dresses/3.jpg"] },
     "keywords": ["maxi", "dress", "summer", "women"],
     "description": "Flowy maxi dress designed for comfort and elegance during summer outings."
   },
@@ -163,7 +163,7 @@ const products = [
     "gender": "Women",
     "colors": ["Brown", "Beige"],
     "price": { "original": 2799, "discounted": 2199 },
-    "images": { "thumbnail": "images/products/women-cardigan-1.jpeg", "gallery": ["images/women/outerwear/4.jpg"] },
+    "images": { "thumbnail": "images/products/women-cardigan-1.jpg", "gallery": ["images/women/outerwear/4.jpg"] },
     "keywords": ["cardigan", "wool", "winter", "women"],
     "description": "Warm wool cardigan ideal for layering in chilly weather with a soft knit finish."
   },
@@ -175,7 +175,7 @@ const products = [
     "gender": "Women",
     "colors": ["White", "Lavender"],
     "price": { "original": 899, "discounted": 649 },
-    "images": { "thumbnail": "images/products/women-crop-1.jpeg", "gallery": ["images/women/tops/3.jpg"] },
+    "images": { "thumbnail": "images/products/women-crop-1.jpg", "gallery": ["images/women/tops/3.jpg"] },
     "keywords": ["croptop", "casual", "summer", "women"],
     "description": "Trendy crop top crafted from breathable cotton for stylish casual wear."
   },
@@ -187,7 +187,7 @@ const products = [
     "gender": "Women",
     "colors": ["Maroon", "Black"],
     "price": { "original": 1899, "discounted": 1399 },
-    "images": { "thumbnail": "images/products/women-palazzo-1.jpeg", "gallery": ["images/women/bottoms/4.jpg"] },
+    "images": { "thumbnail": "images/products/women-palazzo-1.jpg", "gallery": ["images/women/bottoms/4.jpg"] },
     "keywords": ["palazzo", "ethnic", "comfortable", "women"],
     "description": "Loose-fit palazzo pants offering elegance and ease for festive and daily wear."
   },
@@ -199,7 +199,7 @@ const products = [
     "gender": "Women",
     "colors": ["Gold", "Black"],
     "price": { "original": 4999, "discounted": 3999 },
-    "images": { "thumbnail": "images/products/women-party-1.jpeg", "gallery": ["images/women/dresses/4.jpg"] },
+    "images": { "thumbnail": "images/products/women-party-1.jpg", "gallery": ["images/women/dresses/4.jpg"] },
     "keywords": ["party", "sequin", "dress", "women"],
     "description": "Glamorous sequin dress designed to make a statement at parties and evening events."
   },
@@ -211,7 +211,7 @@ const products = [
     "gender": "Women",
     "colors": ["Black", "Brown"],
     "price": { "original": 6999, "discounted": 5599 },
-    "images": { "thumbnail": "images/products/women-leather-1.jpeg", "gallery": ["images/women/outerwear/5.jpg"] },
+    "images": { "thumbnail": "images/products/women-leather-1.jpg", "gallery": ["images/women/outerwear/5.jpg"] },
     "keywords": ["leather", "jacket", "winter", "women"],
     "description": "Premium faux leather jacket with a sleek fit and durable finish for edgy styling."
   },
@@ -224,7 +224,7 @@ const products = [
     "gender": "Women",
     "colors": ["White", "Sky Blue"],
     "price": { "original": 1999, "discounted": 1499 },
-    "images": { "thumbnail": "images/products/women-shirt-1.jpeg", "gallery": ["images/women/tops/4.jpg"] },
+    "images": { "thumbnail": "images/products/women-shirt-1.jpg", "gallery": ["images/women/tops/4.jpg"] },
     "keywords": ["linen", "shirt", "casual", "women"],
     "description": "Breathable linen shirt perfect for summer days with a relaxed yet polished look."
   },
@@ -236,7 +236,7 @@ const products = [
     "gender": "Women",
     "colors": ["Pink", "Gold"],
     "price": { "original": 5499, "discounted": 4299 },
-    "images": { "thumbnail": "images/products/women-anarkali-1.jpeg", "gallery": ["images/women/ethnic/3.jpg"] },
+    "images": { "thumbnail": "images/products/women-anarkali-1.jpg", "gallery": ["images/women/ethnic/3.jpg"] },
     "keywords": ["anarkali", "ethnic", "festive", "women"],
     "description": "Elegant Anarkali suit featuring intricate detailing for festive and wedding occasions."
   },
@@ -248,7 +248,7 @@ const products = [
     "gender": "Women",
     "colors": ["Blue", "Light Blue"],
     "price": { "original": 1599, "discounted": 1199 },
-    "images": { "thumbnail": "images/products/women-shorts-1.jpeg", "gallery": ["images/women/bottoms/5.jpg"] },
+    "images": { "thumbnail": "images/products/women-shorts-1.jpg", "gallery": ["images/women/bottoms/5.jpg"] },
     "keywords": ["shorts", "denim", "summer", "women"],
     "description": "Casual denim shorts with a comfortable stretch fit for warm-weather styling."
   },
@@ -260,7 +260,7 @@ const products = [
     "gender": "Women",
     "colors": ["Red", "Black"],
     "price": { "original": 2899, "discounted": 2199 },
-    "images": { "thumbnail": "images/products/women-wrap-1.jpeg", "gallery": ["images/women/dresses/5.jpg"] },
+    "images": { "thumbnail": "images/products/women-wrap-1.jpg", "gallery": ["images/women/dresses/5.jpg"] },
     "keywords": ["wrapdress", "casual", "elegant", "women"],
     "description": "Flattering wrap dress designed to enhance silhouette with adjustable waist tie."
   },
@@ -272,7 +272,7 @@ const products = [
     "gender": "Women",
     "colors": ["Navy", "Black"],
     "price": { "original": 4999, "discounted": 3799 },
-    "images": { "thumbnail": "images/products/women-puffer-1.jpeg", "gallery": ["images/women/outerwear/6.jpg"] },
+    "images": { "thumbnail": "images/products/women-puffer-1.jpg", "gallery": ["images/women/outerwear/6.jpg"] },
     "keywords": ["puffer", "winter", "jacket", "women"],
     "description": "Insulated puffer jacket offering warmth and lightweight comfort during cold seasons."
   },
@@ -281,11 +281,11 @@ const products = [
     "id": 26,
     "name": "Yoga Tank Top",
     "category": "Fashion",
-    "subcategory": "Tops",
+    "subcategory": "Activewear",
     "gender": "Women",
     "colors": ["Teal", "Black"],
     "price": { "original": 1299, "discounted": 999 },
-    "images": { "thumbnail": "images/products/women-yoga-1.jpeg", "gallery": ["images/women/activewear/3.jpg"] },
+    "images": { "thumbnail": "images/products/women-yoga-1.jpg", "gallery": ["images/women/activewear/3.jpg"] },
     "keywords": ["yoga", "tank", "fitness", "women"],
     "description": "Moisture-wicking yoga tank top designed for flexibility and breathability."
   },
@@ -297,7 +297,7 @@ const products = [
     "gender": "Women",
     "colors": ["Lavender", "White"],
     "price": { "original": 4599, "discounted": 3499 },
-    "images": { "thumbnail": "images/products/women-palazzoset-1.jpeg", "gallery": ["images/women/ethnic/4.jpg"] },
+    "images": { "thumbnail": "images/products/women-palazzoset-1.jpg", "gallery": ["images/women/ethnic/4.jpg"] },
     "keywords": ["palazzo", "set", "ethnic", "women"],
     "description": "Stylish pleated palazzo set combining tradition and modern elegance."
   },
@@ -309,7 +309,7 @@ const products = [
     "gender": "Women",
     "colors": ["Cream", "Grey"],
     "price": { "original": 2399, "discounted": 1799 },
-    "images": { "thumbnail": "images/products/women-sweater-1.jpeg", "gallery": ["images/women/outerwear/7.jpg"] },
+    "images": { "thumbnail": "images/products/women-sweater-1.jpg", "gallery": ["images/women/outerwear/7.jpg"] },
     "keywords": ["sweater", "winter", "ribbed", "women"],
     "description": "Soft ribbed sweater designed to keep you warm while maintaining a chic look."
   },
@@ -321,7 +321,7 @@ const products = [
     "gender": "Women",
     "colors": ["Black", "Wine"],
     "price": { "original": 3499, "discounted": 2799 },
-    "images": { "thumbnail": "images/products/women-bodycon-1.jpeg", "gallery": ["images/women/dresses/6.jpg"] },
+    "images": { "thumbnail": "images/products/women-bodycon-1.jpg", "gallery": ["images/women/dresses/6.jpg"] },
     "keywords": ["bodycon", "party", "dress", "women"],
     "description": "Figure-hugging bodycon dress ideal for evening outings and celebrations."
   },
@@ -333,7 +333,7 @@ const products = [
     "gender": "Women",
     "colors": ["Olive", "Black"],
     "price": { "original": 2799, "discounted": 2199 },
-    "images": { "thumbnail": "images/products/women-cargo-1.jpeg", "gallery": ["images/women/bottoms/6.jpg"] },
+    "images": { "thumbnail": "images/products/women-cargo-1.jpg", "gallery": ["images/women/bottoms/6.jpg"] },
     "keywords": ["cargo", "casual", "streetwear", "women"],
     "description": "Utility-style cargo pants with multiple pockets and relaxed comfort."
   },
@@ -346,7 +346,7 @@ const products = [
     "gender": "Women",
     "colors": ["Orange", "White"],
     "price": { "original": 1699, "discounted": 1299 },
-    "images": { "thumbnail": "images/products/women-tunic-1.jpeg", "gallery": ["images/women/tops/5.jpg"] },
+    "images": { "thumbnail": "images/products/women-tunic-1.jpg", "gallery": ["images/women/tops/5.jpg"] },
     "keywords": ["tunic", "printed", "casual", "women"],
     "description": "Comfortable printed tunic perfect for pairing with leggings or jeans."
   },
@@ -358,7 +358,7 @@ const products = [
     "gender": "Women",
     "colors": ["Peach", "White"],
     "price": { "original": 2099, "discounted": 1599 },
-    "images": { "thumbnail": "images/products/women-layered-1.jpeg", "gallery": ["images/women/bottoms/7.jpg"] },
+    "images": { "thumbnail": "images/products/women-layered-1.jpg", "gallery": ["images/women/bottoms/7.jpg"] },
     "keywords": ["skirt", "layered", "casual", "women"],
     "description": "Flowy layered skirt offering elegance and ease for everyday fashion."
   },
@@ -366,11 +366,11 @@ const products = [
     "id": 33,
     "name": "Thermal Top",
     "category": "Fashion",
-    "subcategory": "Outerwear",
+    "subcategory": "Winterwear",
     "gender": "Women",
     "colors": ["Black", "Grey"],
     "price": { "original": 1499, "discounted": 1099 },
-    "images": { "thumbnail": "images/products/women-thermal-1.jpeg", "gallery": ["images/women/winter/1.jpg"] },
+    "images": { "thumbnail": "images/products/women-thermal-1.jpg", "gallery": ["images/women/winter/1.jpg"] },
     "keywords": ["thermal", "winter", "innerwear", "women"],
     "description": "Insulated thermal top designed to provide warmth during cold weather."
   },
@@ -382,7 +382,7 @@ const products = [
     "gender": "Women",
     "colors": ["Brown", "Beige"],
     "price": { "original": 2999, "discounted": 2299 },
-    "images": { "thumbnail": "images/products/women-knit-1.jpeg", "gallery": ["images/women/dresses/7.jpg"] },
+    "images": { "thumbnail": "images/products/women-knit-1.jpg", "gallery": ["images/women/dresses/7.jpg"] },
     "keywords": ["knit", "midi", "winter", "women"],
     "description": "Warm knit midi dress ideal for winter outings with a stylish silhouette."
   },
@@ -390,11 +390,11 @@ const products = [
     "id": 35,
     "name": "Track Pants",
     "category": "Fashion",
-    "subcategory": "Bottomwear",
+    "subcategory": "Activewear",
     "gender": "Women",
     "colors": ["Black", "Blue"],
     "price": { "original": 1999, "discounted": 1499 },
-    "images": { "thumbnail": "images/products/women-track-1.jpeg", "gallery": ["images/women/activewear/4.jpg"] },
+    "images": { "thumbnail": "images/products/women-track-1.jpg", "gallery": ["images/women/activewear/4.jpg"] },
     "keywords": ["trackpants", "sports", "fitness", "women"],
     "description": "Comfortable track pants designed for workouts, jogging, and casual wear."
   },
@@ -406,7 +406,7 @@ const products = [
     "gender": "Women",
     "colors": ["Red", "Black"],
     "price": { "original": 1399, "discounted": 999 },
-    "images": { "thumbnail": "images/products/women-offshoulder-1.jpeg", "gallery": ["images/women/tops/6.jpg"] },
+    "images": { "thumbnail": "images/products/women-offshoulder-1.jpg", "gallery": ["images/women/tops/6.jpg"] },
     "keywords": ["offshoulder", "party", "top", "women"],
     "description": "Stylish off-shoulder top perfect for parties and weekend outings."
   },
@@ -418,7 +418,7 @@ const products = [
     "gender": "Women",
     "colors": ["Dark Blue", "Black"],
     "price": { "original": 2699, "discounted": 2099 },
-    "images": { "thumbnail": "images/products/women-jeans-2.jpeg", "gallery": ["images/women/bottoms/8.jpg"] },
+    "images": { "thumbnail": "images/products/women-jeans-2.jpg", "gallery": ["images/women/bottoms/8.jpg"] },
     "keywords": ["jeans", "straightfit", "denim", "women"],
     "description": "Classic straight fit jeans offering timeless style and all-day comfort."
   },
@@ -430,7 +430,7 @@ const products = [
     "gender": "Women",
     "colors": ["Red", "Gold"],
     "price": { "original": 8999, "discounted": 7499 },
-    "images": { "thumbnail": "images/products/women-lehenga-1.jpeg", "gallery": ["images/women/ethnic/5.jpg"] },
+    "images": { "thumbnail": "images/products/women-lehenga-1.jpg", "gallery": ["images/women/ethnic/5.jpg"] },
     "keywords": ["lehenga", "wedding", "ethnic", "women"],
     "description": "Traditional festive lehenga crafted with detailed embroidery for weddings and celebrations."
   },
@@ -442,7 +442,7 @@ const products = [
     "gender": "Women",
     "colors": ["Grey", "Black"],
     "price": { "original": 1799, "discounted": 1299 },
-    "images": { "thumbnail": "images/products/women-shrug-1.jpeg", "gallery": ["images/women/outerwear/8.jpg"] },
+    "images": { "thumbnail": "images/products/women-shrug-1.jpg", "gallery": ["images/women/outerwear/8.jpg"] },
     "keywords": ["shrug", "layering", "casual", "women"],
     "description": "Lightweight longline shrug ideal for layering over tops and dresses."
   },
@@ -454,7 +454,7 @@ const products = [
     "gender": "Women",
     "colors": ["Black", "Navy"],
     "price": { "original": 1899, "discounted": 1499 },
-    "images": { "thumbnail": "images/products/women-jeggings-1.jpeg", "gallery": ["images/women/bottoms/9.jpg"] },
+    "images": { "thumbnail": "images/products/women-jeggings-1.jpg", "gallery": ["images/women/bottoms/9.jpg"] },
     "keywords": ["jeggings", "slimfit", "casual", "women"],
     "description": "Stretchable slim fit jeggings combining the comfort of leggings with the style of jeans."
   },
@@ -466,7 +466,7 @@ const products = [
     "gender": "Women",
     "colors": ["Gold", "Red"],
     "price": { "original": 2999, "discounted": 2199 },
-    "images": { "thumbnail": "images/products/women-jewellery-1.jpeg", "gallery": ["images/women/jewellery/1.jpg"] },
+    "images": { "thumbnail": "images/products/women-jewellery-1.jpg", "gallery": ["images/women/jewellery/1.jpg"] },
     "keywords": ["kundan", "choker", "necklace", "ethnic", "women"],
     "description": "Elegant kundan choker necklace set with matching earrings, perfect for weddings and festive occasions."
   },
@@ -478,7 +478,7 @@ const products = [
     "gender": "Women",
     "colors": ["Silver", "Black"],
     "price": { "original": 1299, "discounted": 899 },
-    "images": { "thumbnail": "images/products/women-jewellery-2.jpeg", "gallery": ["images/women/jewellery/2.jpg"] },
+    "images": { "thumbnail": "images/products/women-jewellery-2.jpg", "gallery": ["images/women/jewellery/2.jpg"] },
     "keywords": ["jhumka", "earrings", "oxidized", "traditional", "women"],
     "description": "Traditional oxidized silver jhumka earrings designed to complement ethnic outfits beautifully."
   },
@@ -490,7 +490,7 @@ const products = [
     "gender": "Women",
     "colors": ["White", "Gold"],
     "price": { "original": 1999, "discounted": 1499 },
-    "images": { "thumbnail": "images/products/women-jewellery-3.jpeg", "gallery": ["images/women/jewellery/3.jpg"] },
+    "images": { "thumbnail": "images/products/women-jewellery-3.jpg", "gallery": ["images/women/jewellery/3.jpg"] },
     "keywords": ["pearl", "necklace", "layered", "party", "women"],
     "description": "Sophisticated layered pearl necklace ideal for parties and formal gatherings."
   },
@@ -502,7 +502,7 @@ const products = [
     "gender": "Women",
     "colors": ["Gold", "Green"],
     "price": { "original": 2499, "discounted": 1899 },
-    "images": { "thumbnail": "images/products/women-jewellery-4.jpeg", "gallery": ["images/women/jewellery/4.jpg"] },
+    "images": { "thumbnail": "images/products/women-jewellery-4.jpg", "gallery": ["images/women/jewellery/4.jpg"] },
     "keywords": ["bangles", "stone", "ethnic", "festive", "women"],
     "description": "Beautiful stone-studded bangles set crafted to enhance your festive and wedding attire."
   },
@@ -514,7 +514,7 @@ const products = [
     "gender": "Women",
     "colors": ["Rose Gold", "Silver"],
     "price": { "original": 999, "discounted": 699 },
-    "images": { "thumbnail": "images/products/women-jewellery-5.jpeg", "gallery": ["images/women/jewellery/5.jpg"] },
+    "images": { "thumbnail": "images/products/women-jewellery-5.jpg", "gallery": ["images/women/jewellery/5.jpg"] },
     "keywords": ["pendant", "chain", "minimal", "dailywear", "women"],
     "description": "Delicate minimalist pendant chain suitable for everyday wear and subtle styling."
   },
@@ -526,7 +526,7 @@ const products = [
     "gender": "Women",
     "colors": ["Gold", "Black"],
     "price": { "original": 1199, "discounted": 849 },
-    "images": { "thumbnail": "images/products/women-jewellery-6.jpeg", "gallery": ["images/women/jewellery/6.jpg"] },
+    "images": { "thumbnail": "images/products/women-jewellery-6.jpg", "gallery": ["images/women/jewellery/6.jpg"] },
     "keywords": ["hoops", "earrings", "statement", "fashion", "women"],
     "description": "Bold statement hoop earrings designed to elevate both casual and party outfits."
   },
@@ -538,7 +538,7 @@ const products = [
     "gender": "Women",
     "colors": ["Gold", "Red"],
     "price": { "original": 1799, "discounted": 1299 },
-    "images": { "thumbnail": "images/products/women-jewellery-7.jpeg", "gallery": ["images/women/jewellery/7.jpg"] },
+    "images": { "thumbnail": "images/products/women-jewellery-7.jpg", "gallery": ["images/women/jewellery/7.jpg"] },
     "keywords": ["maangtikka", "bridal", "ethnic", "wedding", "women"],
     "description": "Traditional maang tikka crafted with intricate detailing for bridal and festive looks."
   },
@@ -550,7 +550,7 @@ const products = [
     "gender": "Women",
     "colors": ["Silver", "Multicolor"],
     "price": { "original": 1499, "discounted": 1099 },
-    "images": { "thumbnail": "images/products/women-jewellery-8.jpeg", "gallery": ["images/women/jewellery/8.jpg"] },
+    "images": { "thumbnail": "images/products/women-jewellery-8.jpg", "gallery": ["images/women/jewellery/8.jpg"] },
     "keywords": ["bracelet", "charm", "casual", "gift", "women"],
     "description": "Stylish charm bracelet featuring multiple decorative charms for a trendy everyday look."
   },
@@ -562,7 +562,7 @@ const products = [
     "gender": "Women",
     "colors": ["Silver", "Blue"],
     "price": { "original": 1399, "discounted": 999 },
-    "images": { "thumbnail": "images/products/women-jewellery-9.jpeg", "gallery": ["images/women/jewellery/9.jpg"] },
+    "images": { "thumbnail": "images/products/women-jewellery-9.jpg", "gallery": ["images/women/jewellery/9.jpg"] },
     "keywords": ["crystal", "earrings", "party", "drop", "women"],
     "description": "Elegant crystal drop earrings that add sparkle and sophistication to evening outfits."
   },
@@ -574,7 +574,7 @@ const products = [
     "gender": "Women",
     "colors": ["Antique Gold", "Green"],
     "price": { "original": 3999, "discounted": 2999 },
-    "images": { "thumbnail": "images/products/women-jewellery-10.jpeg", "gallery": ["images/women/jewellery/10.jpg"] },
+    "images": { "thumbnail": "images/products/women-jewellery-10.jpg", "gallery": ["images/women/jewellery/10.jpg"] },
     "keywords": ["templejewellery", "necklace", "traditional", "ethnic", "women"],
     "description": "Traditional temple jewellery necklace set inspired by heritage designs, perfect for grand occasions."
   },
@@ -586,19 +586,19 @@ const products = [
     "gender": "Women",
     "colors": ["Silver", "White"],
     "price": { "original": 3499, "discounted": 2599 },
-    "images": { "thumbnail": "images/products/women-jewellery-11.jpeg", "gallery": ["images/women/jewellery/11.jpg"] },
+    "images": { "thumbnail": "images/products/women-jewellery-11.jpg", "gallery": ["images/women/jewellery/11.jpg"] },
     "keywords": ["diamond", "necklace", "party", "set", "women"],
     "description": "Sparkling American diamond necklace set with matching earrings, ideal for parties and receptions."
   },
   {
-    "id": 6,
+    "id": 52,
     "name": "Beaded Boho Necklace",
     "category": "Fashion",
     "subcategory": "Artificial Jewellery",
     "gender": "Women",
     "colors": ["Multicolor", "Brown"],
     "price": { "original": 1299, "discounted": 949 },
-  "images": { "thumbnail": "images/products/women-jewellery-12.jpeg", "gallery": ["images/women/jewellery/12.jpg"] },
+    "images": { "thumbnail": "images/products/women-jewellery-12.jpg", "gallery": ["images/women/jewellery/12.jpg"] },
     "keywords": ["boho", "beaded", "necklace", "casual", "women"],
     "description": "Trendy boho-style beaded necklace designed for casual outings and vacation looks."
   },
@@ -610,7 +610,7 @@ const products = [
     "gender": "Women",
     "colors": ["Gold", "Pink"],
     "price": { "original": 899, "discounted": 649 },
-    "images": { "thumbnail": "images/products/women-jewellery-13.jpeg", "gallery": ["images/women/jewellery/13.jpg"] },
+    "images": { "thumbnail": "images/products/women-jewellery-13.jpg", "gallery": ["images/women/jewellery/13.jpg"] },
     "keywords": ["stud", "earrings", "floral", "dailywear", "women"],
     "description": "Delicate floral stud earrings perfect for daily wear and subtle styling."
   },
@@ -622,7 +622,7 @@ const products = [
     "gender": "Women",
     "colors": ["Antique Gold", "Black"],
     "price": { "original": 1599, "discounted": 1199 },
-    "images": { "thumbnail": "images/products/women-jewellery-14.jpeg", "gallery": ["images/women/jewellery/14.jpg"] },
+    "images": { "thumbnail": "images/products/women-jewellery-14.jpg", "gallery": ["images/women/jewellery/14.jpg"] },
     "keywords": ["kada", "antique", "bangle", "ethnic", "women"],
     "description": "Traditional antique-finish kada designed to complement festive and ethnic attire."
   },
@@ -634,7 +634,7 @@ const products = [
     "gender": "Women",
     "colors": ["Gold", "Rose Gold"],
     "price": { "original": 1799, "discounted": 1299 },
-    "images": { "thumbnail": "images/products/women-jewellery-15.jpeg", "gallery": ["images/women/jewellery/15.jpg"] },
+    "images": { "thumbnail": "images/products/women-jewellery-15.jpg", "gallery": ["images/women/jewellery/15.jpg"] },
     "keywords": ["layered", "chain", "necklace", "trendy", "women"],
     "description": "Modern layered chain necklace that adds a stylish edge to casual and party outfits."
   },
@@ -646,7 +646,7 @@ const products = [
     "gender": "Women",
     "colors": ["Silver", "Blue"],
     "price": { "original": 5000, "discounted": 3799 },
-    "images": { "thumbnail": "images/products/women-jewellery-16.jpeg", "gallery": ["images/women/jewellery/16.jpg"] },
+    "images": { "thumbnail": "images/products/women-jewellery-16.jpg", "gallery": ["images/women/jewellery/16.jpg"] },
     "keywords": ["ring", "cocktail", "statement", "party", "women"],
     "description": "Eye-catching cocktail ring adorned with stones, perfect for evening occasions."
   },
@@ -658,7 +658,7 @@ const products = [
     "gender": "Women",
     "colors": ["Gold", "Green"],
     "price": { "original": 1999, "discounted": 1499 },
-    "images": { "thumbnail": "images/products/women-jewellery-17.jpeg", "gallery": ["images/women/jewellery/17.jpg"] },
+    "images": { "thumbnail": "images/products/women-jewellery-17.jpg", "gallery": ["images/women/jewellery/17.jpg"] },
     "keywords": ["chandbali", "earrings", "ethnic", "festive", "women"],
     "description": "Elegant chandbali earrings inspired by traditional designs for festive celebrations."
   },
@@ -670,7 +670,7 @@ const products = [
     "gender": "Women",
     "colors": ["Silver"],
     "price": { "original": 3000, "discounted": 1850 },
-    "images": { "thumbnail": "images/products/women-jewellery-18.jpeg", "gallery": ["images/women/jewellery/18.jpg"] },
+    "images": { "thumbnail": "images/products/women-jewellery-18.jpg", "gallery": ["images/women/jewellery/18.jpg"] },
     "keywords": ["toering", "minimal", "silver", "women"],
     "description": "Simple and elegant toe ring set crafted for everyday traditional styling."
   },
@@ -682,7 +682,7 @@ const products = [
     "gender": "Women",
     "colors": ["White", "Gold"],
     "price": { "original": 1399, "discounted": 999 },
-    "images": { "thumbnail": "images/products/women-jewellery-19.jpeg", "gallery": ["images/women/jewellery/19.jpg"] },
+    "images": { "thumbnail": "images/products/women-jewellery-19.jpg", "gallery": ["images/women/jewellery/19.jpg"] },
     "keywords": ["bracelet", "pearl", "drop", "elegant", "women"],
     "description": "Graceful pearl drop bracelet designed to add charm to formal and festive outfits."
   },
@@ -694,7 +694,7 @@ const products = [
     "gender": "Women",
     "colors": ["Silver", "White"],
     "price": { "original": 1599, "discounted": 1199 },
-    "images": { "thumbnail": "images/products/women-jewellery-20.jpeg", "gallery": ["images/women/jewellery/20.jpg"] },
+    "images": { "thumbnail": "images/products/women-jewellery-20.jpg", "gallery": ["images/women/jewellery/20.jpg"] },
     "keywords": ["hairaccessory", "crystal", "bridal", "women"],
     "description": "Sparkling crystal hair accessory set perfect for bridal and party hairstyles."
   },
@@ -706,7 +706,7 @@ const products = [
     "gender": "Men",
     "colors": ["White", "Blue"],
     "price": { "original": 1999, "discounted": 1499 },
-    "images": { "thumbnail": "images/products/men-shirt-1.jpeg", "gallery": ["images/men/tops/1.jpg"] },
+    "images": { "thumbnail": "images/products/men-shirt-1.jpg", "gallery": ["images/men/tops/1.jpg"] },
     "keywords": ["shirt", "formal", "office", "men"],
     "description": "Crisp slim fit formal shirt tailored for a sharp and professional office look."
   },
@@ -718,7 +718,7 @@ const products = [
     "gender": "Men",
     "colors": ["Black", "Grey"],
     "price": { "original": 999, "discounted": 699 },
-    "images": { "thumbnail": "images/products/men-tshirt-1.jpeg", "gallery": ["images/men/tops/2.jpg"] },
+    "images": { "thumbnail": "images/products/men-tshirt-1.jpg", "gallery": ["images/men/tops/2.jpg"] },
     "keywords": ["tshirt", "casual", "graphic", "men"],
     "description": "Comfortable cotton graphic t-shirt perfect for casual outings and everyday wear."
   },
@@ -730,7 +730,7 @@ const products = [
     "gender": "Men",
     "colors": ["Dark Blue", "Black"],
     "price": { "original": 2799, "discounted": 2199 },
-    "images": { "thumbnail": "images/products/men-jeans-1.jpeg", "gallery": ["images/men/bottoms/1.jpg"] },
+    "images": { "thumbnail": "images/products/men-jeans-1.jpg", "gallery": ["images/men/bottoms/1.jpg"] },
     "keywords": ["jeans", "denim", "regularfit", "men"],
     "description": "Durable regular fit jeans designed for comfort and timeless style."
   },
@@ -742,7 +742,7 @@ const products = [
     "gender": "Men",
     "colors": ["Beige", "Navy"],
     "price": { "original": 2499, "discounted": 1899 },
-    "images": { "thumbnail": "images/products/men-chinos-1.jpeg", "gallery": ["images/men/bottoms/2.jpg"] },
+    "images": { "thumbnail": "images/products/men-chinos-1.jpg", "gallery": ["images/men/bottoms/2.jpg"] },
     "keywords": ["chinos", "casual", "cotton", "men"],
     "description": "Versatile cotton chinos offering a smart-casual look for work or weekend wear."
   },
@@ -754,7 +754,7 @@ const products = [
     "gender": "Men",
     "colors": ["Grey", "Black"],
     "price": { "original": 2299, "discounted": 1699 },
-    "images": { "thumbnail": "images/products/men-hoodie-1.jpeg", "gallery": ["images/men/outerwear/1.jpg"] },
+    "images": { "thumbnail": "images/products/men-hoodie-1.jpg", "gallery": ["images/men/outerwear/1.jpg"] },
     "keywords": ["hoodie", "winter", "casual", "men"],
     "description": "Warm hooded sweatshirt crafted from soft fleece for relaxed winter styling."
   },
@@ -766,7 +766,7 @@ const products = [
     "gender": "Men",
     "colors": ["Blue", "Light Blue"],
     "price": { "original": 3499, "discounted": 2799 },
-    "images": { "thumbnail": "images/products/men-jacket-1.jpeg", "gallery": ["images/men/outerwear/2.jpg"] },
+    "images": { "thumbnail": "images/products/men-jacket-1.jpg", "gallery": ["images/men/outerwear/2.jpg"] },
     "keywords": ["denim", "jacket", "casual", "men"],
     "description": "Classic denim jacket designed for effortless layering and everyday style."
   },
@@ -774,11 +774,11 @@ const products = [
     "id": 67,
     "name": "Sports Track Pants",
     "category": "Fashion",
-    "subcategory": "Bottomwear",
+    "subcategory": "Activewear",
     "gender": "Men",
     "colors": ["Black", "Blue"],
     "price": { "original": 1999, "discounted": 1499 },
-    "images": { "thumbnail": "images/products/men-trackpants-1.jpeg", "gallery": ["images/men/activewear/1.jpg"] },
+    "images": { "thumbnail": "images/products/men-trackpants-1.jpg", "gallery": ["images/men/activewear/1.jpg"] },
     "keywords": ["trackpants", "sports", "fitness", "men"],
     "description": "Lightweight sports track pants ideal for gym workouts and jogging sessions."
   },
@@ -790,7 +790,7 @@ const products = [
     "gender": "Men",
     "colors": ["Green", "White"],
     "price": { "original": 1899, "discounted": 1399 },
-    "images": { "thumbnail": "images/products/men-shirt-2.jpeg", "gallery": ["images/men/tops/3.jpg"] },
+    "images": { "thumbnail": "images/products/men-shirt-2.jpg", "gallery": ["images/men/tops/3.jpg"] },
     "keywords": ["shirt", "printed", "casual", "men"],
     "description": "Stylish printed casual shirt perfect for vacations and weekend outings."
   },
@@ -802,7 +802,7 @@ const products = [
     "gender": "Men",
     "colors": ["Navy", "Black"],
     "price": { "original": 4999, "discounted": 3999 },
-    "images": { "thumbnail": "images/products/men-blazer-1.jpeg", "gallery": ["images/men/outerwear/3.jpg"] },
+    "images": { "thumbnail": "images/products/men-blazer-1.jpg", "gallery": ["images/men/outerwear/3.jpg"] },
     "keywords": ["blazer", "formal", "office", "men"],
     "description": "Tailored formal blazer designed for business meetings and special occasions."
   },
@@ -814,7 +814,7 @@ const products = [
     "gender": "Men",
     "colors": ["Cream", "Maroon"],
     "price": { "original": 2299, "discounted": 1699 },
-    "images": { "thumbnail": "images/products/men-kurta-1.jpeg", "gallery": ["images/men/ethnic/1.jpg"] },
+    "images": { "thumbnail": "images/products/men-kurta-1.jpg", "gallery": ["images/men/ethnic/1.jpg"] },
     "keywords": ["kurta", "ethnic", "festive", "men"],
     "description": "Traditional ethnic kurta crafted for festive celebrations and cultural events."
   },
@@ -838,7 +838,7 @@ const products = [
     "gender": "Men",
     "colors": ["Black", "Silver"],
     "price": { "original": 5999, "discounted": 4499 },
-    "images": { "thumbnail": "images/products/men-watch-1.jpeg", "gallery": ["images/men/accessories/2.jpg"] },
+    "images": { "thumbnail": "images/products/men-watch-1.jpg", "gallery": ["images/men/accessories/2.jpg"] },
     "keywords": ["watch", "classic", "accessory", "men"],
     "description": "Elegant classic wrist watch featuring a sleek dial and durable strap for everyday sophistication."
   },
@@ -846,11 +846,11 @@ const products = [
     "id": 73,
     "name": "Remote Control Racing Car",
     "category": "Toys & Games",
-    "subcategory": "Kids Toys",
+    "subcategory": "Remote Control Toys",
     "gender": "Kids",
     "colors": ["Red", "Black"],
     "price": { "original": 2499, "discounted": 1899 },
-    "images": { "thumbnail": "images/products/kids-toy-1.jpeg", "gallery": ["images/kids/toys/1.jpg"] },
+    "images": { "thumbnail": "images/products/kids-toy-1.jpg", "gallery": ["images/kids/toys/1.jpg"] },
     "keywords": ["rc", "car", "racing", "kids"],
     "description": "High-speed remote control racing car with durable build and smooth maneuvering for endless fun."
   },
@@ -858,11 +858,11 @@ const products = [
     "id": 74,
     "name": "Building Blocks Set",
     "category": "Toys & Games",
-    "subcategory": "Kids Toys",
+    "subcategory": "Educational Toys",
     "gender": "Kids",
     "colors": ["Multicolor"],
     "price": { "original": 1999, "discounted": 1499 },
-    "images": { "thumbnail": "images/products/kids-toy-2.jpeg", "gallery": ["images/kids/toys/2.jpg"] },
+    "images": { "thumbnail": "images/products/kids-toy-2.jpg", "gallery": ["images/kids/toys/2.jpg"] },
     "keywords": ["blocks", "building", "educational", "kids"],
     "description": "Creative building blocks set designed to improve problem-solving skills and imagination."
   },
@@ -870,11 +870,11 @@ const products = [
     "id": 75,
     "name": "Soft Teddy Bear",
     "category": "Toys & Games",
-    "subcategory": "Kids Toys",
+    "subcategory": "Soft Toys",
     "gender": "Kids",
     "colors": ["Brown", "Cream"],
     "price": { "original": 1299, "discounted": 899 },
-    "images": { "thumbnail": "images/products/kids-toy-3.jpeg", "gallery": ["images/kids/toys/3.jpg"] },
+    "images": { "thumbnail": "images/products/kids-toy-3.jpg", "gallery": ["images/kids/toys/3.jpg"] },
     "keywords": ["teddy", "softtoy", "gift", "kids"],
     "description": "Ultra-soft teddy bear made from plush fabric, perfect for cuddles and gifting."
   },
@@ -882,11 +882,11 @@ const products = [
     "id": 76,
     "name": "Kids Kitchen Play Set",
     "category": "Toys & Games",
-    "subcategory": "Kids Toys",
+    "subcategory": "Pretend Play",
     "gender": "Kids",
     "colors": ["Pink", "White"],
     "price": { "original": 3499, "discounted": 2699 },
-    "images": { "thumbnail": "images/products/kids-toy-4.jpeg", "gallery": ["images/kids/toys/4.jpg"] },
+    "images": { "thumbnail": "images/products/kids-toy-4.jpg", "gallery": ["images/kids/toys/4.jpg"] },
     "keywords": ["kitchen", "playset", "pretendplay", "kids"],
     "description": "Interactive kitchen play set encouraging imaginative role-play and creativity."
   },
@@ -894,11 +894,11 @@ const products = [
     "id": 77,
     "name": "Puzzle Board Game",
     "category": "Toys & Games",
-    "subcategory": "Kids Toys",
+    "subcategory": "Board Games",
     "gender": "Kids",
     "colors": ["Multicolor"],
     "price": { "original": 999, "discounted": 699 },
-    "images": { "thumbnail": "images/products/kids-toy-5.jpeg", "gallery": ["images/kids/toys/5.jpg"] },
+    "images": { "thumbnail": "images/products/kids-toy-5.jpg", "gallery": ["images/kids/toys/5.jpg"] },
     "keywords": ["puzzle", "boardgame", "educational", "kids"],
     "description": "Engaging puzzle board game that enhances memory, focus, and logical thinking."
   },
@@ -906,11 +906,11 @@ const products = [
     "id": 78,
     "name": "Battery Operated Toy Train",
     "category": "Toys & Games",
-    "subcategory": "Kids Toys",
+    "subcategory": "Electronic Toys",
     "gender": "Kids",
     "colors": ["Blue", "Yellow"],
     "price": { "original": 2799, "discounted": 2099 },
-    "images": { "thumbnail": "images/products/kids-toy-6.jpeg", "gallery": ["images/kids/toys/6.jpg"] },
+    "images": { "thumbnail": "images/products/kids-toy-6.jpg", "gallery": ["images/kids/toys/6.jpg"] },
     "keywords": ["train", "battery", "electronic", "kids"],
     "description": "Fun battery-operated toy train with lights and sound effects for exciting playtime."
   },
@@ -918,11 +918,11 @@ const products = [
     "id": 79,
     "name": "Art & Craft Coloring Kit",
     "category": "Toys & Games",
-    "subcategory": "Kids Toys",
+    "subcategory": "Art & Craft",
     "gender": "Kids",
     "colors": ["Multicolor"],
     "price": { "original": 1499, "discounted": 1099 },
-    "images": { "thumbnail": "images/products/kids-toy-7.jpeg", "gallery": ["images/kids/toys/7.jpg"] },
+    "images": { "thumbnail": "images/products/kids-toy-7.jpg", "gallery": ["images/kids/toys/7.jpg"] },
     "keywords": ["art", "craft", "coloring", "kids"],
     "description": "Complete art and craft coloring kit with crayons, sketch pens, and drawing sheets."
   },
@@ -930,53 +930,12 @@ const products = [
     "id": 80,
     "name": "Superhero Action Figure",
     "category": "Toys & Games",
-    "subcategory": "Kids Toys",
+    "subcategory": "Action Figures",
     "gender": "Kids",
     "colors": ["Blue", "Red"],
     "price": { "original": 1199, "discounted": 849 },
-    "images": { "thumbnail": "images/products/kids-toy-8.jpeg", "gallery": ["images/kids/toys/8.jpg"] },
+    "images": { "thumbnail": "images/products/kids-toy-8.jpg", "gallery": ["images/kids/toys/8.jpg"] },
     "keywords": ["actionfigure", "superhero", "toy", "kids"],
     "description": "Durable superhero action figure designed for imaginative adventures and storytelling."
-  },
-  {
-    "id": 52,
-    "name": "Lavanya Chandbali Gold Earring",
-    "category": "Accessories",
-    "subcategory": "Artificial Jewellery",
-    "gender": "Women",
-    "colors": [""],
-    "price": { "original": 2000, "discounted": 1990 },
-    "images": { "thumbnail": "images/earrings3/thumb.jpeg", "gallery": ["images/earrings3/1.jpg"] },
-    "keywords": ["earrings", "gold"],
-    "description": "Inspired by the grandeur of Mughal-era jewellery, the Lavanya Chandbali earrings are a masterpiece of traditional craftsmanship. Each earring is handcrafted in a crescent-moon (chandbali) silhouette and plated in rich 22-karat gold. Intricate floral motifs are detailed using a combination of kundan stone setting and meenakari enamel work in ivory and ruby tones. The hooked fastening is comfortable for extended wear, making these earrings an ideal choice for weddings, festive celebrations, and traditional ceremonies. A timeless heirloom-quality piece."
   }
-];
-
-const newArrivals = [61, 63, 65, 69, 70, 72, 73, 78];
-const trending = [62, 64, 66, 67, 68, 71, 74, 75];
-const topRated = [4, 10, 18, 22, 29, 38, 41, 50];
-
-
-const RATINGS = {
-  1:5, 2:4, 3:5, 4:4, 5:4, 6:5, 7:4, 8:4, 9:4, 10:5,
-  11:4, 12:4, 13:4, 14:5, 15:4, 16:4, 17:4, 18:5, 19:4, 20:5,
-  21:4, 22:4, 23:5, 24:4, 25:4, 26:4, 27:4, 28:5, 29:4, 30:4,
-  31:4, 32:5, 33:4, 34:4, 35:4, 36:4, 37:5, 38:5, 39:4, 40:5,
-  41:4, 42:4, 43:5, 44:4, 45:4, 46:4, 47:5, 48:4, 49:4, 50:5,
-  51:3, 52:5, 53:4, 54:4, 55:4, 56:4, 57:5, 58:4, 59:4, 60:4,
-  61:5, 62:4, 63:5, 64:4, 65:4, 66:5, 67:4, 68:4, 69:5, 70:4,
-  71:4, 72:5, 73:4, 74:5, 75:4, 76:4, 77:4, 78:5, 79:4, 80:5
-};
-const EMOJI_MAP = {
-  "Dresses": "👗",
-  "Tops": "👚",
-  "Bottomwear": "👖",
-  "Ethnic Wear": "🥻",
-  "Outerwear": "🧥",
-  "Activewear": "🏃‍♀️",
-  "Winterwear": "🧶",
-  "Artificial Jewellery": "💎",
-  "Accessories": "👜",
-  "Kids Toys": "🧸"
-};
-const SIZED_CATS = new Set(["Men Clothing","Women Clothing","Outerwear","Kids Clothing","Footwear"]);
+]
